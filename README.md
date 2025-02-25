@@ -67,7 +67,7 @@
       </td> 
       <td align="center" valign="top" width="14.28%">
         <a href="www.google.com">
-          <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_light_color_272x92dp.png" width="120px" style="border-radius: 50%;" alt="OpenAI"/>
+          <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_light_color_272x92dp.png" width="120px" style="border-radius: 50%;" alt=""/>
         </a>
         <br>
         <b>OpenAI</b>
