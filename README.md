@@ -27,6 +27,7 @@
         <b>Jaycoder</b>
         <p>Created the base/environment, js, php, css, html, csv, json, txt, htaccess, etc</p>
       </td>
+     </tr>
       <br>
       <td align="center" valign="top" width="14.28%">
         <a href="http://patorjk.com">
@@ -90,7 +91,6 @@
         <b>Github</b>
         <p>Storing various thing's and retrieving it, using github api.</p>
       </td>          
-    </tr>
   </tbody>
 </table>
 
