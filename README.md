@@ -47,7 +47,7 @@
         </a>
         <br>
         <b>David</b>
-        <p>Help debug and find exploit's in php, help tweak security in certain area's when asked.</p>
+        <p>Help debug and find exploit's, help tweak security related things in certain area's when asked.</p>
       </td>           
     </tr>
   </tbody>
