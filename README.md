@@ -57,8 +57,8 @@
       <br>
       <tr>    
       <td align="center" valign="top" width="fit-content">
-        <a href="n/a">
-          <img src="https://freeimage.host/i/3JKSzrb" width="120px" style="border-radius: 50%;" alt="David"/>
+        <a href="https://www.afterlifereloaded.com">
+          <img src="https://iili.io/3JKSzrb.png" width="120px" style="border-radius: 50%;" alt="David"/>
         </a>
         <br>
         <b>David aka OhItsDiiTz</b>
