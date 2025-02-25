@@ -84,7 +84,7 @@
         </a>
         <br>
         <b>OpenAI</b>
-        <p>Natural language api, is another teacher that is used for the ai.</p>
+        <p>Is parent company of chatgpt.com</p>
       </td>
       </tr>     
       <br>
