@@ -28,17 +28,26 @@
       <td align="center" valign="top" width="14.28%">
         <a href="http://patorjk.com">
           <img src="https://avatars.githubusercontent.com/u/521224?v=4?s=100" width="120px" style="border-radius: 50%;" alt="patorjk"/>
+          <p>Ascii library in javascript</p>
         </a>
         <br>
         <b>patorjk</b>
       </td>
       <td align="center" valign="top" width="14.28%">
         <a href="n/a">
-          <img src="https://media.moddb.com/images/mods/1/48/47699/missing_textures.1.png" width="120px" style="border-radius: 50%;" alt="Grim"/>
+          <img src="https://cdn.discordapp.com/avatars/587354401883291651/96e257dd42f06c7e1d0e16afec029b06.webp?size=80" width="120px" style="border-radius: 50%;" alt="Grim"/>
         </a>
         <br>
         <b>Grim</b>
         <p>Help debug and find exploit's in php, fetch request etc.</p>
+      </td> 
+      <td align="center" valign="top" width="14.28%">
+        <a href="n/a">
+          <img src="https://img.freepik.com/premium-photo/call-duty-colorful-gaming-wallpaper-4k_669273-267.jpg" width="120px" style="border-radius: 50%;" alt="Grim"/>
+        </a>
+        <br>
+        <b>David</b>
+        <p>Help debug and find exploit's in php, help tweak security in certain area's when asked.</p>
       </td>           
     </tr>
   </tbody>
