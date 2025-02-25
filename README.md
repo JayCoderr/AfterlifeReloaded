@@ -18,7 +18,7 @@
 **People who contributed:**  
 <table>
      <tr>
-       <td>
+      <td align="center" valign="top" width="fit-content">
         <a href="https://afterlifereloaded.com/">
              <img src="https://github.com/JayCoderr.png" width="120px" style="border-radius: 50%;" alt="Jaycoder"/>
         </a>
@@ -48,7 +48,7 @@
         <p>Help debug and find exploit's in php, fetch request etc.</p>
       </td> 
       <br>
-      <td align="center" valign="top" width="14.28%">
+      <td align="center" valign="top" width="fit-content">
         <a href="n/a">
           <img src="https://media.discordapp.net/attachments/725448544454050003/1343791398159384706/dawg_-_with_text.png" width="120px" style="border-radius: 50%;" alt="Grim"/>
         </a>
@@ -57,7 +57,7 @@
         <p>Help debug and find exploit's, help tweak security related things in certain area's when asked.</p>
       </td>
       <br>   
-      <td align="center" valign="top" width="14.28%">
+      <td align="center" valign="top" width="fit-content">
         <a href="https://www.chatgpt.com">
           <img src="https://logos-world.net/wp-content/uploads/2023/02/ChatGPT-Logo.jpg" width="120px" style="border-radius: 50%;" alt="Grim"/>
         </a>
@@ -66,7 +66,7 @@
         <p>Is the teacher ai used by default, it learns it's natural language from chatgpt.</p>
       </td>
       <br>    
-      <td align="center" valign="top" width="14.28%">
+      <td align="center" valign="top" width="fit-content">
         <a href="https://www.chatgpt.com">
           <img src="https://girlgeek.io/wp-content/uploads/2019/08/openai-logo-vertical-dimensional-white.jpg" width="120px" style="border-radius: 50%;" alt="OpenAI"/>
         </a>
@@ -75,7 +75,7 @@
         <p>Natural language api, is another teacher that is used for the ai.</p>
       </td>
       <br>   
-      <td align="center" valign="top" width="14.28%">
+      <td align="center" valign="top" width="fit-content">
         <a href="https://www.google.com">
           <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_light_color_272x92dp.png" width="120px" style="border-radius: 50%;" alt=""/>
         </a>
@@ -84,7 +84,7 @@
         <p>youtube data v3 api, used to collect statistical data from youtube.com</p>
       </td> 
       <br>     
-      <td align="center" valign="top" width="14.28%">
+      <td align="center" valign="top" width="fit-content">
         <a href="https://www.github.com">
           <img src="https://logodix.com/logo/64562.png" width="120px" style="border-radius: 50%;" alt="Github"/>
         </a>
