@@ -1,0 +1,104 @@
+body {
+    scrollbar-width: thin; /* for Firefox */
+    scrollbar-color: transparent transparent; /* for Firefox */
+}
+
+/* Hide scrollbars but keep them functional */
+::-webkit-scrollbar {
+    width: 0px; /* Width of the scrollbar */
+    height: 0px; /* Height of the scrollbar */
+}
+.TopBar {
+    background-color: rgba(80, 120, 250, 0.9);
+    position: fixed; /* Fixed position */
+    top: -21px; /* Adjust if needed */
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensure it stays above other content */
+    color: white; /* Optional: text color */
+    text-align: center; /* Optional: center the text */
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+    padding-top: 0px; /* Adjust padding if needed */
+    padding-bottom: 0px;
+    font-size: 1.0em;
+}
+
+/* Target child <p> elements inside .TopBar */
+.TopBar p {
+    margin-top: 25px; /* Move the <p> elements down by 20px */
+}
+footer {
+    background-color: rgba(80, 120, 250, 0.9);
+    color: white;
+    text-align: center;
+    position: fixed; /* Fixed position */
+    width: 100%;
+    box-shadow: 0 -4px 6px rgba(255, 255, 255, 0.5);
+    bottom: -39px;
+} 
+.footer-text p {
+    margin-bottom: 37px;
+}
+hr {
+    width: 100%; /* Adjust width to fit content or a percentage of its parent */
+    border: none;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: auto; /* Center the hr */
+}
+.info-panel {
+    background-color: rgba(80, 120, 250, 0.9); /* Set background color */
+    padding: 20px; /* Add padding inside the panel */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for the panel */
+    text-align: left; /* Center the content */
+    max-width: 450px; /* Adjust width */
+    box-shadow: 0 0px 6px rgba(255, 255, 255, 0.5);
+}    
+#user-image {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; /* Makes the image round */
+    display: block;
+    margin-bottom: 15px; /* Add some space below the image */
+    margin-right: 408px;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);        
+}
+
+/* Style for the <p> element */
+#message-text {
+    font-size: 1.0rem; /* Adjust font size */
+    color: #ffffff; /* Text color */
+    font-family: 'Arial', sans-serif; /* Change font style */
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflow text */
+    width: 100%; /* Full width */
+    display: inline-block; /* To keep it inline */
+    
+    /* Positioning adjustments */
+    position: relative; /* Make this element movable using top/left/right/bottom */
+    top: -80px; /* Move the element 100px upwards */
+}   
+#AIName {
+    background-color: rgba(80, 120, 250, 0.9);
+    border-radius: 25px; /* Rounded corners */
+    font-size: 0.78rem; /* Adjust font size */
+    text-align: center; /* Center the text */
+    color: #ffffff; /* Text color */
+    margin-bottom: 20px; /* Space below the text */
+    padding: 6px 20px; /* Padding to create a box-like appearance */
+    font-family: 'Arial', sans-serif; /* Optional: change font style */
+    display: inline-block; /* Make the element take up only as much width as needed */
+    box-shadow: 0 0px 6px rgba(255, 255, 255, 0.5); /* Optional: add a shadow for more emphasis */
+    
+    /* Positioning adjustments */
+    position: relative; /* Make this element movable using top/left/right/bottom */
+    top: -56px; /* Move the element 100px upwards */
+    left: 35px; /* Adjust left/right positioning as needed (e.g., keep it centered) */
+}
+
+#date-time {
+    font-size: 0.8rem; /* Adjust font size */
+    text-align: left; /* Center the text */
+    color: #ffffff; /* Optional: text color */
+    font-family: 'Arial', sans-serif; /* Optional: change font style */
+} 

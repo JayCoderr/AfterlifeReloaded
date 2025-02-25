@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>403 Forbidden</title>
+    <!-- Js Scripts-->
+    <script src="https://afterlifereloaded.com/AfterlifeReloadedRoot/js/AfterlifeReloadedHudBGColor.js" defer></script>
+    <script src="https://afterlifereloaded.com/AfterlifeReloadedRoot/js/AfterlifeReloadedRandomBG.js" defer></script>    
+    <style>
+        /* Set the background image */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://iili.io/d4GU8hB.gif') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+            color: white;
+        }
+
+        /* Style the navigation bar */
+        nav {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+        /* The main content panel */
+        .panel {
+            background-color: rgba(5, 5, 5, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 100px auto;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        /* Style the message container */
+        .message-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        /* Style the image */
+        .message-container img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        /* Style the button */
+        .btn {
+            padding: 10px 20px;
+            background-color: #ff5e5e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #ff3636;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        /* Typing effect */
+        .typing {
+            font-family: monospace;
+            white-space: pre-wrap; /* Ensures proper formatting */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation bar -->
+    <nav>
+        <a href="#">Afterlife Reloaded 7.0</a>
+    </nav>
+
+    <!-- Main panel -->
+    <div class="panel">
+        <h1>403 Forbidden</h1>
+
+        <div class="message-container">
+            <img src="https://via.placeholder.com/30" alt="Icon" id="message-image">
+            <p id="message" class="typing"></p>
+        </div>
+
+        <button class="btn" onclick="window.location.href='/'">Go back to the homepage</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 Afterlife Reloaded. All rights reserved.
+    </footer>
+<script>
+    let messages = [];
+    const messageElement = document.getElementById('message');
+    const imageElement = document.getElementById('message-image');
+    let currentMessageIndex = null; // Index of the selected message
+    let isTyping = false; // Flag to indicate if typing is in progress
+
+    // Fetch messages from the JSON file
+    fetch('/AfterlifeReloadedRoot/json/messages.json')
+        .then(response => response.json())
+        .then(data => {
+            messages = data; // Assign fetched data to messages array
+            if (messages.length > 0) {
+                currentMessageIndex = getRandomIndex(); // Select a random message index on load
+                typeMessage(); // Start typing the selected message
+            }
+        })
+        .catch(error => console.error('Error fetching messages:', error));
+
+    function getRandomIndex() {
+        return Math.floor(Math.random() * messages.length); // Generate a random index
+    }
+
+    function typeMessage() {
+        if (isTyping) return; // Exit if already typing
+
+        const message = messages[currentMessageIndex]; // Select the message from the initial random index
+        if (!message) return; // Early exit if no message is available
+
+        imageElement.src = message.img; // Set the image
+        messageElement.innerHTML = ''; // Clear previous message
+
+        let index = 0; // Track the character index
+        isTyping = true; // Set the typing flag to true
+
+        const typeInterval = setInterval(() => {
+            if (index < message.text.length) {
+                messageElement.innerHTML += message.text.charAt(index); // Add character to the message
+                index++; // Move to the next character
+            } else {
+                clearInterval(typeInterval); // Stop typing when done
+                isTyping = false; // Reset the typing flag
+
+                // Set a timeout before retyping the same message
+                setTimeout(() => {
+                    messageElement.innerHTML = ''; // Clear the message before retyping
+                    typeMessage(); // Start typing the same message again
+                }, 2000); // Pause for 2 seconds before retyping
+            }
+        }, 100); // Typing speed (100ms per character)
+    }
+
+    // Start typing the selected message on window load
+    window.onload = () => {
+        if (messages.length > 0) {
+            typeMessage(); // Start typing the selected message
+        }
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Email</title>
+</head>
+<body>
+	<iframe id="emailIframe" style="box-shadow: 0px 4px 10px rgba(0,0,0,1); width: 70%; height: 284px; border: none; border-radius: 25px;" 
+		srcdoc="
+			<style>
+				body {
+					background-color: rgba(30, 30, 30, 0.8); /* Default fallback */
+					border-radius:5px;
+					margin: 0;
+					padding: 20px;
+					overflow-y: hidden; /* Hide vertical scrolling */
+				}
+				h2, label, input, textarea, button, #responseMessage {
+					border-radius: 5px;
+				}
+				input, textarea {
+					width: 300px; /* Fixed width */
+					padding: 12px;
+					margin-bottom: 15px;
+					color: white;
+					background-color: rgba(35, 35, 35, 0.8);
+					border: none;
+					box-shadow: 0px 4px 10px rgba(0,0,0,1);
+					resize: none;
+					outline: none;
+				}
+				button {
+					width: 100px; /* Fixed width */
+					padding: 5px;
+					font-size: 12px;
+					border-radius: 5px;
+					color: white;
+					background-color: rgba(50, 50, 50, 0.8);
+					border: none;
+					cursor: pointer;
+					box-shadow: 0px 4px 10px rgb(0,0,0,1);
+				}
+				#responseMessage {
+					margin-top: 20px;
+					font-size: 18px;
+					color: white;
+					padding: 3px;
+					box-shadow: 0px 4px 10px rgba(0, 0, 0, 1);
+					background-color: rgba(50,50,50,0.8);
+					border-radius: 25px;
+					padding: 5px;
+				}
+			</style>
+			<input type='email' id='recipientEmail' placeholder='To: user@domain.com' required>
+			<textarea id='emailMessage' placeholder='This message will be sent as the current ai name your using, Only developers and admins can send emails.' rows='5'></textarea>
+			<br>
+			<button id='sendEmailBtn'>Send</button>
+			<div id='responseMessage'>Waiting to send message . . .</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the user role from sessionStorage
+    const userRole = sessionStorage.getItem('role');
+    const responseMessage = document.getElementById('responseMessage'); // Assuming responseMessage exists
+
+    // If the user is not a developer, hide overflow first, then apply blur and clear content
+    if (userRole !== 'dev') { 
+        // Set the response message to notify user they are not a developer
+        if (responseMessage) {
+            responseMessage.textContent = 'You are not a developer.';
+            responseMessage.style.color = '#ffffff';
+            responseMessage.style.display = 'ruby-text';
+            responseMessage.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 1)';
+            responseMessage.style.backgroundColor = 'rgb(50, 50, 50, 0.8)';
+            responseMessage.style.borderRadius = '25px';
+            responseMessage.style.padding = '5px';
+        }
+
+        // Completely hide scrollbars and prevent scrolling
+        document.documentElement.style.overflow = 'hidden'; 
+        document.body.style.overflow = 'hidden'; 
+        
+        setTimeout(() => {
+            // Apply blur effect to the entire page
+            document.documentElement.style.filter = 'blur(5px)'; 
+        }, 10); // Small delay to ensure overflow is hidden before blur
+
+        setTimeout(() => {
+            // Clear content in head and body, except for responseMessage
+            document.head.innerHTML = ''; // Clear content in the head
+            document.body.innerHTML = ''; // Clear content in the body
+
+            // Ensure that responseMessage remains visible and retains its CSS
+            if (responseMessage) {
+                document.body.appendChild(responseMessage); // Re-add responseMessage to body
+            }
+
+            // Clear iframe content
+            const emailIframe = document.getElementById('emailIframe');
+            if (emailIframe) {
+                emailIframe.srcdoc = ''; // Clear the iframe content
+                emailIframe.innerHTML = ''; // Optionally clear iframe inner HTML if it's used
+            }
+        }, 500); // Delay clearing content by 500ms to allow the blur effect to be seen
+
+        // Wait for a short delay after clearing content and applying blur, then execute logic for responseMessage
+        setTimeout(() => {
+            if (responseMessage) {
+                responseMessage.textContent = 'You are not a developer.'; // Ensure message is displayed
+                responseMessage.style.display = 'ruby-text'; // Ensure it's visible
+            }
+        }, 1000); // Wait for 1 second after the blur effect is applied before showing the message
+
+        // After showing the response message, turn off the blur effect after a delay
+        setTimeout(() => {
+            if (responseMessage && responseMessage.textContent === 'You are not a developer.') {
+                document.documentElement.style.filter = ''; // Remove blur effect
+            }
+        }, 2000); // Delay for 2 seconds after the message appears before removing the blur
+    }
+});
+</script>
+
+
+		
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const userRole = sessionStorage.getItem('role');
+    // Background color adjustment
+    const baseRgba = sessionStorage.getItem('baseRgba');
+    if (baseRgba) {
+        const rgbaValues = baseRgba.match(/\d+(\.\d+)?/g);
+        if (rgbaValues && rgbaValues.length === 4) {
+            let r = rgbaValues[0], g = rgbaValues[1], b = rgbaValues[2];
+            let a = Math.max(0, Math.min(1, parseFloat(rgbaValues[3]) - 0.4));
+            document.body.style.backgroundColor = `rgba(${r}, ${g}, ${b}, ${a})`;
+        }
+    }
+
+    // Email sending functionality
+    const button = document.getElementById('sendEmailBtn');
+    button.addEventListener('click', function() {
+        const recipientEmail = document.getElementById('recipientEmail').value.trim();
+        const emailMessage = document.getElementById('emailMessage').value.trim();
+        const responseMessage = document.getElementById('responseMessage');
+        let userAI = sessionStorage.getItem('aiusername');
+
+        if (userRole !== 'dev') {
+            responseMessage.textContent = 'Access Denied: You are not a developer.';
+            responseMessage.style.color = 'red';
+            return;
+        }
+
+        if (!recipientEmail || !emailMessage) {
+            responseMessage.textContent = 'Please enter recipient email and message!';
+            responseMessage.style.color = 'red';
+            return;
+        }
+
+        responseMessage.textContent = 'Sending email...';
+        responseMessage.style.color = 'black';
+
+        userAI = userAI.replace(/[\p{Emoji}|\p{ExtPict}|\u200B-\u200D\uFE0F\[\]]+/gu, '');
+
+        const formData = new URLSearchParams();
+        formData.append('recipient', recipientEmail);
+        formData.append('message', emailMessage);
+        formData.append('userai', userAI);
+
+        fetch('https://www.afterlifereloaded.com/AfterlifeReloadedRoot/php/sendemail.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: formData.toString()
+        })
+        .then(response => response.text())
+        .then(data => {
+            responseMessage.textContent = data;
+            responseMessage.style.color = 'green';
+			emailMessage.textContent = '';
+			recipientEmail.textContent = '';
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            responseMessage.textContent = 'An error occurred while sending the email.';
+            responseMessage.style.color = 'red';
+        });
+    });
+});
+</script>
+">
+	</iframe>
+    <script>
+		const userBaseRgb = sessionStorage.getItem('baseRgba') || 'rgba(30, 30, 30, 0.8)';
+        // Post the background color to the iframe after it's loaded
+        const iframe = document.getElementById('emailIframe');
+        iframe.onload = function() {
+            iframe.contentWindow.postMessage({ color: userBaseRgb }, window.origin);
+        };
+    </script>
+</body>
+</html>

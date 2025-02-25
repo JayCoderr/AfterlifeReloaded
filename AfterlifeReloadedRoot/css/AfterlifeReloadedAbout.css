@@ -1,0 +1,214 @@
+/* Global Reset for Consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Background Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('https://www.afterlifereloaded.com/AfterlifeReloadedRoot/Images/d4GU8hB.gif');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #ffffff;
+    overflow-x: hidden;
+    min-height: 100vh; 
+    padding-bottom: 60px; /* Make room for the footer */
+    scrollbar-width: thin; /* for Firefox */
+    scrollbar-color: transparent transparent; /* for Firefox */
+}
+/* Smooth transitions */
+a {
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    top: -8px;
+}
+
+/* Navigation Styling with Glow */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(80, 120, 250, 0.9);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.9) 0 0 30px rgba(255, 255, 255, 0.9); /* Glow effect */
+    font-size: 1em;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: rgba(5, 5, 5, 0);
+    color: white;
+}
+
+/* Main Content Styling */
+main {
+    margin-top: 80px; /* Adjust to avoid overlap with nav */
+    background-color: rgba(80, 120, 250, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 900px;
+    margin: 60px auto;
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px); /* HUD-like effect */
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Section Splitters */
+hr {
+    border: none;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 40px 0;
+}
+
+/* Headings with Increased Red Glow */
+h1, h2 {
+    color: white;
+    font-size: 1.8em; /* Smaller font size */
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-top: 30px;
+}
+
+p {
+    font-size: 0.9em; /* Smaller font size */
+    line-height: 1.6em;
+}
+
+.more {
+    display: none; /* Hidden by default */
+}
+
+.show-more {
+    color: white;/* Highlight the "Show More" link */
+    cursor: pointer;
+}
+
+/* Footer Styling */
+footer {
+    background-color: rgba(80, 120, 250, 0.9);
+    color: white;
+    text-align: center;
+    padding: 1px;
+    position: fixed; /* Fixed position */
+    bottom: 0; /* Stick to the bottom */
+    width: 100%;
+    box-shadow: 0 -4px 6px rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+    main {
+        width: 90%;
+        padding: 20px;
+    }
+}
+
+/* Hide scrollbars but keep them functional */
+::-webkit-scrollbar {
+    width: 0px; /* Width of the scrollbar */
+    height: 0px; /* Height of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+    background: transparent; /* Make the scrollbar thumb transparent */
+}
+
+::-webkit-scrollbar-track {
+    background: transparent; /* Make the scrollbar track transparent */
+}
+.video-container {
+    margin-top: 10px; /* Adjust to avoid overlap with nav */
+    background-color: rgba(80, 120, 250, 0.9);
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px); /* HUD-like effect */
+    color: #ffffff;
+    text-align: center;
+    width: 100%; /* Take full width of the parent */
+    max-width: 1000px; /* Limit width to prevent it from getting too large */
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.video-container iframe {
+    width: 100%; /* Responsive width to fill the container */
+    height: auto; /* Auto height to maintain aspect ratio */
+    aspect-ratio: 16 / 9; /* Maintain 16:9 aspect ratio */
+    border: none; /* Remove border */
+    border-radius: 10px; /* Round edges to match container */
+    display: block; /* Ensure the iframe is a block element */
+    box-sizing: border-box;
+}
+
+/* Media queries to ensure proper scaling on smaller devices */
+@media (max-width: 768px) {
+    .video-container {
+        padding: 10px;
+    }
+
+    .video-container iframe {
+        width: 100%;
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+#ai-username {
+    background-color: rgba(80, 120, 250, 0.9);
+    border-radius: 50px; /* Create a pill shape */
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+    width: 100px; /* Fixed width */
+    height: 27px; /* Fixed height */
+    top: 55%; /* Adjust position */
+    left: 43%; /* Adjust position */
+    text-align: center;
+    position: relative;
+    line-height: 27px; /* Vertically center the text */
+    color: white; /* Ensure text is visible */
+    font-size: 12px; /* Adjust text size */
+    margin-left: 11px;
+}
+
+#user-image {
+    border-radius: 50%; /* Fully round image */
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+    width: 30px; /* Fixed width */
+    height: 30px; /* Fixed height */
+    background-color: rgba(80, 120, 250, 0.9); /* Background color */
+    justify-content: center;
+    align-items: center; /* Center content inside */
+    color: white; /* Ensure the text color contrasts well */
+    font-size: 12px;
+    text-align: center;
+    right: 7%;
+    position: relative;
+    bottom: 117.4%;
+    margin-left: -14px;
+    margin-bottom: -35px;
+}

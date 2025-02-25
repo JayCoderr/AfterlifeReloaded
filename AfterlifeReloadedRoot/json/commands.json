@@ -1,0 +1,59 @@
+{
+  "commands": [
+	{
+		"trigger": 
+		[
+			"search for youtube video", 
+			"search for a youtube video", 
+			"find a youtube video", 
+			"play youtube video", 
+			"can you find a youtube video",
+			"search youtube video",
+			"find youtube video",
+			"play a youtube video"
+		],
+		"buttonHTML": 
+		"<div id=\"yt-container-{index}\" style=\"width: 800px; height: 600px; display: flex; align-items: center; justify-content: center; overflow: hidden; min-width: 75%; max-width: 100%; max-height: 100%;\">\n<iframe id=\"yt-iframe-{index}\" src=\"AfterlifeReloadedRoot/html/googleytsearch.html\" style=\"width: 100%; height: 100%; border: none; overflow: auto;\">\n</iframe>\n</div><style>\n/* Hide scrollbar for Chrome, Safari, and Edge */\niframe::-webkit-scrollbar {\n    width: 0;\n    height: 0;\n}\n</style>"
+	},
+    {
+		"trigger": 
+		[
+			"send admin email", 
+			"send developer email",
+			"send a developer email",
+			"send a admin email"
+		],
+		"buttonHTML": "<div style=\"width: 800px; height: 305px; display: flex; align-items: center; justify-content: center; overflow: hidden; min-width: 75%; max-width: 100%; max-height: 100%;\">\n<iframe id=\"yt-iframe\" src=\"AfterlifeReloadedRoot/html/sendemailform.html\" style=\"width: 100%; height: 100%; border: none; overflow: auto;\">\n</iframe>\n</div><style>\n/* Hide scrollbar for Chrome, Safari, and Edge */\niframe::-webkit-scrollbar {\n    width: 0;\n    height: 0;\n}\n</style>"
+    },
+	{
+		"trigger": 
+		[
+			"generate ascii art that says",
+			"generate ascii art",
+			"generate ascii that says",
+			"generate ascii",
+			"make some ascii art that says",
+			"make some ascii for",
+			"make ascii",
+			"make ascii art",
+			"create ascii art",
+			"generate ascii text art",
+			"create some ascii art that say",
+			"create some ascii art"
+		],
+		"buttonHTML": "<div style=\"width: 800px; height: 625px; display: flex; align-items: center; justify-content: center; overflow: hidden; min-width: 75%; max-width: 100%; max-height: 100%;\">\n<iframe id=\"ascii-iframe\" src=\"AfterlifeReloadedRoot/html/figlet.html\" style=\"width: 100%; height: 100%; border: none; overflow: auto;\"></iframe>\n</div>"
+	},
+	{
+		"trigger": 
+		[
+			"open natural language file", 
+			"edit natural language file",
+			"open natural language edit",
+			"open local natural language",
+			"open local csv file",
+			"edit local csv file"
+		],
+		"buttonHTML": "<div style=\"width: 1600px; height: 600px; display: flex; align-items: center; justify-content: center; overflow: hidden; max-width: 100%; max-height: 100%;\">\n<iframe src=\"AfterlifeReloadedRoot/php/view_chatgpt_responses.php\" style=\"width: 100%; height: 100%; border: none;\"></iframe>\n</div>"
+	}
+  ]
+}

@@ -1,0 +1,41 @@
+.scrollable-panel {
+	width: 100%;                   /* Use full width of container */
+	height: calc(95vh - 5px);   /* Adjust height based on viewport height */
+	overflow-y: auto;              /* Enable vertical scrolling */
+	/*padding: 5px 440px;               /* Padding to avoid clipping */
+	scrollbar-width: none;         /* Firefox: Hide scrollbar */
+	position: fixed;
+	top: 38px;                     /* Fixed position from the top */
+	display: flex;
+	flex-direction: column;        /* Stack messages vertically */
+	gap: 10px;                     /* Space between messages */
+	box-sizing: border-box;        /* Include padding in overall width */
+	left: 0px;
+	padding: 10px;
+	padding-bottom: 50px;
+}
+
+/* Media Query for Very Small Viewports */
+@media (max-height: 10px) {
+	.scrollable-panel {
+		height: calc(89.4vh - 52px); /* Further adjust if needed */
+	}
+}
+
+/* Hide scrollbar for Chrome, Safari, and Edge */
+.scrollable-panel::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.scrollable-panel {
+  scrollbar-width: none; /* Disable scrollbar in Firefox */
+}
+
+/* Content for demonstration */
+.content {
+  padding: 10px;
+  line-height: 1.6;
+  font-size: 14px;
+  color: #333;
+}

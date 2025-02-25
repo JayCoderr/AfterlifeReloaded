@@ -1,0 +1,167 @@
+body {
+    background-image: url('https://iili.io/d4GU8hB.gif'); 
+    background-size: cover; 
+    background-repeat: no-repeat;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    backdrop-filter: blur(5px);    
+}
+.navbar {
+    display: flex;
+    justify-content: flex-start;
+	align-items: center;
+	background-color: rgba(5, 5, 5, 0.9);	
+	min-height: 8%;
+	max-height: 15%;
+	box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.navbar h1 {
+	font-size: 12px;
+	position: relative;
+	left: 390px;
+}
+
+@keyframes rotate {
+	from {
+		transform: rotate(0deg); 
+	}
+	to {
+		transform: rotate(360deg); 
+	}
+}
+
+.navbar img {
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+	box-shadow: 0 0 10px rgba(255, 255, 255, 0.89);
+	position: relative;
+	right: -393px; 
+	animation: rotate 3s linear forwards;
+}
+
+main {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden; 
+	padding: 20px;
+	padding-bottom: 80px;
+}
+
+.message-area {
+	flex: 1;
+	overflow-y: auto; 
+	padding-right: 5px;
+	height: 100%;
+	min-height: 512px; 
+	position: relative;  
+	left: -5px;          
+	top: -24px;          
+}
+.message-area::-webkit-scrollbar {
+	display: none;
+}
+
+.message-area {
+	-ms-overflow-style: none; 
+	scrollbar-width: none;
+}
+
+.message-panel {
+	background-color: rgb(30, 30, 30);
+	border-radius: 10px;
+	padding: 2px;
+	margin: 5px 0;
+}
+.message-content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.message-content img {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.message-panel {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+.ai-message {
+    background-color: rgba(5, 5, 5, 0.89); 
+    text-align: left;
+}
+
+.user-message {
+    background-color: rgba(5, 5, 5, 0.89); 
+    text-align: left;
+}
+.prompt-box {
+	width: 95%;
+	height: 5%;
+	display: flex;
+	padding: 10px;
+	background-color: rgba(5, 5, 5, 0); 
+	position: fixed;
+	bottom: 13px; 
+	left: 12px;
+	z-index: 2;
+	border-radius: 25px;
+}
+
+.prompt-box input {
+	flex: 1;
+	padding: 10px;
+	border-radius: 25px;
+	border: none;
+	background-color: rgba(0, 0, 0, 0.9);
+	color: white;
+	outline: none; 
+box-shadow: 0 0 8px rgba(255, 255, 255, 0.89);
+z-index: 1; 
+}
+
+.prompt-box input:focus {
+	outline: none;
+box-shadow: 0 0 8px rgba(255, 255, 255, 0.89);
+z-index: 1; 
+}
+
+footer {
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.89);
+	color: white;
+	position: fixed;
+	bottom: 0; 
+	left: 0;
+	width: 100%;
+	min-height: 70px;  
+	font-size: 8px; 
+	z-index: 1; 
+	box-shadow: 0 0 5px rgba(255, 255, 255, 0.89);
+}
+
+.footer-text {
+	position: absolute;
+	bottom: -5px;
+	left: 355px;
+}		
+.ai-profile-image {
+    width: 30px; /* Set width to 30px */
+    height: 30px; /* Set height to 30px */
+    border-radius: 50%; /* Make the image rounded */
+    vertical-align: middle; /* Align the image with the text */
+    margin-right: 8px; /* Add space between the image and text */
+}

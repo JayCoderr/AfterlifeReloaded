@@ -1,0 +1,42 @@
+body {
+	background-color: rgba(30, 30, 30, 0.8); /* Default fallback */
+	border-radius:5px;
+	margin: 0;
+	padding: 20px;
+	overflow-y: hidden; /* Hide vertical scrolling */
+}
+h2, label, input, textarea, button, #responseMessage {
+	border-radius: 5px;
+}
+input, textarea {
+	width: 300px; /* Fixed width */
+	padding: 12px;
+	margin-bottom: 15px;
+	color: white;
+	background-color: rgba(35, 35, 35, 0.8);
+	border: none;
+	box-shadow: 0px 4px 10px rgba(0,0,0,1);
+	resize: none;
+	outline: none;
+}
+button {
+	width: 100px; /* Fixed width */
+	padding: 5px;
+	font-size: 12px;
+	border-radius: 5px;
+	color: white;
+	background-color: rgba(50, 50, 50, 0.8);
+	border: none;
+	cursor: pointer;
+	box-shadow: 0px 4px 10px rgb(0,0,0,1);
+}
+#responseMessage {
+	margin-top: 20px;
+	font-size: 18px;
+	color: white;
+	padding: 3px;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 1);
+	background-color: rgba(50,50,50,0.8);
+	border-radius: 25px;
+	padding: 5px;
+}

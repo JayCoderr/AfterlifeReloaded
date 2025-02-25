@@ -1,0 +1,279 @@
+.settings-btn {
+    position: absolute;
+    right: 6px;
+    top: 18px;
+    transform: translateY(-50%);
+    background-color: rgba(0, 33, 150, 0.2);
+    color: black;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 12px;
+	border-radius: 50px;
+	width: 27px;
+	box-shadow: 0px 4px 10px rgba(0,0,0,1);
+	height: 27px;
+}
+.toggleScroll {
+    position: fixed;
+    left: 0;
+    bottom: 75px;
+    background-color: rgba(50, 50, 50, 0);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 25px;
+    width: 28px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0);
+    height: 27px;
+	right: 0px;
+	margin-left: 50%;
+}
+.settings-group {
+    margin-bottom: 15px;
+}
+.membership-container {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden; /* Keeps vertical scrollbar hidden */
+    white-space: nowrap;
+    padding: 10px;
+    gap: 20px;
+}
+
+.membership-container::-webkit-scrollbar {
+    width: 8px; /* Adjust the width of the scrollbar */
+	scrollbar-width: thin;
+}
+
+.membership-container::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0); /* Optional: Customize the track */
+}
+
+.membership-container::-webkit-scrollbar-thumb {
+    background: rgb(0,0,0,1); /* Optional: Customize the scrollbar thumb */
+    border-radius: 10px;
+}
+
+.membership-container::-webkit-scrollbar-thumb:hover {
+    background: background: rgba(0,0,0,0.5); /* Optional: Change thumb color on hover */
+}
+
+.membership-box::-webkit-scrollbar {
+    width: 8px; /* Adjust the width of the scrollbar */
+	scrollbar-width: thin;
+}
+
+.membership-box::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0); /* Optional: Customize the track */
+}
+
+.membership-box::-webkit-scrollbar-thumb {
+    background: rgb(0,0,0,1); /* Optional: Customize the scrollbar thumb */
+    border-radius: 10px;
+}
+
+.membership-box::-webkit-scrollbar-thumb:hover {
+    background: background: rgba(0,0,0,0.5); /* Optional: Change thumb color on hover */
+}
+
+.membership-box {
+    flex: 0 0 auto;
+    width: 300px;
+    background-color: inherit;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 1);
+    text-align: center;
+	overflow-y: scroll;
+	height: 300px;
+}
+
+.horizontal-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0;
+    list-style: none;
+    justify-content: center;
+}
+
+.horizontal-list li {
+    background: rgba(0,0,0,0);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    white-space: pre-line;
+    font-size: 14px;
+}
+
+.membership-button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: rgba(0,0,0,1);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+	box-shadow: 0px 4px 10px rgba(0,0,0,1);
+}
+
+.membership-button:hover {
+    background-color: inherit;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+ul li {
+    margin-bottom: 5px;
+}
+ul li button {
+    margin-left: 10px;
+    color: red;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+.preview-image {
+    display: block;
+    max-width: 100px;
+    max-height: 100px;
+    margin-top: 10px;
+}
+/* HUD Overlay */
+.hud-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.hud-panel {
+    background: rgba(0,50,150,0.2);
+    padding: 20px;
+    text-align: center;
+    width: 400px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,1);
+    border-radius: 10px;
+	padding: 45px;
+	overflow-y: scroll;
+	height: 600px;
+}
+.hud-panel::-webkit-scrollbar {
+    display: none; /* Hides scrollbar in Chrome and Safari */
+}
+
+.close-btn {
+    background-color: rgba(0,50,150,0.5);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px;
+	margin-left: 386px;
+	border-radius: 50px;
+	height: 25px;
+	box-shadow: 0px 4px 10px rgba(0,0,0,1);
+}
+.close-btn:hover {
+    background-color: rgba(150,0,0,1);
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.tab {
+    background-color: rgba(0, 50, 150, 0.5);
+    color: white;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+	box-shadow: 0px 4px 10px rgba(0,0,0,1);
+	outline: none;
+	border: none;
+}
+
+.tab.active {
+    background-color: rgba(0,85,255,0.5);
+    color: white;
+	outline: none;
+	border: none;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.switch-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: red;
+    transition: .3s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .3s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: lime;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}

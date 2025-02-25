@@ -1,0 +1,82 @@
+body {
+    background-image: url('https://iili.io/d4GU8hB.gif'); 
+    background-size: cover; 
+    background-repeat: no-repeat;
+    color: white;
+    font-family: Arial, sans-serif;
+    /*margin: 0;*/
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 98vh;
+	overflow-y: hidden;
+}
+.navbar {
+	display: flex;
+	justify-content: center; /* Center the entire navbar content */
+	align-items: center;
+	padding: 4px;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.8);
+	width: 100%; /* Ensure navbar takes full width */
+	//box-sizing: border-box; /* Include padding in the width calculation */
+	flex-wrap: wrap; /* Allow content to wrap if needed */
+	position: fixed;
+	left: 0px;
+	top: 0px;
+}
+
+/* Wrap image and title in a flex container */
+.navbar-content {
+	display: flex;
+	align-items: center; /* Align image and title vertically */
+	justify-content: center; /* Center the image and title together */
+	flex: 1;
+	min-width: 0; /* Ensure content doesn't overflow */
+}
+
+/* Responsive header text */
+.navbar h1 {
+	font-size: 12px;
+	margin-left: 10px; /* Spacing between image and title */
+	white-space: nowrap; /* Prevent title from breaking */
+	text-align: left;
+}
+
+/* Responsive rotating image */
+.navbar img {
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.89);
+	animation: rotate 3s linear forwards;
+}
+
+/* Keyframes for rotating animation */
+@keyframes rotate {
+	from {
+		transform: rotate(0deg); 
+	}
+	to {
+		transform: rotate(360deg); 
+	}
+}
+
+/* Media query for larger screens */
+@media (min-width: 768px) {
+	.navbar-content {
+		justify-content: center;
+	}
+}
+
+/* Media query for smaller screens */
+@media (max-width: 767px) {
+	.navbar {
+		justify-content: center; /* Keep content centered */
+	}
+
+	.navbar-content {
+		flex-direction: row; /* Keep image and text on the same row */
+		justify-content: center;
+		flex-wrap: nowrap; /* Prevent wrapping */
+	}
+}

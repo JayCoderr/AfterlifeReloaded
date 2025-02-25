@@ -1,0 +1,46 @@
+#rgbaPicker {
+    display: none;
+    padding: 5px;
+    background-color: '${baseColor}'
+    border: none;
+    width: 180px;
+    margin-top: 5px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+    position: relative;
+    left: 250px;
+    bottom: -40px;            
+}
+
+.slider {
+    width: 100%;
+    margin: 2px 0;
+    height: 20px;
+    cursor: pointer;
+    border-radius: 50px;
+    appearance: none;
+    border: none;
+    outline: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);            
+}
+
+.slider.red { background: linear-gradient(to right, #000, #f00); }
+.slider.green { background: linear-gradient(to right, #000, #0f0); }
+.slider.blue { background: linear-gradient(to right, #000, #00f); }
+.slider.alpha { background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)); }
+
+#openColorPicker {
+    width: 40px; /* Increased width */
+    height: 40px; /* Increased height */
+    border: none;
+    border-radius: 50px; /* Ensures circular shape */
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.9);
+    position: relative;
+    left: 400px;
+    bottom: -40px;
+}
+
+#openColorPicker:hover {
+    filter: brightness(0.9);
+}

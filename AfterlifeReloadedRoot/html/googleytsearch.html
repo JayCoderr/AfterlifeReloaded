@@ -1,0 +1,134 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            color: white;
+            overflow-y: hidden; /* Prevent body scrollbar */
+        }
+
+        input, button {
+            padding: 5px;
+            margin: 5px;
+            font-size: 16px;
+            border-radius: 25px;
+            outline: none;
+            border: none;
+            background-color: inherit;
+            color: white;
+            box-shadow: 0px 4px 10px rgba(0,0,0,1);
+            font-size: 16px;
+        }
+
+        #iframe-panel {
+            width: 100%;
+            height: 500px;
+            position: relative;
+            border: none;
+            background-color: rgba(0, 0, 0, 0); /* Transparent background */
+            overflow: auto;
+        }
+		/* Chrome, Safari, and Edge: hide scrollbar */
+        #iframe-panel::-webkit-scrollbar {
+            width: 0; /* Remove scrollbar width */
+            height: 0; /* For horizontal scrollbar if needed */
+        }
+
+        #results {
+            width: 100%;
+            height: 100%;
+            overflow-y: scroll; /* Enable scrolling for video results */
+            scrollbar-width: none; /* Firefox: hide scrollbar */
+            -ms-overflow-style: none; /* IE: hide scrollbar */
+        }
+
+        /* Chrome, Safari, and Edge: hide scrollbar */
+        #results::-webkit-scrollbar {
+            display: none;
+        }
+
+        .video-container {
+            border-radius: 12px; /* Rounded corners for each video container */
+            background-color: inherit; /* Background color */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 1); /* Box shadow */
+            margin: 10px;
+            padding: 10px;
+			margin-bottom: 50px;
+        }
+
+        #results iframe {
+            border-radius: 8px;
+            overflow: hidden;
+			box-shadow: 0px 4px 10px rgba(0,0,0,1);
+        }
+    </style>
+<script>
+    function getVideoName() {
+        const searchInput = document.getElementById('search').value.trim();
+        if (searchInput) {
+            sessionStorage.setItem('videoName', searchInput); // Save new searches
+            return searchInput;
+        }
+
+        const videoName = sessionStorage.getItem('videoName');
+        console.log("Retrieved video name from sessionStorage:", videoName);
+        return videoName || ''; // Return empty string if no stored name
+    }
+
+    async function searchVideos() {
+        const query = getVideoName(); // Get query from input or sessionStorage
+
+        if (!query) {
+            console.error("No video name provided.");
+            return;
+        }
+
+        const response = await fetch(`https://www.afterlifereloaded.com/AfterlifeReloadedRoot/php/search.php?search=${encodeURIComponent(query)}`);
+        const data = await response.json();
+        const resultsDiv = document.getElementById('results');
+        resultsDiv.innerHTML = '';
+
+        if (data.error) {
+            resultsDiv.innerHTML = `<p>Error: ${data.error}</p>`;
+            return;
+        }
+
+        data.items.forEach((item, index) => {
+            const videoId = item.id.videoId;
+            const title = item.snippet.title;
+            const description = item.snippet.description;
+            const autoplayParam = index === 0 ? 'autoplay=1' : 'autoplay=0';
+
+            const videoHtml = `
+                <div class="video-container">
+                    <h3>${title}</h3>
+                    <iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/${videoId}?${autoplayParam}"
+                        title="${title}"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                    <p>${description}</p>
+                </div>
+            `;
+            resultsDiv.innerHTML += videoHtml;
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", searchVideos);
+</script>
+</head>
+<body>
+    <h1>YouTube Video Search</h1>
+    <input type="text" id="search" placeholder="Enter video title" />
+    <button onclick="searchVideos()">Search</button>
+    <div id="iframe-panel">
+        <div id="results"></div>
+    </div>
+</body>
+</html>

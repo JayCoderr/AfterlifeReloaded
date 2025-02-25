@@ -1,0 +1,28 @@
+body {
+    text-align: center;
+    background-color: inherit;
+    color: white;
+    font-family: monospace;
+}
+pre {
+	font-size: 16px;
+	white-space: pre;
+	word-wrap: break-word;
+	padding: 10px;
+	border: none;
+	box-shadow: 0px 4px 10px rgb(0,0,0);
+	min-height: 332px;
+	overflow-x: auto;
+	scrollbar-color: rgb(70,70,70) rgb(0,0,0,1);
+	scrollbar-width: thin;	
+}
+input, select, button {
+    margin-top: 10px;
+    padding: 8px;
+    font-size: 16px;
+    background-color: rgb(0,0,0);
+    color: white;
+    border: none;
+    outline: none;
+    box-shadow: 0px 4px 10px rgb(0,0,0);
+}
