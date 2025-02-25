@@ -1,0 +1,58 @@
+# Set the default page
+DirectoryIndex AfterlifeReloaded.html
+
+ErrorDocument 403 /AfterlifeReloadedRoot/html/Afterlife403Error.html
+
+# Allow CORS headers
+Header set Access-Control-Allow-Origin "*"
+Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+Header set Access-Control-Allow-Headers "Content-Type, Authorization"
+
+# Allow access to .json files
+<FilesMatch "\.json$">
+    Header set Content-Type "application/json"
+    Require all granted
+</FilesMatch>
+
+# Redirect /AfterlifeReloadedRoot/ to the home page
+RewriteCond %{REQUEST_URI} ^/AfterlifeReloadedRoot/?$
+RewriteRule ^(.*)$ https://www.afterlifereloaded.com/ [R=301,L]
+
+# Redirect all requests from any subdomain or non-www domain to www
+RewriteEngine On
+RewriteCond %{HTTP_HOST} !^www\.afterlifereloaded\.com$ [NC]
+RewriteRule ^(.*)$ https://www.afterlifereloaded.com/$1 [R=301,L]
+
+# Allow access to PHP scripts
+RewriteCond %{REQUEST_URI} ^/AfterlifeReloadedRoot/php/ [NC]
+RewriteRule ^.*$ - [L]
+
+# Block access to media files from external sites
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^https?://(www\.)?afterlifereloaded\.com [NC]
+RewriteRule \.(jpg|jpeg|png|gif|mp4|mp3|css|js|php|txt)$ - [NC,F,L]
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/?$ $1.html [L]
+
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type, Authorization"
+</IfModule>
+
+<FilesMatch "\.(json|js|css|php|txt|csv|gif|png|mp4|jpg|jpeg)$">
+    SetEnvIf Referer "https://www.afterlifereloaded.com" allowed_referrer
+    Order Deny,Allow
+    Deny from all
+    Allow from env=allowed_referrer
+</FilesMatch>
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php81” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php81___lsphp .php .php8 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
