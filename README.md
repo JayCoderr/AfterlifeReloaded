@@ -17,7 +17,6 @@
 ## Contributors  
 **People who contributed:**  
 <table>
-  <tbody>
       <td align="center" valign="top" width="14.28%">
         <a href="https://afterlifereloaded.com/">
           <img src="https://github.com/JayCoderr.png" width="120px" style="border-radius: 50%;" alt="Jaycoder"/>
@@ -89,7 +88,6 @@
         <b>Github</b>
         <p>Storing various thing's and retrieving it, using github api.</p>
       </td>          
-  </tbody>
 </table>
 
 ## Release History
