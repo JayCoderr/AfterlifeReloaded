@@ -16,8 +16,8 @@
 
 ## Contributors  
 **People who contributed:**  
-<table>
-     <tr>
+<table  width="fit-content">
+     <tr  width="fit-content">
       <td align="center" valign="top" width="fit-content">
         <a href="https://afterlifereloaded.com/">
              <img src="https://github.com/JayCoderr.png" width="120px" style="border-radius: 50%;" alt="Jaycoder"/>
