@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "WrS0E+PWLthddxD9s1rtWANU8A01B12lw6X7KouXdiPEXJ2QVUku3YGAxpvtOKOEzv0LTZ5gRCx8KbW73ZCkNQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Computer\\source\\repos\\AfterlifeReloadedLauncher\\AfterlifeReloadedLauncher.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Computer\\.nuget\\packages\\microsoft.web.webview2\\1.0.3065.39\\microsoft.web.webview2.1.0.3065.39.nupkg.sha512"
+  ],
+  "logs": []
+}
