@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en" style="
+    filter: contrast(1.5);
+">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.53">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Afterlife v7.0">
+    <meta name="author" content="Jaycoder">
+    <title>Afterlife AI 7.0</title>
+	<script src="https://afterlifereloaded.com/AfterlifeReloadedRoot/js/ApplyPersonalAIDesign.js" defer></script>
+    <script src="https://afterlifereloaded.com/AfterlifeReloadedRoot/js/AfterlifeReloadedRandomBG.js" defer></script>
+	<script src="https://afterlifereloaded.com/AfterlifeReloadedRoot/js/AfterlifeReloadedSendMessage.js" defer=""></script>
+	<script src="https://afterlifereloaded.com/AfterlifeReloadedRoot/js/AfterlifeReloadedUserMessageBubble.js" defer=""></script>	
+	<script src="https://afterlifereloaded.com/AfterlifeReloadedRoot/js/AfterlifeReloadedAIMessageBubble.js" defer=""></script>
+	<script src="https://afterlifereloaded.com/AfterlifeReloadedRoot/js/AfterlifeReloadedGeneralGS.js" defer=""></script>
+	<script src="https://afterlifereloaded.com/AfterlifeReloadedRoot/js/AfterlifeReloadedHudBGColor.js"></script>
+	<link rel="stylesheet" href="AfterlifeReloadedRoot/css/AfterlifeReloadedGeneral.css"> 
+	<link rel="stylesheet" href="AfterlifeReloadedRoot/css/AfterlifeReloadedGeneral00.css"> 
+	<link rel="stylesheet" href="AfterlifeReloadedRoot/css/AfterlifeReloadedGeneral01.css">	
+	<link rel="stylesheet" href="AfterlifeReloadedRoot/css/AfterlifeReloadedSettingMenu.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <h1 id="navbar-title"></h1>
+        <img src="https://iili.io/d4GU8hB.gif" alt="Image" />
+    </div>
+    <main>
+	<div id="chatPanel" class="scrollable-panel">
+	<footer class="footer">
+		<p style="margin-top: 3px;Font-Size: 10px;z-index: 0;">© 2024 Afterlife AI 7.0, All rights reserved.</p>
+	</footer>
+	<div class="user-input">
+		<div id="userInput" class="rich-textbox" contenteditable="true" placeholder="Ask Afterlife Reloaded for help. . ."></div>
+		<button class="settings-btn" id="settingsbtn" onclick="openHUD()">&nbsp;</button>
+		<button class="toggleScroll" id="toggleScroll">&nbsp;</button>
+	</div>
+
+	<!-- HUD Overlay -->
+	<div class="hud-overlay" id="hud">
+		<div class="hud-panel">
+			<button class="close-btn" onclick="closeHUD()">&nbsp;</button>
+	
+			<h3>AI Response Settings</h3>
+			
+			<!-- Tabs -->
+			<div class="tabs">
+				<button class="tab active" onclick="switchTab(event, 'tab1')">AI Responses</button>
+				<button class="tab" onclick="switchTab(event, 'tab2')">AI Model</button>
+				<button class="tab" onclick="switchTab(event, 'tab3')">Appearance</button>
+				<button class="tab" onclick="switchTab(event, 'tab4')">Sound</button>
+				<button class="tab" onclick="switchTab(event, 'tab5')">Membership</button>
+			</div>
+	
+			<!-- Tab Content -->
+			<div id="tab1" class="tab-content active">
+				<div class="switch-container">
+					<label for="narrateSwitch">Narrate:</label>
+					<label class="switch"><input type="checkbox" id="narrateSwitch"><span class="slider"></span></label>
+				</div>
+				<div class="switch-container">
+					<label for="reasonSwitch">Reason:</label>
+					<label class="switch"><input type="checkbox" id="reasonSwitch"><span class="slider"></span></label>
+				</div>
+				<div class="switch-container">
+					<label for="detailSwitch">Detail:</label>
+					<label class="switch"><input type="checkbox" id="detailSwitch"><span class="slider"></span></label>
+				</div>
+				<div class="switch-container">
+					<label for="explainSwitch">Explain:</label>
+					<label class="switch"><input type="checkbox" id="explainSwitch"><span class="slider"></span></label>
+				</div>
+			</div>
+	
+			<div id="tab2" class="tab-content">
+				<h3>AI Model Settings</h3>
+			
+				<!-- AI Variable Replacement -->
+				<div class="settings-group">
+					<label>AI Variable Replacement:</label>
+					<ul id="variable-replacement-list"></ul>
+					<input type="text" id="variable-option1" placeholder="Replace this">
+					<input type="text" id="variable-option2" placeholder="With this">
+					<button id="add-variable-replacement">Add</button>
+					<label>
+						<input type="checkbox" id="enable-variable-replacement"> Enable
+					</label>
+				</div>
+			
+				<!-- Local Natural Language -->
+				<div class="settings-group">
+					<label>Local Natural Language:</label>
+					<input type="checkbox" id="local-natural-lang">
+				</div>
+			
+				<!-- Public Natural Language -->
+				<div class="settings-group">
+					<label>Public Natural Language:</label>
+					<input type="checkbox" id="public-natural-lang" checked>
+				</div>
+			
+				<!-- Edit Natural Language -->
+				<button id="edit-natural-lang">Edit Natural Language</button>
+			
+				<!-- Change Model Dropdown -->
+				<div class="settings-group">
+					<label for="change-model">Change Model:</label>
+					<select id="change-model">
+						<option value="gpt-4">GPT-4</option>
+						<option value="gpt-3.5">GPT-3.5</option>
+						<option value="custom-model">Custom Model</option>
+					</select>
+				</div>
+			
+				<!-- Set Simulated Text Speed -->
+				<div class="settings-group">
+					<label for="simulated-speed">Set Simulated Speed: <span id="speed-value">40</span></label>
+					<input type="range" id="simulated-speed" min="0" max="80" step="0.1" value="40">
+				</div>
+			
+				<!-- Set Token Amount -->
+				<div class="settings-group">
+					<label for="token-amount">Token Amount:</label>
+					<input type="text" id="token-amount" placeholder="Enter token amount">
+					<button id="set-token-amount">Set Token Amount</button>
+				</div>
+			
+				<!-- Custom Rules -->
+				<div class="settings-group">
+					<label>Custom Rules:</label>
+					<ul id="custom-rules-list"></ul>
+					<input type="text" id="custom-rule-input" placeholder="Enter rule">
+					<button id="add-custom-rule">Add</button>
+				</div>
+			</div>
+	
+			<div id="tab3" class="tab-content">
+				<h3>Appearance Settings</h3>
+			
+				<!-- AI Background + Preview -->
+				<div class="settings-group">
+					<label for="ai-background-input">AI Background URL:</label>
+					<input type="text" id="ai-background-input" placeholder="Enter image URL">
+					<button id="set-ai-background">Set Background</button>
+					<img id="ai-background-preview" class="preview-image" alt="AI Background Preview">
+				</div>
+			
+				<!-- AI User Image + Preview -->
+				<div class="settings-group">
+					<label for="ai-user-image-input">AI User Image URL:</label>
+					<input type="text" id="ai-user-image-input" placeholder="Enter image URL">
+					<button id="set-ai-user-image">Set Image</button>
+					<img id="ai-user-image-preview" class="preview-image" alt="AI User Image Preview">
+				</div>
+			
+				<!-- AI Name -->
+				<div class="settings-group">
+					<label for="ai-name-input">AI Name:</label>
+					<input type="text" id="ai-name-input" placeholder="TestName">
+					<button id="set-ai-name">Set Name</button>
+				</div>
+			
+				<!-- Font Scale Slider -->
+				<div class="settings-group">
+					<label for="font-scale">Font Scale:</label>
+					<input type="range" id="font-scale" min="0.5" max="2" step="0.1" value="1">
+				</div>
+			
+				<!-- Website Zoom Slider -->
+				<div class="settings-group">
+					<label for="website-zoom">Website Zoom:</label>
+					<input type="range" id="website-zoom" min="50" max="200" step="10" value="100">
+				</div>
+			
+				<!-- Background HUD RGB Selector -->
+				<div class="settings-group">
+					<label for="background-hud-color">Background HUD Color:</label>
+					<input type="color" id="background-hud-color">
+				</div>
+			
+				<!-- Glow Color RGB Selector -->
+				<div class="settings-group">
+					<label for="glow-color">Glow Color:</label>
+					<input type="color" id="glow-color">
+				</div>
+			
+				<!-- Other Settings -->
+				<button id="other-settings">Other Settings (Coming Soon)</button>
+			</div>
+	
+			<div id="tab4" class="tab-content">
+				<h3>Sound Settings</h3>
+			
+				<!-- AI Notify Sound -->
+				<div class="settings-group">
+					<label for="notify-sound">AI Notify Sound:</label>
+					<input type="checkbox" id="notify-sound">
+				</div>
+			
+				<!-- AI Voice -->
+				<div class="settings-group">
+					<label for="ai-voice">AI Voice:</label>
+					<input type="checkbox" id="ai-voice">
+				</div>
+			
+				<!-- AI Text to Speech -->
+				<div class="settings-group">
+					<label for="text-to-speech">AI Text to Speech:</label>
+					<input type="checkbox" id="text-to-speech">
+				</div>
+			
+				<!-- AI Speech to Text -->
+				<div class="settings-group">
+					<label for="speech-to-text">AI Speech to Text:</label>
+					<input type="checkbox" id="speech-to-text">
+				</div>
+			</div>
+	
+			<div id="tab5" class="tab-content">
+				<h3>Membership Settings</h3>
+				<p>Possibly add a payment system?</p>
+			
+				<div class="membership-container">
+					<div class="membership-box">
+						<h4>Normal (Free)</h4>
+						<ul class="horizontal-list">
+							<li>Limited access to OpenAI/Afterlife AI models</li>
+							<li>Can edit AI</li>
+							<li>No special clan tags or admin features</li>
+							<li>Can use AI Variable Replacement</li>
+							<li>Cannot edit Natural Language</li>
+							<li>Limited to Public Natural Language</li>
+						</ul>
+						<button class="membership-button" onclick="upgradeToVIP()">Upgrade to VIP</button>
+					</div>
+			
+					<div class="membership-box">
+						<h4>VIP ($25)</h4>
+						<ul class="horizontal-list">
+							<li>Access to newer, early AI models of OpenAI/AfterlifeReloaded</li>
+							<li>Can fully edit AI</li>
+							<li>Has special clan tags/banners</li>
+							<li>Can add APIs to AI for personal use</li>
+							<li>Possible offline access</li>
+							<li>Some admin features</li>
+							<li>Has AI Variable Replacement</li>
+							<li>Can edit Natural Language</li>
+							<li>Not limited to Public Natural Language</li>
+						</ul>
+						<button class="membership-button" onclick="manageVIP()">Manage VIP</button>
+					</div>
+			
+					<div class="membership-box">
+						<h4>Admin (N/A)</h4>
+						<ul class="horizontal-list">
+							<li>Access to all early AI models of OpenAI/AfterlifeReloaded</li>
+							<li>Can fully edit AI</li>
+							<li>Can send admin emails</li>
+							<li>Has special clan tags/banners</li>
+							<li>Can add APIs to public AI and personal AI</li>
+							<li>Access to AI source if needed</li>
+							<li>Power to ban users or grant access</li>
+						</ul>
+						<button class="membership-button" onclick="manageAdmin()">Admin Panel</button>
+					</div>
+			
+					<div class="membership-box">
+						<h4>Developer (N/A)</h4>
+						<ul class="horizontal-list">
+							<li>All Admin privileges</li>
+							<li>Full unrestricted access to all AI models</li>
+							<li>Ability to modify AI system logic and infrastructure</li>
+							<li>Can deploy, update, and optimize AI models</li>
+							<li>Has full API integration control</li>
+							<li>Can manage database structures related to AI</li>
+							<li>Access to debugging tools and internal logs</li>
+							<li>Can approve or modify AI-generated rules</li>
+							<li>Direct access to AI framework for experimental features</li>
+						</ul>
+						<button class="membership-button" onclick="developerPanel()">Developer Console</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script>
+		function openHUD() {
+			document.getElementById('hud').style.display = 'flex';
+		}
+	
+		function closeHUD() {
+			document.getElementById('hud').style.display = 'none';
+		}
+	
+		function switchTab(event, tabId) {
+			document.querySelectorAll(".tab").forEach(tab => tab.classList.remove("active"));
+			event.target.classList.add("active");
+			document.querySelectorAll(".tab-content").forEach(tab => tab.classList.remove("active"));
+			document.getElementById(tabId).classList.add("active");
+		}
+	</script>
+	<script>
+		document.getElementById('set-ai-background').addEventListener('click', function () {
+			const url = document.getElementById('ai-background-input').value;
+			document.getElementById('ai-background-preview').src = url;
+		});
+	
+		document.getElementById('set-ai-user-image').addEventListener('click', function () {
+			const url = document.getElementById('ai-user-image-input').value;
+			document.getElementById('ai-user-image-preview').src = url;
+		});
+	
+		document.getElementById('set-ai-name').addEventListener('click', function () {
+			const name = document.getElementById('ai-name-input').value;
+			console.log("AI Name Set To:", name);
+		});
+	
+		document.getElementById('other-settings').addEventListener('click', function () {
+			console.log("Still updating and adding more options...");
+		});
+	</script>
+	<script>
+		// AI Variable Replacement Logic
+		document.getElementById('add-variable-replacement').addEventListener('click', function () {
+			const opt1 = document.getElementById('variable-option1').value;
+			const opt2 = document.getElementById('variable-option2').value;
+			if (opt1 && opt2) {
+				const listItem = document.createElement('li');
+				listItem.innerHTML = `${opt1} → ${opt2} <button onclick="this.parentElement.remove()">Delete</button>`;
+				document.getElementById('variable-replacement-list').appendChild(listItem);
+			}
+		});
+	
+		// Update Simulated Speed Value
+		document.getElementById('simulated-speed').addEventListener('input', function () {
+			document.getElementById('speed-value').textContent = this.value;
+		});
+	
+		// Set Token Amount Logic
+		document.getElementById('set-token-amount').addEventListener('click', function () {
+			const tokenAmount = document.getElementById('token-amount').value;
+			console.log("Token Amount Set To:", tokenAmount);
+		});
+	
+		// Custom Rules Logic
+		document.getElementById('add-custom-rule').addEventListener('click', function () {
+			const rule = document.getElementById('custom-rule-input').value;
+			if (rule) {
+				const listItem = document.createElement('li');
+				listItem.innerHTML = `${rule} <button onclick="this.parentElement.remove()">Delete</button>`;
+				document.getElementById('custom-rules-list').appendChild(listItem);
+			}
+		});
+	
+		// Edit Natural Language Logic
+		document.getElementById('edit-natural-lang').addEventListener('click', function () {
+			console.log("Editing Natural Language...");
+		});
+	</script>
+	<script>
+		// Event Listeners for toggles
+		document.getElementById('notify-sound').addEventListener('change', function () {
+			console.log("AI Notify Sound:", this.checked ? "Enabled" : "Disabled");
+		});
+	
+		document.getElementById('ai-voice').addEventListener('change', function () {
+			console.log("AI Voice:", this.checked ? "Enabled" : "Disabled");
+		});
+	
+		document.getElementById('text-to-speech').addEventListener('change', function () {
+			console.log("AI Text to Speech:", this.checked ? "Enabled" : "Disabled");
+		});
+	
+		document.getElementById('speech-to-text').addEventListener('change', function () {
+			console.log("AI Speech to Text:", this.checked ? "Enabled" : "Disabled");
+		});
+	</script>	
+    </main>
+	<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		// Ensure the button exists before attaching the event
+		const button = document.getElementById("sendTestEmailBtn");
+		if (button) {
+			button.addEventListener("click", function () {
+				// Send the request to the PHP script
+				fetch("AfterlifeReloadedRoot/php/sendemail.php")
+					.then(response => response.text())  // Get the response text
+					.then(data => {
+						// Show response on the page
+						document.getElementById("responseMessage").textContent = data;  // Display the success/failure message
+					})
+					.catch(error => {
+						console.error("Error:", error);
+						document.getElementById("responseMessage").textContent = "An error occurred while sending the email.";
+					});
+			});
+		}
+	});
+	</script>
+	<script>
+    function upgradeToVIP() {
+        console.log("Redirecting to VIP upgrade page...");
+    }
+
+    function manageVIP() {
+        console.log("Opening VIP management page...");
+    }
+
+    function manageAdmin() {
+        console.log("Opening Admin Panel...");
+    }
+
+    function developerPanel() {
+        console.log("Opening Developer Console...");
+    }
+	</script>
+	<script>
+	// Highlight function (changing background color and box-shadow)
+	function highlightToggleButton() {
+	const toggleButton = document.getElementById('toggleScroll');
+	const scrollablePanel = document.querySelector('.scrollable-panel');
+	
+		if (!toggleButton) return;
+	
+		toggleButton.addEventListener('click', () => 
+		{
+			scrollablePanel.scrollTop = scrollablePanel.scrollHeight;
+			toggleButton.style.pointerEvents = 'none';
+			toggleButton.style.backgroundColor = 'rgba(50,50,50,0)';
+			toggleButton.style.boxShadow = 'none';
+		});
+	
+		// Change background color and add box-shadow
+		toggleButton.style.backgroundColor = 'rgba(50,50,50,0.9)';
+		toggleButton.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 1)';
+		toggleButton.style.pointerEvents = 'auto';
+		toggleButton.style.border = 'none';
+		toggleButton.style.outline = 'none';
+		
+		// Reset styles after 10 seconds
+		setTimeout(() => {
+			toggleButton.style.pointerEvents = 'none';
+			toggleButton.style.backgroundColor = 'rgba(50,50,50,0)';
+			toggleButton.style.boxShadow = 'none';
+		}, 10000);
+	}
+	</script>
+</body>
+</html>

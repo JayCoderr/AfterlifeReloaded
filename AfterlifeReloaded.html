@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.53">
+    <title>Afterlife Reloaded 7.0</title>
+    <!-- Css Themes -->
+    <link rel="stylesheet" href="AfterlifeReloadedRoot/css/AfterlifeReloadedLogin.css">
+    <link rel="stylesheet" href="AfterlifeReloadedRoot/css/AfterlifeReloadedOtherDesigns.css">    
+    <link rel="stylesheet" href="AfterlifeReloadedRoot/css/AfterlifeReloadedLoginRGB.css">
+	<!-- Js Scripts-->
+    <script src="AfterlifeReloadedRoot/js/AfterlifeStopDebugging.js" defer></script>
+    <script src="AfterlifeReloadedRoot/js/AfterlifeListeners.js" defer></script>
+    <script src="AfterlifeReloadedRoot/js/AfterlifeTestlogin.js" defer></script>
+    <script src="AfterlifeReloadedRoot/js/AfterlifeTitleTyping.js" defer></script>
+    <script src="AfterlifeReloadedRoot/js/AfterlifeJavaResponseVC.js" defer></script> 
+    <script src="AfterlifeReloadedRoot/js/AfterlifeReloadedRandomBG.js" defer></script> 
+    <script src="AfterlifeReloadedRoot/js/AfterlifeReloadedCTD.js" defer></script>
+    <script src="AfterlifeReloadedRoot/js/AfterlifeReloadedRD.js" defer></script>
+    <script src="AfterlifeReloadedRoot/js/AfterlifeReloadedTMFTD.js" defer></script>
+    <script src="AfterlifeReloadedRoot/js/AfterlifeReloadedHudBGColor.js" defer></script>   
+	<script src="AfterlifeReloadedRoot/js/AfterlifeReloadedRGBSelector.js" defer></script>
+</head>
+<body>
+<div id="TopBar" class="TopBar">
+    <p>Afterlife Reloaded 7.0</p>
+</div>
+
+<form id="test-login-form">
+    <h1 id="title-text" style="margin-top: 70px;min-height: 1em;display: inline-block;">Welcome to Afterlife Reloaded 7.0</h1>
+    <hr>
+    <div id="info-panel" class="info-panel">
+        <img src="https://www.afterlifereloaded.com/AfterlifeReloadedRoot/Images/Jaycoder.png" alt="User Image" id="user-image">
+        <p id="AIName">Jaycoder</p>    
+        <p id="message-text">Welcome to Afterlife Reloaded,<br>This is an AI, that can program, generate user responses</p>
+        <button id="openColorPicker"></button>
+        <div id="rgbaPicker">
+            <input type="range" id="r" min="0" max="255" class="slider red"><br>
+            <input type="range" id="g" min="0" max="255" class="slider green"><br>
+            <input type="range" id="b" min="0" max="255" class="slider blue"><br>
+            <input type="range" id="a" min="0" max="1" step="0.01" class="slider alpha"><br>
+        </div>       
+        <p id="date-time"></p>
+    </div>
+    <hr>
+    <input type="text" id="test-username" required placeholder="... AfterlifeUser">
+    <input type="password" id="test-password" required placeholder="•••••••••••••••••••••••••••">
+    <button id="login-test-button">Login</button>
+	<!-- OTP Input Field -->
+	<!-- QR Code Container -->
+	<div id="qr-code-container">
+		<img id="qr-code-img" src="" alt="QR Code" style="max-width: 150px; max-height: 150px; display: none;" />
+	</div>
+    <hr>
+    <div id="countdown" style="margin-top: 20px; font-size: 1.5rem; text-align: center;"></div>
+</form>
+<footer id="footerHud">
+    <div id="footerText" class="footer-text">
+        <p>&copy; 2024 <a href="https://afterlifereloaded.com/AfterlifeAbout.html" target="_blank" rel="noopener noreferrer" class="glow">Afterlife AI 7.0</a>, All rights reserved. Visitors: <span id="visit-counter">0</span></p>
+    </div>
+</footer>
+</body>
+</html>
