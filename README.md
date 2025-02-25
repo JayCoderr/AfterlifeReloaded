@@ -14,6 +14,9 @@
 >
 > You can visit the website here: https://www.afterlifereloaded.com
 
+I started making the new launcher as well in c# for afterlifereloaded desktop version,
+I might make an android version or maybe an iphone version as it shouldn't take too long.
+
 <table  width="fit-content">
      <p>
      ## Contributors  
