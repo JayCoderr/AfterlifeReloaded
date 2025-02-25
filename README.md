@@ -58,10 +58,10 @@
       <tr>    
       <td align="center" valign="top" width="fit-content">
         <a href="n/a">
-          <img src="https://media.discordapp.net/attachments/725448544454050003/1343791398159384706/dawg_-_with_text.png" width="120px" style="border-radius: 50%;" alt="Grim"/>
+          <img src="https://freeimage.host/i/3JKSzrb" width="120px" style="border-radius: 50%;" alt="David"/>
         </a>
         <br>
-        <b>David</b>
+        <b>David aka OhItsDiiTz</b>
         <p>Help debug and find exploit's, help tweak security related things in certain area's when asked.</p>
       </td>
       </tr>     
