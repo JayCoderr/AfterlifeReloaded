@@ -33,7 +33,7 @@
       </td>
       <td align="center" valign="top" width="14.28%">
         <a href="n/a">
-          <img src="n/a" width="120px" style="border-radius: 50%;" alt="Grim"/>
+          <img src="https://media.moddb.com/images/mods/1/48/47699/missing_textures.1.png" width="120px" style="border-radius: 50%;" alt="Grim"/>
         </a>
         <br>
         <b>Grim</b>
