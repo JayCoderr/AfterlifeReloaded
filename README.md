@@ -56,7 +56,23 @@
         <br>
         <b>ChatGPT</b>
         <p>Is the teacher ai used by default, it learns it's natural language from chatgpt.</p>
-      </td>           
+      </td>
+      <td align="center" valign="top" width="14.28%">
+        <a href="https://www.chatgpt.com">
+          <img src="https://girlgeek.io/wp-content/uploads/2019/08/openai-logo-vertical-dimensional-white.jpg" width="120px" style="border-radius: 50%;" alt="OpenAI"/>
+        </a>
+        <br>
+        <b>OpenAI</b>
+        <p>Natural language api, is another teacher that is used for the ai.</p>
+      </td> 
+      <td align="center" valign="top" width="14.28%">
+        <a href="www.google.com">
+          <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_light_color_272x92dp.png" width="120px" style="border-radius: 50%;" alt="OpenAI"/>
+        </a>
+        <br>
+        <b>OpenAI</b>
+        <p>youtube data v3 api, used to collect statistical data from youtube.com</p>
+      </td> 
     </tr>
   </tbody>
 </table>
