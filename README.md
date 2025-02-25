@@ -30,7 +30,15 @@
         </a>
         <br>
         <b>patorjk</b>
-      </td>             
+      </td>
+      <td align="center" valign="top" width="14.28%">
+        <a href="n/a">
+          <img src="n/a" width="120px" style="border-radius: 50%;" alt="Grim"/>
+        </a>
+        <br>
+        <b>Grim</b>
+        <p>Help debug and find exploit's in php, fetch request etc.</p>
+      </td>           
     </tr>
   </tbody>
 </table>
