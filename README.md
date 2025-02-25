@@ -45,7 +45,7 @@
       </td> 
       <td align="center" valign="top" width="14.28%">
         <a href="n/a">
-          <img src="https://cdn.discordapp.com/avatars/204148213521973248/de76804061acc6afa8f97dea658d001f.webp?size=32" width="120px" style="border-radius: 50%;" alt="Grim"/>
+          <img src="https://media.discordapp.net/attachments/725448544454050003/1343791398159384706/dawg_-_with_text.png" width="120px" style="border-radius: 50%;" alt="Grim"/>
         </a>
         <br>
         <b>David</b>
