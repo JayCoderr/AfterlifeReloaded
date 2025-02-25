@@ -11,6 +11,8 @@
 
 > **[!]**  
 > This project aims to fully change how AI currently works... It's that simple.
+>
+> You can visit the website here: https://www.afterlifereloaded.com
 
 ## Contributors  
 **People who contributed:**  
