@@ -22,7 +22,7 @@
           <img src="https://freeimage.host/content/images/users/ETvsf/av_1710539766.jpg" width="120px" style="border-radius: 50%;" alt="Jaycoder"/>
         </a>
         <br>
-        <b>patorjk</b>
+        <b>Jaycoder</b>
       </td>
     </tr>
   </tbody>
