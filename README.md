@@ -20,7 +20,7 @@
      <tr>
        <td>
         <a href="https://afterlifereloaded.com/">
-          <img src="https://github.com/JayCoderr.png" width="120px" style="border-radius: 50%;" alt="Jaycoder"/>
+             <img src="https://github.com/JayCoderr.png" width="120px" style="border-radius: 50%;" alt="Jaycoder"/>
         </a>
         <br>
         <b>Jaycoder</b>
@@ -28,14 +28,16 @@
       <br>
        </td>
      </tr>
-      <td align="center" valign="top" width="14.28%">
+     <tr>
+      <td align="center" valign="top" width="fit-content">
         <a href="http://patorjk.com">
           <img src="https://avatars.githubusercontent.com/u/521224?v=4?s=100" width="120px" style="border-radius: 50%;" alt="patorjk"/>
           <p>Ascii library in javascript</p>
         </a>
         <br>
         <b>patorjk</b>
-      </td>>
+      </td>
+     </tr>
       <br>         
       <td align="center" valign="top" width="14.28%">
         <a href="n/a">
