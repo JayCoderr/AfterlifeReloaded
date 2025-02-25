@@ -12,5 +12,5 @@ Go get figlet font's from the offical github.
 
 also u need to add these two folders:
 
-fonts and importable-fonts
+"fonts" and "importable-fonts"
 in the root of where ever u have figlet.js installed.
