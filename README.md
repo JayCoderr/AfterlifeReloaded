@@ -68,13 +68,21 @@
         <p>Natural language api, is another teacher that is used for the ai.</p>
       </td> 
       <td align="center" valign="top" width="14.28%">
-        <a href="www.google.com">
+        <a href="https://www.google.com">
           <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_light_color_272x92dp.png" width="120px" style="border-radius: 50%;" alt=""/>
         </a>
         <br>
         <b>OpenAI</b>
         <p>youtube data v3 api, used to collect statistical data from youtube.com</p>
       </td> 
+      <td align="center" valign="top" width="14.28%">
+        <a href="https://www.github.com">
+          <img src="https://logodix.com/logo/64562.png" width="120px" style="border-radius: 50%;" alt="Github"/>
+        </a>
+        <br>
+        <b>Github</b>
+        <p>Storing various thing's and retrieving it, using github api.</p>
+      </td>          
     </tr>
   </tbody>
 </table>
