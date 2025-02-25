@@ -14,9 +14,11 @@
 >
 > You can visit the website here: https://www.afterlifereloaded.com
 
-## Contributors  
-**People who contributed:**  
 <table  width="fit-content">
+     <p>
+     ## Contributors  
+     **People who contributed:**           
+     </p>
      <tr  width="fit-content">
       <td align="center" valign="top" width="fit-content">
         <a href="https://afterlifereloaded.com/">
