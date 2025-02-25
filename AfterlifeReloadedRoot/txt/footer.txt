@@ -1,0 +1,3 @@
+<div class="footer-text">
+    <p>&copy; 2024 <a href="https://afterlifereloaded.com/AfterlifeAbout.html" target="_blank" rel="noopener noreferrer" class="glow">Afterlife AI 7.0</a>, All rights reserved.</p>
+</div>
