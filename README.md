@@ -23,6 +23,7 @@
         </a>
         <br>
         <b>Jaycoder</b>
+        <p>Created the base/environment, js, php, css, html, csv, json, txt, htaccess, etc</p>
       </td>
       <td align="center" valign="top" width="14.28%">
         <a href="http://patorjk.com">
