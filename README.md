@@ -17,6 +17,7 @@
 ## Contributors  
 **People who contributed:**  
 <table>
+     <tr>
         <a href="https://afterlifereloaded.com/">
           <img src="https://github.com/JayCoderr.png" width="120px" style="border-radius: 50%;" alt="Jaycoder"/>
         </a>
@@ -24,6 +25,7 @@
         <b>Jaycoder</b>
         <p>Created the base/environment, js, php, css, html, csv, json, txt, htaccess, etc</p>
       <br>
+     </tr>
       <td align="center" valign="top" width="14.28%">
         <a href="http://patorjk.com">
           <img src="https://avatars.githubusercontent.com/u/521224?v=4?s=100" width="120px" style="border-radius: 50%;" alt="patorjk"/>
