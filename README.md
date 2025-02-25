@@ -38,7 +38,8 @@
         <b>patorjk</b>
       </td>
      </tr>
-      <br>         
+     <br>
+     <tr>
       <td align="center" valign="top" width="14.28%">
         <a href="n/a">
           <img src="https://cdn.discordapp.com/avatars/587354401883291651/96e257dd42f06c7e1d0e16afec029b06.webp?size=80" width="120px" style="border-radius: 50%;" alt="Grim"/>
@@ -46,8 +47,10 @@
         <br>
         <b>Grim</b>
         <p>Help debug and find exploit's in php, fetch request etc.</p>
-      </td> 
+      </td>
+      </tr>    
       <br>
+      <tr>    
       <td align="center" valign="top" width="fit-content">
         <a href="n/a">
           <img src="https://media.discordapp.net/attachments/725448544454050003/1343791398159384706/dawg_-_with_text.png" width="120px" style="border-radius: 50%;" alt="Grim"/>
@@ -56,7 +59,9 @@
         <b>David</b>
         <p>Help debug and find exploit's, help tweak security related things in certain area's when asked.</p>
       </td>
-      <br>   
+      </tr>     
+      <br>
+      <tr>     
       <td align="center" valign="top" width="fit-content">
         <a href="https://www.chatgpt.com">
           <img src="https://logos-world.net/wp-content/uploads/2023/02/ChatGPT-Logo.jpg" width="120px" style="border-radius: 50%;" alt="Grim"/>
@@ -65,7 +70,9 @@
         <b>ChatGPT</b>
         <p>Is the teacher ai used by default, it learns it's natural language from chatgpt.</p>
       </td>
-      <br>    
+      </tr>     
+      <br>
+      <tr>     
       <td align="center" valign="top" width="fit-content">
         <a href="https://www.chatgpt.com">
           <img src="https://girlgeek.io/wp-content/uploads/2019/08/openai-logo-vertical-dimensional-white.jpg" width="120px" style="border-radius: 50%;" alt="OpenAI"/>
@@ -74,7 +81,9 @@
         <b>OpenAI</b>
         <p>Natural language api, is another teacher that is used for the ai.</p>
       </td>
-      <br>   
+      </tr>     
+      <br>
+      <tr>     
       <td align="center" valign="top" width="fit-content">
         <a href="https://www.google.com">
           <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_light_color_272x92dp.png" width="120px" style="border-radius: 50%;" alt=""/>
@@ -82,8 +91,10 @@
         <br>
         <b>OpenAI</b>
         <p>youtube data v3 api, used to collect statistical data from youtube.com</p>
-      </td> 
-      <br>     
+      </td>
+      </tr>     
+      <br>
+      <tr>     
       <td align="center" valign="top" width="fit-content">
         <a href="https://www.github.com">
           <img src="https://logodix.com/logo/64562.png" width="120px" style="border-radius: 50%;" alt="Github"/>
@@ -91,7 +102,8 @@
         <br>
         <b>Github</b>
         <p>Storing various thing's and retrieving it, using github api.</p>
-      </td>          
+      </td>
+      </tr>
 </table>
 
 ## Release History
