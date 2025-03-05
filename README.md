@@ -111,7 +111,7 @@
       </tr>
       <td align="center" valign="top" width="fit-content">
         <a href="https://www.github.com">
-          <img src="[https://logodix.com/logo/64562.png](https://www.celge.fr/wp-content/uploads/2022/05/Cloudflare-logo-1536x1024.png)" width="120px" style="border-radius: 50%;" alt="Cloudflare"/>
+          <img src="https://www.celge.fr/wp-content/uploads/2022/05/Cloudflare-logo-1536x1024.png" width="120px" style="border-radius: 50%;" alt="Cloudflare"/>
         </a>
         <br>
         <b>Cloudflare</b>
