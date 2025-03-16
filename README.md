@@ -212,3 +212,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 42): 	/* Hide scrollbar but keep it functional */
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 43): 	.code-navbar::-webkit-scrollbar {
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 44): 		width: 0px; /* Hides the scrollbar */
