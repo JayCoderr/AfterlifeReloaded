@@ -360,3 +360,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 126): 				&lt;/div&gt;
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 127): 				&lt;div class=&quot;switch-container&quot;&gt;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 128): 					&lt;label for=&quot;explainSwitch&quot;&gt...
