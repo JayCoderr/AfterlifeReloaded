@@ -258,3 +258,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 69): 		cursor: pointer;
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 70): 		font-size: 12px;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 71): 		box-shadow: 0px 4px 10px rgba(0,0,0,1);
