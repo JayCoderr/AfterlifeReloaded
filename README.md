@@ -446,3 +446,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 176): 					&lt;input type=&quot;range&quot; id=&quot;...
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 177): 				&lt;/div&gt;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 179): 				&lt;!-- Set Token Amount --&gt;
