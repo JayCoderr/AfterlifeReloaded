@@ -790,3 +790,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 26): 		align-items: center;
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 27): 		background-color: #333;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 28): 		color: white;
