@@ -458,3 +458,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 183): 					&lt;button id=&quot;set-token-amount&quot;...
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 184): 				&lt;/div&gt;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 186): 				&lt;!-- Custom Rules --&gt;
