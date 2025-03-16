@@ -252,3 +252,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 66): 		border: none;
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 67): 		padding: 4px 8px;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 68): 		border-radius: 4px;
