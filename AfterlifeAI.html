@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" style="
-    filter: contrast(1.5);
-">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.53">
@@ -9,17 +6,76 @@
     <meta name="description" content="Afterlife v7.0">
     <meta name="author" content="Jaycoder">
     <title>Afterlife AI 7.0</title>
-	<script src="https://afterlifereloaded.com/AfterlifeReloadedRoot/js/ApplyPersonalAIDesign.js" defer></script>
-    <script src="https://afterlifereloaded.com/AfterlifeReloadedRoot/js/AfterlifeReloadedRandomBG.js" defer></script>
-	<script src="https://afterlifereloaded.com/AfterlifeReloadedRoot/js/AfterlifeReloadedSendMessage.js" defer=""></script>
-	<script src="https://afterlifereloaded.com/AfterlifeReloadedRoot/js/AfterlifeReloadedUserMessageBubble.js" defer=""></script>	
-	<script src="https://afterlifereloaded.com/AfterlifeReloadedRoot/js/AfterlifeReloadedAIMessageBubble.js" defer=""></script>
-	<script src="https://afterlifereloaded.com/AfterlifeReloadedRoot/js/AfterlifeReloadedGeneralGS.js" defer=""></script>
-	<script src="https://afterlifereloaded.com/AfterlifeReloadedRoot/js/AfterlifeReloadedHudBGColor.js"></script>
+	<!-- Css Themes -->
 	<link rel="stylesheet" href="AfterlifeReloadedRoot/css/AfterlifeReloadedGeneral.css"> 
 	<link rel="stylesheet" href="AfterlifeReloadedRoot/css/AfterlifeReloadedGeneral00.css"> 
 	<link rel="stylesheet" href="AfterlifeReloadedRoot/css/AfterlifeReloadedGeneral01.css">	
 	<link rel="stylesheet" href="AfterlifeReloadedRoot/css/AfterlifeReloadedSettingMenu.css">
+	<!-- Js Scripts -->	
+	<script src="https://afterlifereloaded.com/AfterlifeReloadedRoot/js/AfterlifeReloadedGeneralGS.js" defer></script>
+	<script src="https://afterlifereloaded.com/AfterlifeReloadedRoot/js/AfterlifeReloadedSendMessage.js" defer></script>
+	<script src="https://afterlifereloaded.com/AfterlifeReloadedRoot/js/AfterlifeReloadedUserMessageBubble.js" defer></script>
+	<script src="https://afterlifereloaded.com/AfterlifeReloadedRoot/js/AfterlifeReloadedAIMessageBubble.js" defer></script>
+	<script src="https://afterlifereloaded.com/AfterlifeReloadedRoot/js/afterlife_reloaded_chat_tracker.js" defer></script>	
+	<script src="https://afterlifereloaded.com/AfterlifeReloadedRoot/js/ApplyPersonalAIDesign.js" defer></script>
+	<style>
+	/* Navbar Style Top Bar */
+	.code-navbar {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background-color: #333;
+		color: white;
+		padding: 3px 12px;
+		font-size: 14px;
+		font-weight: bold;
+		margin-left: -9px;
+		margin-top: -9px;
+		min-width: 193px;
+		position: absolute;
+		width: inherit;
+		max-width: inherit;
+		border-radius: 25px;
+		box-shadow: 0px 4px 10px rgba(0,0,120,1);
+	}
+	
+	/* Hide scrollbar but keep it functional */
+	.code-navbar::-webkit-scrollbar {
+		width: 0px; /* Hides the scrollbar */
+		background: transparent; /* Ensure background is transparent */
+	}
+	
+	.code-navbar::-webkit-scrollbar-thumb {
+		background: transparent; /* Ensure thumb is also invisible */
+	}
+	
+	.code-navbar:empty:before {
+		content: attr(placeholder);
+		color: #999;
+	}
+	
+	/* Language Label */
+	.code-lang {
+		font-family: 'Courier New', monospace;
+	}
+	
+	/* Copy Button */
+	.copy-btn {
+		background: rgba(0,0,0,1);
+		color: white;
+		border: none;
+		padding: 4px 8px;
+		border-radius: 4px;
+		cursor: pointer;
+		font-size: 12px;
+		box-shadow: 0px 4px 10px rgba(0,0,0,1);
+		border-radius: 25px;
+	}
+	
+	.copy-btn:hover {
+		background: #777;
+	}	
+	</style>	
 </head>
 
 <body>
@@ -386,7 +442,7 @@
 		if (button) {
 			button.addEventListener("click", function () {
 				// Send the request to the PHP script
-				fetch("AfterlifeReloadedRoot/php/sendemail.php")
+				fetch("AfterlifeReloadedRoot/php/AfterlifeReloadedEmail.php")
 					.then(response => response.text())  // Get the response text
 					.then(data => {
 						// Show response on the page
@@ -448,5 +504,288 @@
 		}, 10000);
 	}
 	</script>
+	<script>
+document.addEventListener('DOMContentLoaded', () => { 
+    const userBaseRgb = sessionStorage.getItem('baseRgba'); 
+	
+	const alphaValue = 0.98; // Adjust your desired alpha value
+	const rgbaValue = userBaseRgb.replace(/rgba?\(([^,]+),([^,]+),([^,]+)(?:,([^)]+))?\)/, (match, r, g, b, a) => {
+	return `rgba(${r}, ${g}, ${b}, ${alphaValue})`;
+	});	
+	
+    // Create the loading screen
+    const loadingScreen = document.createElement('div');
+    loadingScreen.id = 'loadingScreen';
+    loadingScreen.style.position = 'fixed';
+    loadingScreen.style.top = '0';
+    loadingScreen.style.left = '0';
+    loadingScreen.style.width = '100vw';
+    loadingScreen.style.height = '100vh';
+    loadingScreen.style.backgroundColor = rgbaValue;
+    loadingScreen.style.display = 'flex';
+    loadingScreen.style.flexDirection = 'column';
+    loadingScreen.style.alignItems = 'center';
+    loadingScreen.style.justifyContent = 'center';
+    loadingScreen.style.transition = 'clip-path 1.5s ease-in-out, opacity 1s ease-in-out';
+    loadingScreen.style.clipPath = 'inset(0% 0% 0% 0%)';
+    document.body.appendChild(loadingScreen);
+
+    // Create loader
+    const loader = document.createElement('div');
+    loader.className = 'loader';
+    loader.style.width = '50px';
+    loader.style.height = '50px';
+    loader.style.border = '5px solid rgba(255, 255, 255, 0.2)';
+    loader.style.borderTop = '5px solid white';
+    loader.style.borderRadius = '50%';
+    loader.style.animation = 'spin 1s linear infinite';
+    loader.style.marginBottom = '15px';
+    loadingScreen.appendChild(loader);
+
+    // Create loading text
+    const loadingText = document.createElement('div');
+    loadingText.id = 'loadingText';
+    loadingText.style.color = 'white'
+    loadingText.style.fontSize = '18px';
+    loadingText.style.fontWeight = 'bold';
+    loadingText.style.textTransform = 'uppercase';
+    loadingText.style.letterSpacing = '2px';
+    loadingText.style.textShadow = userBaseRgb;
+    loadingScreen.appendChild(loadingText);
+
+    // Create HUD container
+    const hud = document.createElement('div');
+    hud.className = 'hud';
+    hud.style.position = 'absolute';
+    hud.style.bottom = '10px';
+    hud.style.left = '50%';
+    hud.style.transform = 'translateX(-50%)';
+    hud.style.fontSize = '12px';
+    hud.style.opacity = '0.8';
+    hud.style.textAlign = 'center';
+    hud.style.width = '220px';
+    loadingScreen.appendChild(hud);
+
+    // Create progress container
+    const progressContainer = document.createElement('div');
+    progressContainer.className = 'progress-container';
+    progressContainer.style.display = 'flex';
+    progressContainer.style.alignItems = 'center';
+    progressContainer.style.justifyContent = 'space-between';
+    progressContainer.style.marginTop = '5px';
+    progressContainer.style.marginBottom = '25px';  // Move it up by 25px
+    hud.appendChild(progressContainer);
+
+    // Create progress text
+    const progressText = document.createElement('span');
+    progressText.id = 'progressText';
+    progressText.textContent = '0%';
+    progressText.style.color = 'white';
+    progressContainer.appendChild(progressText);
+
+    // Create progress bar
+    const progressBar = document.createElement('div');
+    progressBar.className = 'progress-bar';
+    progressBar.style.flexGrow = '1';
+    progressBar.style.height = '5px';
+    progressBar.style.background = 'rgba(255, 255, 255, 0.2)';
+    progressBar.style.borderRadius = '5px';
+    progressBar.style.overflow = 'hidden';
+    progressContainer.appendChild(progressBar);
+
+    // Create progress element inside progress bar
+    const progress = document.createElement('div');
+    progress.className = 'progress';
+    progress.style.width = '0%';
+    progress.style.height = '100%';
+    progress.style.background = 'white';
+    progress.style.transition = 'width 0.1s linear';
+    progressBar.appendChild(progress);
+
+    // Create system log container
+    const logContainer = document.createElement('div');
+    logContainer.className = 'system-log';
+    logContainer.style.fontSize = '10px';
+    logContainer.style.opacity = '0.7';
+    logContainer.style.textAlign = 'left';
+    logContainer.style.width = '220px';
+    logContainer.style.height = '10px'; // Adjust height to accommodate more content
+    logContainer.style.overflow = 'auto'; // Enable scrolling
+    logContainer.style.marginTop = '10px';
+    logContainer.style.marginBottom = '25px';  // Move it up by 25px
+    logContainer.style.borderLeft = '2px solid white';
+    logContainer.style.paddingLeft = '5px';
+    logContainer.style.color = 'white';
+    
+    // Hide scrollbar in WebKit browsers
+    logContainer.style.cssText += `
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    `;
+    
+    // For Firefox and IE/Edge
+    logContainer.style.scrollbarWidth = 'none'; // Hide scrollbar for Firefox
+    logContainer.style.msOverflowStyle = 'none'; // Hide scrollbar for IE/Edge
+    
+    hud.appendChild(logContainer);
+
+    // Load session data
+    const userIsLoggedIn = sessionStorage.getItem('isLoggedIn');
+    const userName = sessionStorage.getItem('username');
+    const userRole = sessionStorage.getItem('role');
+    const userClan = sessionStorage.getItem('clantag');
+    const userEmail = sessionStorage.getItem('email');
+    const userAI = sessionStorage.getItem('aiusername');
+    const userImage = sessionStorage.getItem('userProfileImage');
+    const userAIImage = sessionStorage.getItem('aiProfileImage');
+    const userBackgroundImage = sessionStorage.getItem('userBackgroundImage');
+
+    let loadPercentage = 0;
+    const loadingMessages = [
+        "Initializing . . .",
+        "Loading Core . .",
+        "Authenticating . ",
+        "Optimizing . . ",
+        "Finalizing . . ."
+    ];
+
+	const systemLogs = [
+		"Username: " + userName,
+		userIsLoggedIn === "true" ? "User auth: Verified!" : "User auth: UnVerified. . .",
+		"AI Username: " + userAI,
+		"Base RGB: " + userBaseRgb,
+		"Finalizing Boot Sequence..."
+	];
+
+    let messageIndex = 0;
+    let currentMessage = "";
+    let currentCharIndex = 0;
+	let currentLogIndex = 0;
+	let currentCharXIndex = 0;
+	let currentMessageX = "";
+	let isTyping = false; // Flag to check if we're currently typing or backspacing
+	let isBackspacing = false; // Flag to track backspacing	
+
+    function typeLoadingMessage() {
+        if (currentCharIndex < loadingMessages[messageIndex].length) {
+            currentMessage += loadingMessages[messageIndex].charAt(currentCharIndex);
+            loadingText.textContent = currentMessage;
+            currentCharIndex++;
+        } else {
+            if (messageIndex < loadingMessages.length - 1) {
+                messageIndex++;
+                currentMessage = "";
+                currentCharIndex = 0;
+            }
+        }
+    }
+	function typeLogMessage(message, logContainer) {
+		isTyping = true; // Start typing
+	
+		// Clear any existing text before starting new message
+		currentMessageX = "";
+		logContainer.innerHTML = currentMessageX;
+		
+		const typingInterval = setInterval(() => {
+			if (currentCharXIndex < message.length) {
+				currentMessageX += message.charAt(currentCharXIndex);
+				logContainer.innerHTML = currentMessageX;  // Append the typed characters
+				currentCharXIndex++;
+			} else {
+				clearInterval(typingInterval); // Stop typing once the message is complete
+				setTimeout(() => {
+					// Wait before starting backspacing
+					isTyping = false; // No longer typing
+					isBackspacing = true; // Start backspacing
+					backspaceMessage(logContainer);
+				}, 500); // Delay before backspacing
+			}
+		}, 50); // Typing speed
+	}
+	function backspaceMessage(logContainer) {
+		if (isBackspacing) {
+			const backspaceInterval = setInterval(() => {
+				if (currentMessageX.length > 0) {
+					currentMessageX = currentMessageX.slice(0, -1); // Remove one character
+					logContainer.innerHTML = currentMessageX;  // Update the displayed message
+				} else {
+					clearInterval(backspaceInterval); // Stop backspacing when message is cleared
+					isBackspacing = false; // Reset backspacing flag
+					// Move to the next message
+					if (currentLogIndex < systemLogs.length - 1) {
+						currentLogIndex++;
+						currentCharXIndex = 0;  // Reset character index for the next message
+						setTimeout(() => {
+							// Start typing the next message after backspacing completes
+							typeLogMessage(systemLogs[currentLogIndex], logContainer);
+						}, 500);  // Delay before starting the next message
+					}
+				}
+			}, 50); // Backspace speed
+		}
+	}	
+	typeLogMessage(systemLogs[currentLogIndex], logContainer);
+    function updateProgress() {
+        if (loadPercentage < 100) {
+            loadPercentage++;
+            progressText.textContent = loadPercentage + "%";
+            progress.style.width = loadPercentage + "%";
+            if (loadPercentage % 20 === 0) {
+                logContainer.innerHTML += `<div>${systemLogs[Math.floor(loadPercentage / 20) - 1]}</div>`;
+                logContainer.scrollTop = logContainer.scrollHeight; // Scroll to the bottom
+            }
+        } else if (loadPercentage === 100) {
+            // Shrink and fade out once progress reaches 100%
+            clearInterval(dotInterval);
+            clearInterval(progressInterval);
+
+            // Animate log appearance
+            const logElements = document.querySelectorAll(".system-log div");
+            logElements.forEach((el, i) => {
+                el.style.animationDelay = i * 0.5 + "s";
+                el.style.color = 'white';
+            });
+
+            // Shrink and fade out the loading screen
+            setTimeout(() => {
+                loadingScreen.style.clipPath = "inset(50% 50% 50% 50%)";
+                setTimeout(() => {
+                    loadingScreen.style.opacity = "0";
+                    setTimeout(() => loadingScreen.style.display = "none", 500);
+                }, 1500);
+            }, 1000);
+        }
+    }
+
+    // Type out the loading messages (adjusted for smoother typing)
+    const dotInterval = setInterval(typeLoadingMessage, 80); // Reduced interval for smoother typing
+
+    // Update progress bar and log every 100ms
+    const progressInterval = setInterval(updateProgress, 100);
+
+    // Keyframe animation for spinner
+    const style = document.createElement('style');
+    style.innerHTML = `
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    `;
+    document.head.appendChild(style);
+});  
+	
+	</script>		
 </body>
 </html>
