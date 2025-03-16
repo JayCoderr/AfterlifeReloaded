@@ -684,3 +684,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 315): 							&lt;li&gt;Can fully edit AI&lt;/li&gt;
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 316): 							&lt;li&gt;Can send admin emails&lt;/li&gt;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 317): 							&lt;li&gt;Has special clan tags/banners&...
