@@ -522,3 +522,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 221): 				&lt;!-- Font Scale Slider --&gt;
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 222): 				&lt;div class=&quot;settings-group&quot;&gt;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 223): 					&lt;label for=&quot;font-scale&quot;&gt;Fo...
