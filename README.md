@@ -438,3 +438,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 171): 				&lt;/div&gt;
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 173): 				&lt;!-- Set Simulated Text Speed --&gt;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 174): 				&lt;div class=&quot;settings-group&quot;&gt;
