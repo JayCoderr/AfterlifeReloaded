@@ -548,3 +548,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 236): 					&lt;input type=&quot;color&quot; id=&quot;...
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 237): 				&lt;/div&gt;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 239): 				&lt;!-- Glow Color RGB Selector --&gt;
