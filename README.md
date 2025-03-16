@@ -198,3 +198,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 34): 		min-width: 193px;
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 35): 		position: absolute;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 36): 		width: inherit;
