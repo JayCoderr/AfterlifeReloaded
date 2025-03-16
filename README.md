@@ -420,3 +420,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 161): 				&lt;button id=&quot;edit-natural-lang&quot;...
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 163): 				&lt;!-- Change Model Dropdown --&gt;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 164): 				&lt;div class=&quot;settings-group&quot;&gt;
