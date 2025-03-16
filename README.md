@@ -236,3 +236,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 57): 	/* Language Label */
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 58): 	.code-lang {
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 59): 		font-family: &#039;Courier New&#039;, monospace;
