@@ -248,3 +248,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 64): 		background: rgba(0,0,0,1);
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 65): 		color: white;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 66): 		border: none;
