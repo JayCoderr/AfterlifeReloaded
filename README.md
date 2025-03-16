@@ -422,3 +422,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 163): 				&lt;!-- Change Model Dropdown --&gt;
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 164): 				&lt;div class=&quot;settings-group&quot;&gt;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 165): 					&lt;label for=&quot;change-model&quot;&gt;...
