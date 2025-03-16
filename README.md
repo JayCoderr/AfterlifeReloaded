@@ -264,3 +264,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 72): 		border-radius: 25px;
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 73): 	}
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 75): 	.copy-btn:hover {
