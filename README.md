@@ -592,3 +592,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 264): 				&lt;!-- AI Text to Speech --&gt;
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 265): 				&lt;div class=&quot;settings-group&quot;&gt;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 266): 					&lt;label for=&quot;text-to-speech&quot;&g...
