@@ -398,3 +398,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 148): 				&lt;!-- Local Natural Language --&gt;
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 149): 				&lt;div class=&quot;settings-group&quot;&gt;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 150): 					&lt;label&gt;Local Natural Language:&lt;/l...
