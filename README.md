@@ -518,3 +518,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 218): 					&lt;button id=&quot;set-ai-name&quot;&gt;S...
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 219): 				&lt;/div&gt;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 221): 				&lt;!-- Font Scale Slider --&gt;
