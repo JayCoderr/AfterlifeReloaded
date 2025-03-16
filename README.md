@@ -125,3 +125,6 @@
 - **2025-02-24 (v7.0.0):** The AI is fully integrated into a website environment, with source code and documentation available on GitHub.
 - **2025-03-04 (v7.0.0):** Various memory related things we're fixed in the ai.
 - **Unknown (v7.0.0):** Login system implemented using github, and various other things.
+
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 102): 			&lt;h3&gt;AI Response Settings!&lt;/h3&gt;
