@@ -450,3 +450,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 179): 				&lt;!-- Set Token Amount --&gt;
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 180): 				&lt;div class=&quot;settings-group&quot;&gt;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 181): 					&lt;label for=&quot;token-amount&quot;&gt;...
