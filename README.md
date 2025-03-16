@@ -460,3 +460,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 184): 				&lt;/div&gt;
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 186): 				&lt;!-- Custom Rules --&gt;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 187): 				&lt;div class=&quot;settings-group&quot;&gt;
