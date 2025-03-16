@@ -572,3 +572,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 252): 				&lt;!-- AI Notify Sound --&gt;
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 253): 				&lt;div class=&quot;settings-group&quot;&gt;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 254): 					&lt;label for=&quot;notify-sound&quot;&gt;...
