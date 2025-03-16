@@ -552,3 +552,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 239): 				&lt;!-- Glow Color RGB Selector --&gt;
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 240): 				&lt;div class=&quot;settings-group&quot;&gt;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 241): 					&lt;label for=&quot;glow-color&quot;&gt;Gl...
