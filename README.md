@@ -494,3 +494,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 204): 				&lt;/div&gt;
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 206): 				&lt;!-- AI User Image + Preview --&gt;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 207): 				&lt;div class=&quot;settings-group&quot;&gt;
