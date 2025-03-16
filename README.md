@@ -202,3 +202,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 36): 		width: inherit;
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 37): 		max-width: inherit;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 38): 		border-radius: 25px;
