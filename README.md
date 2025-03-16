@@ -538,3 +538,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 230): 					&lt;input type=&quot;range&quot; id=&quot;...
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 231): 				&lt;/div&gt;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 233): 				&lt;!-- Background HUD RGB Selector --&gt;
