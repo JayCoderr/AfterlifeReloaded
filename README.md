@@ -234,3 +234,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 55): 	}
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 57): 	/* Language Label */
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 58): 	.code-lang {
