@@ -408,3 +408,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 154): 				&lt;!-- Public Natural Language --&gt;
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 155): 				&lt;div class=&quot;settings-group&quot;&gt;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 156): 					&lt;label&gt;Public Natural Language:&lt;/...
