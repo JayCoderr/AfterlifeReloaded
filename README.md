@@ -304,3 +304,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 94): 		&lt;button class=&quot;toggleScroll&quot; id=...
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 95): 	&lt;/div&gt;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 97): 	&lt;!-- HUD Overlay --&gt;
