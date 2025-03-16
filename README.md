@@ -208,3 +208,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 39): 		box-shadow: 0px 4px 10px rgba(0,0,120,1);
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 40): 	}
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 42): 	/* Hide scrollbar but keep it functional */
