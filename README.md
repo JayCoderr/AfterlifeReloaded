@@ -796,3 +796,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 29): 		padding: 3px 12px;
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 30): 		font-size: 14px;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 31): 		font-weight: bold;
