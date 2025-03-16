@@ -126,24 +126,4 @@
 - **2025-03-04 (v7.0.0):** Various memory related things we're fixed in the ai.
 - **Unknown (v7.0.0):** Login system implemented using github, and various other things.
 
-
-**2025-03-16:** Updated `AfterlifeAI.html`: <html lang="en">
-
-**2025-03-16:** Updated `AfterlifeAI.html` (Line 1): <'html lang="en">
-
-**2025-03-16:** Updated `AfterlifeAI.html` (Line 1): <html lang="en">
-
-**2025-03-16:** Updated `AfterlifeAI.html` (Line 1): <html lang="en">
-
-**2025-03-16:** Updated `AfterlifeAI.html` (Line 1): <html lang="en">
-
-**2025-03-16:** Updated `AfterlifeAI.html` (Line 1): <html lang="en">
-
-**2025-03-16:** Updated `AfterlifeAI.html` (Line 1): <html lang="en">
-
-
-**2025-03-16:** Updated `AfterlifeAI.html` (Line 1): &lt;html lang=&quot;en&quot;&gt;
-
-**2025-03-16:** Updated `AfterlifeAI.html` (Line 1): &lt;html lang=&quot;en&quot;&gt;
-
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 1): &lt;html lang=&quot;en&quot;&gt;
