@@ -542,3 +542,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 233): 				&lt;!-- Background HUD RGB Selector --&gt;
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 234): 				&lt;div class=&quot;settings-group&quot;&gt;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 235): 					&lt;label for=&quot;background-hud-color&q...
