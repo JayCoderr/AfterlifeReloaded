@@ -580,3 +580,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 256): 				&lt;/div&gt;
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 258): 				&lt;!-- AI Voice --&gt;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 259): 				&lt;div class=&quot;settings-group&quot;&gt;
