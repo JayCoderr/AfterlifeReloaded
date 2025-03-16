@@ -196,3 +196,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 33): 		margin-top: -9px;
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 34): 		min-width: 193px;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 35): 		position: absolute;
