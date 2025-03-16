@@ -480,3 +480,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 196): 				&lt;h3&gt;Appearance Settings&lt;/h3&gt;
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 198): 				&lt;!-- AI Background + Preview --&gt;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 199): 				&lt;div class=&quot;settings-group&quot;&gt;
