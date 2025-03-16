@@ -492,3 +492,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 203): 					&lt;img id=&quot;ai-background-preview&quo...
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 204): 				&lt;/div&gt;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 206): 				&lt;!-- AI User Image + Preview --&gt;
