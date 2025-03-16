@@ -242,3 +242,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 60): 	}
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 62): 	/* Copy Button */
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 63): 	.copy-btn {
