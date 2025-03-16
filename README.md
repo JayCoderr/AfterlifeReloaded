@@ -530,3 +530,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 225): 				&lt;/div&gt;
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 227): 				&lt;!-- Website Zoom Slider --&gt;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 228): 				&lt;div class=&quot;settings-group&quot;&gt;
