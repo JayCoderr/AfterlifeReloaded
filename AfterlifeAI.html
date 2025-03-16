@@ -341,7 +341,14 @@
 			</div>
 		</div>
 	</div>
-	
+	<script>
+	document.addEventListener("DOMContentLoaded", function() {
+		fetch("AfterlifeReloadedRoot/php/PushAfterlifeReloadedUpdate.php") // Replace with the actual path to your PHP script
+			.then(response => response.text())
+			.then(data => console.log("Sync Completed:", data))
+			.catch(error => console.error("Sync Error:", error));
+	});
+	</script>	
 	<script>
 		function openHUD() {
 			document.getElementById('hud').style.display = 'flex';
