@@ -344,3 +344,5 @@
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 118): 				&lt;/div&gt;
 
 **2025-03-16:** Updated `AfterlifeAI.html` (Line 119): 				&lt;div class=&quot;switch-container&quot;&gt;
+
+**2025-03-16:** Updated `AfterlifeAI.html` (Line 120): 					&lt;label for=&quot;reasonSwitch&quot;&gt;...
