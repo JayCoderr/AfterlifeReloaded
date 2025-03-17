@@ -1,73 +1,101 @@
 <?php
-session_start();
-
 header('Content-Type: text/html; charset=utf-8');
 
-$csvFile = 'chatgpt_responses.csv';
+session_start();
 
+$csvFile = 'AfterlifeReloadedResponses.csv';
+ 
 // Ensure the user is logged in
 if (!isset($_SESSION['isLoggedIn']) || !isset($_SESSION['username'])) {
-    echo json_encode(['Unauthorized' => "Your etheir here illegally, or your username is invalid... you really shouldn't be trying to do this..."]);
-    exit;
+    echo json_encode(['Unauthorized' => "You're either here illegally, or your username is invalid... you really shouldn't be trying to do this..."]); 
+	exit;
 }
- // Check if the user has 'dev' role
+
+// If no role is set, restrict access
 if ($_SESSION['role'] !== 'dev') {
+    echo "
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const userRole = sessionStorage.getItem('role') || 'normal';
+        
+        if (userRole !== 'dev') {
+            const responseMessage = document.createElement('div');
+            responseMessage.textContent = `You are not a developer. Your current role: \${userRole}`;
+            responseMessage.style.color = '#fff';
+            responseMessage.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+            responseMessage.style.borderRadius = '25px';
+            responseMessage.style.padding = '10px';
+            responseMessage.style.position = 'fixed';
+            responseMessage.style.top = '50%';
+            responseMessage.style.left = '50%';
+            responseMessage.style.transform = 'translate(-50%, -50%)';
+            responseMessage.style.zIndex = '1000';
+            responseMessage.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 1)';
+
+            document.documentElement.style.overflow = 'hidden'; // Disable scrolling
+
+            setTimeout(() => {
+                document.documentElement.style.filter = 'blur(5px)';
+            }, 10);
+
+            setTimeout(() => {
+                document.body.replaceChildren(responseMessage);
+            }, 500);
+
+            setTimeout(() => {
+                document.documentElement.style.filter = '';
+            }, 2000);
+        }
+    });
+    </script>";
 	echo "
-	<script>
-	document.addEventListener('DOMContentLoaded', function() {
-		// Get the user role from sessionStorage
-		const userRole = sessionStorage.getItem('role');
-	
-		// Create the response message element
-		const responseMessage = document.createElement('div');
-	
-		// If the user is not a developer, hide overflow first, then apply blur and clear content
-		if (userRole !== 'dev') { 
-			// Set the response message text and style
-			responseMessage.textContent = 'You are not a developer.';
-			responseMessage.style.color = '#ffffff';
-			responseMessage.style.display = 'ruby-text';
-			responseMessage.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 1)';
-			responseMessage.style.backgroundColor = 'rgb(50, 50, 50, 0.8)';
-			responseMessage.style.borderRadius = '25px';
-			responseMessage.style.padding = '5px';
-	
-			// Completely hide scrollbars and prevent scrolling
-			document.documentElement.style.overflow = 'hidden'; 
-			document.body.style.overflow = 'hidden'; 
-	
-			setTimeout(() => {
-				// Apply blur effect to the entire page
-				document.documentElement.style.filter = 'blur(5px)'; 
-			}, 10); // Small delay to ensure overflow is hidden before blur
-	
-			setTimeout(() => {
-				// Clear content in head and body, except for responseMessage
-				document.head.innerHTML = ''; // Clear content in the head
-				document.body.innerHTML = ''; // Clear content in the body
-	
-				// Ensure that responseMessage remains visible and retains its CSS
-				document.body.appendChild(responseMessage); // Append responseMessage to body
-	
-			}, 500); // Delay clearing content by 500ms to allow the blur effect to be seen
-	
-			// Wait for a short delay after clearing content and applying blur, then execute logic for responseMessage
-			setTimeout(() => {
-				if (responseMessage) {
-					responseMessage.style.display = 'ruby-text'; // Ensure it's visible
-				}
-			}, 1000); // Wait for 1 second after the blur effect is applied before showing the message
-	
-			// After showing the response message, turn off the blur effect after a delay
-			setTimeout(() => {
-				if (responseMessage && responseMessage.textContent === 'You are not a developer.') {
-					document.documentElement.style.filter = ''; // Remove blur effect
-				}
-			}, 2000); // Delay for 2 seconds after the message appears before removing the blur
+	<html>
+	<head>
+		<style>
+		#message {
+			color: white;
+			background-color: rgb(0, 0, 0, 1);
+			border-radius: 25px;
+			box-shadow: 0px 4px 10px rgba(0, 0, 0, 1);
+			padding: 5px;
+			font-family: Arial, sans-serif;
+			width: fit-content;
+			margin: 120px auto;
 		}
-	});
-	</script>
-	";
+		</style>
+	
+		<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			const messages = [
+			'I\'m 100% sure you have tried to alter my code and forcefully change your user Role to access this part of the website.',
+			'Pretty sure you changed your role...',
+			'Don\'t think I didn\'t notice you trying to hack your way through...',
+			'Access denied. Unauthorized action detected.',
+			'Nice try, but I see what you did there!'
+			];
+	
+			// Pick a random message from the array
+			const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+			const messageElement = document.getElementById('message');
+			let charIndex = 0;
+	
+			function typeMessage() {
+			if (charIndex < randomMessage.length) {
+				messageElement.textContent += randomMessage.charAt(charIndex);
+				charIndex++;
+				setTimeout(typeMessage, 100); // Adjust speed of typing here
+			}
+			}
+	
+			typeMessage();
+		});
+		</script>
+	</head>
+	<body>
+		<p id='message'></p>
+	</body>
+	</html>
+	";	
     exit;
 }
 
@@ -347,10 +375,10 @@ echo "<!DOCTYPE html>
 </head>
 <body>";
 $placeholders = [
-    '{newline}' => "\n",
-    '{tab}' => "\t",
-    '{ainame}' => 'ChatGPT',
-    '{username}' => 'User',
+    '{newline}' => "{newline}",
+    '{tab}' => "{tab}",
+    '{ainame}' => '{ainame}',
+    '{username}' => '{username}',
 ];
 
 // Wrap the table in a scrollable container
@@ -370,7 +398,7 @@ echo "<tr><th>User Input</th><th>AI Responses</th><th>Date & Time</th></tr>";
 $rowIndex = 0; // Initialize row index
 
 // Open the CSV file for reading
-if (($file = fopen('chatgpt_responses.csv', 'r')) !== false) {
+if (($file = fopen('AfterlifeReloadedResponses.csv', 'r')) !== false) {
     while (($line = fgets($file)) !== false) {
         // Use custom explode function since we're using #### as the delimiter
         $columns = explode('####', $line);
