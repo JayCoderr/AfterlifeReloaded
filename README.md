@@ -168,3 +168,4 @@
 ● **2025-03-17:** Updated `AfterlifeReloadedRoot/js/AfterlifeReloadedFigletCustom.js` (Line 1): c4c8314a88594448bd8e4cb0d5cca2e6a9655d7a
 ● **2025-03-17:** Updated `AfterlifeReloadedRoot/js/AfterlifeReloadedGeneralGS.js` (Line 1): 033241441d173ba59c0690668cc3a263a51c7cb9
 ● **2025-03-17:** Updated `AfterlifeReloadedRoot/js/AfterlifeReloadedGoogleYTVideo.js` (Line 1): 51606b026b4f9f7a8b60252ef6ad224e082ab892
+● **2025-03-17:** Updated `AfterlifeReloadedRoot/js/AfterlifeReloadedHudBGColor.js` (Line 1): 2a60e5f9fb2b466a39eb0dd234dd0e5a578f02ed
