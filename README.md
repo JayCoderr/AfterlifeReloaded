@@ -171,3 +171,4 @@
 ● **2025-03-17:** Updated `AfterlifeReloadedRoot/js/AfterlifeReloadedHudBGColor.js` (Line 1): 2a60e5f9fb2b466a39eb0dd234dd0e5a578f02ed
 ● **2025-03-17:** Updated `AfterlifeReloadedRoot/js/AfterlifeReloadedRandomBG.js` (Line 1): 5088035060bdcb69699b01d82c82372a52c86631
 ● **2025-03-17:** Updated `AfterlifeReloadedRoot/js/AfterlifeReloadedRD.js` (Line 1): 36033415e5109120949f5115b0e71cd006a62548
+● **2025-03-17:** Updated `AfterlifeReloadedRoot/js/AfterlifeReloadedRGBSelector.js` (Line 1): 0915244044d3864a42e3b429d2e64bdc2f89f8b1
