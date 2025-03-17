@@ -225,3 +225,4 @@ Updated `AfterlifeReloaded.html` (Line 22): 	&lt;script src=&quot;AfterlifeReloa
 ● **2025-03-17:** Updated `AfterlifeReloadedRoot/js/AfterlifeReloadedCTD.js` (Line 1): 513d27c7756bbc96c6a7f2bb30e9921ace404ac4
 ● **2025-03-17:** Updated `AfterlifeReloadedRoot/js/AfterlifeReloadedEmail.js` (Line 1): 22999092638eb8c3b4d70cbb7eb3f9ba165c9442
 ● **2025-03-17:** Updated `AfterlifeReloadedRoot/js/AfterlifeReloadedFigletCustom.js` (Line 1): c4c8314a88594448bd8e4cb0d5cca2e6a9655d7a
+● **2025-03-17:** Updated `AfterlifeReloadedRoot/js/AfterlifeReloadedGeneralGS.js` (Line 1): 033241441d173ba59c0690668cc3a263a51c7cb9
