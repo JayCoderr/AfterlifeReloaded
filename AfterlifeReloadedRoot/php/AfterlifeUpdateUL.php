@@ -69,6 +69,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $decodedContent = base64_decode($data['content']);
     $userData = json_decode($decodedContent, true);
+	
+	// Hash existing plain text passwords (if needed)
+	foreach ($userData['users'] as $index => $user) {
+		if (!isset($user['password']) || !password_get_info($user['password'])['algo']) {
+			$userData['users'][$index]['password'] = password_hash($user['password'], PASSWORD_DEFAULT);
+		}
+	}
+	
+	// Save the updated user data back to GitHub
+	$sha = $data['sha']; // Get SHA from GitHub response
+	updateGitHubFile($path, json_encode($userData, JSON_PRETTY_PRINT), $token, $owner, $repo, $sha);	
 
     if ($userData === null) {
         echo json_encode(['error' => 'Invalid user data format.']);
@@ -78,11 +89,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	// Validate credentials
 	foreach ($userData['users'] as $index => $user) {
 		if ($user['username'] === $username) {
-			// Check password securely (use hashing in real-world usage)
-			if ($user['password'] === $password) {
+			// Check password securely using password_verify
+			if (password_verify($password, $user['password'])) {
 				$_SESSION['isLoggedIn'] = true;
 				$_SESSION['username'] = $username; // Store username in session
-				$_SESSION['role'] = $user['role'] ?? 'normal'; // Store role in session (with default to 'normal')
+				$_SESSION['role'] = $user['role'] ?? 'normal'; // Store role in session (default to 'normal')
 	
 				// If the user doesn't have a secret key, generate one
 				if (empty($user['secretKey'])) {
@@ -94,14 +105,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	
 				// Update the GitHub repository with the modified user data
 				$sha = $data['sha']; // Get the sha of the file from GitHub response
-				$response = updateGitHubFile($path, json_encode($userData), $token, $owner, $repo, $sha);
+				$response = updateGitHubFile($path, json_encode($userData, JSON_PRETTY_PRINT), $token, $owner, $repo, $sha);
 	
 				if ($response === false) {
 					echo json_encode(['error' => 'Failed to update GitHub file.']);
 					exit;
 				}
 	
-				// Send the response back to the frontend WITHOUT role
 				echo json_encode([
 					'status' => 'success',
 					'message' => 'Login successful.',
@@ -113,9 +123,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 					'userBackgroundImage' => $user['userBackgroundImage'] ?? 'https://example.com/bg.png',
 					'baseRgba' => $user['baseRgba'] ?? 'rgb(255,0,0,0.9)',
 					'secretKey' => $user['secretKey'] ?? '00000000',
-					'role' => "Your role is currently {$user['role']}", // Use double quotes to parse the variable correctly
-				]);
-
+					'role' => $user['role'] ?? 'normal',
+				], JSON_UNESCAPED_SLASHES);
+	
 				exit;
 			} else {
 				echo json_encode(['status' => 'error', 'message' => 'Invalid password.']);
