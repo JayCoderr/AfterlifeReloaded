@@ -4,7 +4,7 @@ function escapeHtml(html) {
     div.appendChild(text);
     return div.innerHTML;
 }
-const BubbleUserAI = "SADASDAD";
+const BubbleUserAI = sessionStorage.getItem('aiusername');
 let oldAIResponse = "";
 
 function generateUniqueId(prefix = 'codeNav') {
