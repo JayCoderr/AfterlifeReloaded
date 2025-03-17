@@ -23,25 +23,59 @@
 			"send a developer email",
 			"send a admin email"
 		],
-		"buttonHTML": "<div style=\"width: 800px; height: 305px; display: flex; align-items: center; justify-content: center; overflow: hidden; min-width: 75%; max-width: 100%; max-height: 100%;\">\n<iframe id=\"yt-iframe\" src=\"AfterlifeReloadedRoot/html/sendemailform.html\" style=\"width: 100%; height: 100%; border: none; overflow: auto;\">\n</iframe>\n</div><style>\n/* Hide scrollbar for Chrome, Safari, and Edge */\niframe::-webkit-scrollbar {\n    width: 0;\n    height: 0;\n}\n</style>"
+		"buttonHTML": "<div style=\"width: 800px; height: 345px; display: flex; align-items: center; justify-content: center; overflow: hidden; min-width: 75%; max-width: 100%; max-height: 100%;\">\n<iframe id=\"yt-iframe\" src=\"AfterlifeReloadedRoot/php/AfterlifeReloadedEmail.php\" style=\"width: 100%; height: 100%; border: none; overflow: auto;\">\n</iframe>\n</div><style>\n/* Hide scrollbar for Chrome, Safari, and Edge */\niframe::-webkit-scrollbar {\n    width: 0;\n    height: 0;\n}\n</style>"
     },
+    {
+		"trigger": 
+		[
+			"obfuscate some java code",
+			"obfuscate java code",
+			"compile java code"
+		],
+		"buttonHTML": "<div style=\"width: 800px; height: 800px; display: flex; align-items: center; justify-content: center; overflow: hidden; min-width: 75%; max-width: 100%; max-height: 100%;\">\n<iframe id=\"yt-iframe\" src=\"AfterlifeReloadedRoot/html/AfterlifeJS_Obfuscator.html\" style=\"width: 100%; height: 100%; border: none; overflow: auto;\">\n</iframe>\n</div><style>\n/* Hide scrollbar for Chrome, Safari, and Edge */\niframe::-webkit-scrollbar {\n    width: 0;\n    height: 0;\n}\n</style>"
+    },
+    {
+		"trigger": 
+		[
+			"show conversation log",
+			"open conversation log",
+			"show conversation history"
+		],
+		"buttonHTML": "<div style=\"width: 800px; height: 800px; display: flex; align-items: center; justify-content: center; overflow: hidden; min-width: 75%; max-width: 100%; max-height: 100%;\">\n<iframe id=\"yt-iframe\" src=\"AfterlifeReloadedRoot/html/testest.html\" style=\"width: 100%; height: 100%; border: none; overflow: auto;\">\n</iframe>\n</div><style>\n/* Hide scrollbar for Chrome, Safari, and Edge */\niframe::-webkit-scrollbar {\n    width: 0;\n    height: 0;\n}\n</style>"
+    },	
 	{
 		"trigger": 
 		[
 			"generate ascii art that says",
+			"generate asci art that says",			
 			"generate ascii art",
+			"generate asci art",			
 			"generate ascii that says",
+			"generate asci that says",			
 			"generate ascii",
+			"generate asci",			
 			"make some ascii art that says",
+			"make some asci art that says",			
 			"make some ascii for",
+			"make some asci for",			
+			"make some ascii",
+			"make some asci",			
 			"make ascii",
+			"make asci",			
 			"make ascii art",
+			"make asci art",			
 			"create ascii art",
+			"create asci art",			
 			"generate ascii text art",
+			"generate asci text art",			
 			"create some ascii art that say",
-			"create some ascii art"
+			"create some asci art that say",			
+			"create some ascii art",
+			"create some asci art",			
+			"make ascii of",
+			"make asci of"		
 		],
-		"buttonHTML": "<div style=\"width: 800px; height: 625px; display: flex; align-items: center; justify-content: center; overflow: hidden; min-width: 75%; max-width: 100%; max-height: 100%;\">\n<iframe id=\"ascii-iframe\" src=\"AfterlifeReloadedRoot/html/figlet.html\" style=\"width: 100%; height: 100%; border: none; overflow: auto;\"></iframe>\n</div>"
+		"buttonHTML": "<div style=\"width: 800px; height: calc(400px + 100px); display: flex; align-items: center; justify-content: center; overflow: hidden; min-width: 75%; max-width: 100%; max-height: 100%;\">\n<iframe id=\"ascii-iframe\" src=\"AfterlifeReloadedRoot/html/figlet.html\" style=\"width: 100%; height: 100%; border: none; overflow: auto;\"></iframe>\n</div>"
 	},
 	{
 		"trigger": 
