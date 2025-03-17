@@ -16,7 +16,15 @@ const images = [
 	'https://i.pinimg.com/originals/0a/78/59/0a7859459211275b4e8d3b212d4e9522.gif',
 	'https://iili.io/21peoHQ.gif',
 	'https://iili.io/21yKpr7.gif',
-	'https://iili.io/21mKBUu.gif'
+	'https://iili.io/21mKBUu.gif',
+	'https://www.solidbackgrounds.com//images//3840x2160//3840x2160-black-solid-color-background.jpg',
+	'https://www.solidbackgrounds.com/images/3840x2160/3840x2160-navy-blue-solid-color-background.jpg',
+	'https://www.solidbackgrounds.com/images/3840x2160/3840x2160-spartan-crimson-solid-color-background.jpg',
+	'https://www.solidbackgrounds.com/images/3840x2160/3840x2160-rich-electric-blue-solid-color-background.jpg',
+	'https://www.solidbackgrounds.com/images/3840x2160/3840x2160-twilight-lavender-solid-color-background.jpg',
+	'https://www.solidbackgrounds.com/images/3840x2160/3840x2160-go-green-solid-color-background.jpg',
+	'https://www.solidbackgrounds.com/images/3840x2160/3840x2160-skobeloff-solid-color-background.jpg',
+	'https://www.solidbackgrounds.com/images/3840x2160/3840x2160-red-pigment-solid-color-background.jpg'	
 ];
 
 // Retrieve the background URL from sessionStorage

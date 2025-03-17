@@ -62,7 +62,6 @@ async function verifyLoginStatus() {
         // Fetch sessionStorage values
         const userIsLoggedIn = sessionStorage.getItem('isLoggedIn');
         const userName = sessionStorage.getItem('username');
-        const userRole = sessionStorage.getItem('role');
         const userClan = sessionStorage.getItem('clantag');
         const userEmail = sessionStorage.getItem('email');
         const userAI = sessionStorage.getItem('aiusername');
@@ -70,7 +69,6 @@ async function verifyLoginStatus() {
         const userAIImage = sessionStorage.getItem('aiProfileImage');
         const userBackgroundImage = sessionStorage.getItem('userBackgroundImage');
         const userBaseRgb = sessionStorage.getItem('baseRgba');
-		const userSecretKey = sessionStorage.getItem('secretKey');
 		
         // Adjust the check based on result.isLoggedIn
 		
@@ -78,7 +76,6 @@ async function verifyLoginStatus() {
 		console.log(`
 		Userlogin Status: ${userIsLoggedIn}
 		Username: ${userName}
-		Userrole: ${userRole}
 		Usertag: ${userClan}
 		Useremail: ${userEmail}
 		UserAI: ${userAI}
@@ -86,7 +83,6 @@ async function verifyLoginStatus() {
 		UserAIImage: ${userAIImage}
 		UserBackgroundImage: ${userBackgroundImage}
 		UserBaseRgb: ${userBaseRgb}
-		UserSecretKey: ${userSecretKey}
 		`);
 		
 		console.log(`

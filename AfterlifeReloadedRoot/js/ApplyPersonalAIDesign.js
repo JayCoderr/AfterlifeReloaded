@@ -8,44 +8,47 @@ function applyBackgroundColorToElements(selectors, baseRgba) {
     });
 }
 
-// Function to update the color for multiple elements dynamically with hover & hue adjustment
 function updateElementColors() {
     const elementsConfig = {
-        '.navbar': { alpha: 0, hover: null, hueShift: 0 },
-        '.user-response .panel': { alpha: 0, hover: null, hueShift: 0 },
-        '.ai-response .panel': { alpha: 0, hover: null, hueShift: 0 },
-        '.user-input input': { alpha: 0, hover: null, hueShift: 250 },
-        '.aiusername': { alpha: 0.3, hover: null, hueShift: 250 },
-        '.username': { alpha: 0.3, hover: null, hueShift: 250 },
-        '.footer': { alpha: 0, hover: null, hueShift: 0 },
-        '.render-html-button': { alpha: 0, hover: null, hueShift: 250 },
-        '.rich-textbox': { alpha: 0.6, hover: null, hueShift: 0 },
-        '.settings-btn': { alpha: 0.3, hover: null, hueShift: 250 },
-        '.hud-panel': { alpha: 0.5, hover: null, hueShift: 0 },
-        '.tab': { alpha: 0.5, hover: null, hueShift: 250 },
-        '.tab.active': { alpha: 0.7, hover: null, hueShift: 250 },
-		'.tab.active': { alpha: 0.7, hover: null, hueShift: 250 },
-        '.close-btn': { alpha: 0.7, hover: null, hueShift: 250 }
+        '.navbar': { alpha: 0, hover: null, hueShift: 0, boxShadow: "0px 4px 10px rgba(0,0,0,1)" },
+        '.user-response .panel': { alpha: 0, hover: null, hueShift: 0, boxShadow: "0px 4px 10px rgba(0,0,0,1)" },
+        '.ai-response .panel': { alpha: 0, hover: null, hueShift: 0, boxShadow: "0px 4px 10px rgba(0,0,0,1)" },
+        '.user-input input': { alpha: 0, hover: null, hueShift: 30, boxShadow: "0px 4px 10px rgba(0,0,0,1)" },
+        '.aiusername': { alpha: 0.3, hover: null, hueShift: 30, boxShadow: "0px 4px 10px rgba(0,0,0,1)" },
+        '.username': { alpha: 0.3, hover: null, hueShift: 30, boxShadow: "0px 4px 10px rgba(0,0,0,1)" },
+        '.footer': { alpha: 0, hover: null, hueShift: 0, boxShadow: "0px 4px 10px rgba(0,0,0,1)" },
+        '.render-html-button': { alpha: 0, hover: null, hueShift: 30, boxShadow: "0px 4px 10px rgba(0,0,0,1)" },
+        '.rich-textbox': { alpha: 0.6, hover: null, hueShift: 0, boxShadow: "0px 4px 10px rgba(0,0,0,1)" },
+        '.settings-btn': { alpha: 0.3, hover: null, hueShift: 30, boxShadow: "0px 4px 10px rgba(0,0,0,1)" },
+        '.hud-panel': { alpha: 0.5, hover: null, hueShift: 0, boxShadow: "0px 4px 10px rgba(0,0,0,1)" },
+        '.tab': { alpha: 0.5, hover: null, hueShift: 30, boxShadow: "0px 4px 10px rgba(0,0,0,1)" },
+        '.tab.active': { alpha: 0.7, hover: null, hueShift: 30, boxShadow: "0px 4px 10px rgba(0,0,0,1)" },
+        '.close-btn': { alpha: 0.7, hover: null, hueShift: 30, boxShadow: "0px 4px 10px rgba(0,0,0,1)" },
+        '.code-navbar': { alpha: 0.8, hover: null, hueShift: 0, boxShadow: null }
     };
 
-    // Retrieve stored color or fallback to default
     const baseRgba = sessionStorage.getItem('baseRgba') || 'rgba(255, 255, 255, 0.8)';
-
-    // Extract RGB and Alpha values
     const rgbaMatch = baseRgba.match(/\d+/g);
     if (!rgbaMatch) return;
 
     const r = parseInt(rgbaMatch[0]), g = parseInt(rgbaMatch[1]), b = parseInt(rgbaMatch[2]);
     const originalAlpha = parseFloat(rgbaMatch[3]) / 255 || 0.8;
 
-    // Convert RGB to HSL
+    function adjustRgb(value) {
+        return value > 100 ? value - 50 : value;
+    }
+
+    const adjustedR = adjustRgb(r);
+    const adjustedG = adjustRgb(g);
+    const adjustedB = adjustRgb(b);
+
     function rgbToHsl(r, g, b) {
         r /= 255, g /= 255, b /= 255;
         let max = Math.max(r, g, b), min = Math.min(r, g, b);
         let h, s, l = (max + min) / 2;
 
         if (max === min) {
-            h = s = 0; // achromatic
+            h = s = 0;
         } else {
             let d = max - min;
             s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
@@ -59,10 +62,8 @@ function updateElementColors() {
         return [h, s, l];
     }
 
-    // Convert HSL to RGB
     function hslToRgb(h, s, l) {
         let r, g, b;
-
         function hueToRgb(p, q, t) {
             if (t < 0) t += 1;
             if (t > 1) t -= 1;
@@ -73,7 +74,7 @@ function updateElementColors() {
         }
 
         if (s === 0) {
-            r = g = b = l; // achromatic
+            r = g = b = l;
         } else {
             let q = l < 0.5 ? l * (1 + s) : l + s - l * s;
             let p = 2 * l - q;
@@ -84,49 +85,54 @@ function updateElementColors() {
         return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
     }
 
-    // Convert base RGB to HSL
     const [baseHue, baseSat, baseLight] = rgbToHsl(r, g, b);
 
-    // Apply colors and hover effects
     Object.entries(elementsConfig).forEach(([selector, config]) => {
         document.querySelectorAll(selector).forEach((element) => {
             let alpha = config.alpha === 0 ? originalAlpha : config.alpha;
             const defaultColor = `rgba(${r}, ${g}, ${b}, ${alpha})`;
 
-            // Apply hue shift for hover
             const hoverHue = baseHue + config.hueShift;
             const [hoverR, hoverG, hoverB] = hslToRgb(hoverHue, baseSat, baseLight);
             const hoverColor = config.hover ?? `rgba(${hoverR}, ${hoverG}, ${hoverB}, ${alpha})`;
 
             element.style.backgroundColor = defaultColor;
 
-            // Apply hover effect
+            // Box shadow logic
+			const boxShadowColor = `rgba(${adjustedR}, ${adjustedG}, ${adjustedB}, ${alpha})`;
+			const boxShadowValue = config.boxShadow !== null ? config.boxShadow : `0px 4px 10px ${boxShadowColor}`;
+            element.style.boxShadow = boxShadowValue;
+
             element.addEventListener("mouseover", () => element.style.backgroundColor = hoverColor);
             element.addEventListener("mouseout", () => element.style.backgroundColor = defaultColor);
         });
     });
 
-    // Set up a MutationObserver to handle dynamically added elements
     const observer = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
             mutation.addedNodes.forEach((node) => {
-                if (node.nodeType === 1) { // Ensure the node is an element
+                if (node.nodeType === 1) {
                     Object.entries(elementsConfig).forEach(([selector, config]) => {
                         if (node.matches(selector) || node.querySelector(selector)) {
                             let alpha = config.alpha === 0 ? originalAlpha : config.alpha;
                             const defaultColor = `rgba(${r}, ${g}, ${b}, ${alpha})`;
-                            
+
                             const hoverHue = baseHue + config.hueShift;
                             const [hoverR, hoverG, hoverB] = hslToRgb(hoverHue, baseSat, baseLight);
                             const hoverColor = config.hover ?? `rgba(${hoverR}, ${hoverG}, ${hoverB}, ${alpha})`;
 
+                            const boxShadowColor = `rgba(${adjustedR}, ${adjustedG}, ${adjustedB}, ${alpha})`;
+                            const boxShadowValue = config.boxShadow ?? `0px 4px 10px ${boxShadowColor}`;
+
                             if (node.matches(selector)) {
                                 node.style.backgroundColor = defaultColor;
+                                node.style.boxShadow = boxShadowValue;
                                 node.addEventListener("mouseover", () => node.style.backgroundColor = hoverColor);
                                 node.addEventListener("mouseout", () => node.style.backgroundColor = defaultColor);
                             } else {
                                 node.querySelectorAll(selector).forEach((child) => {
                                     child.style.backgroundColor = defaultColor;
+                                    child.style.boxShadow = boxShadowValue;
                                     child.addEventListener("mouseover", () => child.style.backgroundColor = hoverColor);
                                     child.addEventListener("mouseout", () => child.style.backgroundColor = defaultColor);
                                 });
@@ -138,7 +144,6 @@ function updateElementColors() {
         });
     });
 
-    // Observe changes in the entire document body
     observer.observe(document.body, { childList: true, subtree: true });
 }
 

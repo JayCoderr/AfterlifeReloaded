@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Get the user role from sessionStorage
-    const userRole = sessionStorage.getItem('role');
+    userRole = sessionStorage.getItem('role');
     const responseMessage = document.getElementById('responseMessage'); // Assuming responseMessage exists
 
     // If the user is not a developer, hide overflow first, then apply blur and clear content
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 document.addEventListener('DOMContentLoaded', function() {
-    const userRole = sessionStorage.getItem('role');
+    userRole = sessionStorage.getItem('role');
     // Background color adjustment
     const baseRgba = sessionStorage.getItem('baseRgba');
     if (baseRgba) {
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
         formData.append('message', emailMessage);
         formData.append('userai', userAI);
 
-        fetch('https://www.afterlifereloaded.com/AfterlifeReloadedRoot/php/sendemail.php', {
+        fetch('https://www.afterlifereloaded.com/AfterlifeReloadedRoot/php/AfterlifeReloadedEmail.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: formData.toString()

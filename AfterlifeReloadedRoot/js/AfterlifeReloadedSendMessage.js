@@ -2,7 +2,6 @@ let previousValue = ""; // Store the previous value to track changes
 let userInput = document.getElementById('userInput');
 let isSendingMessage = false; // Flag to track if a message is being sent
 let userPostedInfo = true;
-let aiResponse = "";
 let userName = sessionStorage.getItem('username');
 let userClan = sessionStorage.getItem('clantag');
 let userAI = sessionStorage.getItem('aiusername');
@@ -18,38 +17,75 @@ let inputValue = "";
 let RecentMemoryLog = "";
 let userGender = "male";
 let aiGender = "female";
+let aiResponse = "";
+let oldUserInput = "";
+window.oldAIMessageResponse = "";
+let lastSaidAtTime = "";
+let lastInteractionTime = Date.now(); // Track the time of the last interaction
+let oldInteractionUserInput = "";
 
+// Function to check for inactivity and log idle time
+function checkIdleTime() {
+    const minsToWait = 2; // 2 minute's of inactivity seems to be perfect possibly
+    const currentTime = Date.now();
+    const timeDifference = currentTime - lastInteractionTime;
+	isHtmlRendered = true;
+    // Log the idle time in seconds
+    console.log(`Idle Time: ${timeDifference / 1000} seconds`);
+
+    // If more than 1 minute has passed since the last interaction
+    if (timeDifference >= minsToWait * 60 * 1000) {
+        sendMessage("Be sarcastic about the user not interacting with the chat for a while,{newline}And you must use the provided variables: {userName} for the user{newline}," + 
+					"here what the user recently asked about {oldAIMessageResponse}{newline}" +
+					"don't act like they are here,{newline}" +  
+					"they still have yet to return,{newline}" +
+					"be as unique as you can be with every response please, while maintaining variables provided {username}, {newline}, {oldAIMessageResponse}. {newline}" +
+					"in responses and other things as needed to be unique.", false, true);
+        lastInteractionTime = currentTime; // Reset the interaction time after sending sarcastic message
+    }
+}
+
+// Function to handle keypress events
 async function checkEnter(event) {
     let textarea = event.target;
 
-    // Check if the Enter key is pressed with or without Shift
+    // If Enter key is pressed, send the message and reset interaction time
     if (event.key === 'Enter') {
         if (event.shiftKey) {
             // Shift + Enter for newline
             event.preventDefault();
-            // Insert newline at the current cursor position
-            document.execCommand('insertText', false, '\n');
             
+            // Insert newline directly into textarea.value
+            textarea.value += '\n';
             adjustHeight(textarea); // Adjust height after inserting newline
-            //console.log("Shift + Enter pressed: Newline added");
-            return; // Return to prevent sending message
+            return; // Prevent sending message
         } else if (!isSendingMessage) {
             // Enter to send message, only if not currently sending a message
             event.preventDefault();
             isSendingMessage = true;
-			await ConsoleMemoryLog(userName, inputValue, aiResponse); // Logs conversation history
-            sendMessage(); // Send the message
+
+            sendMessage(userInput.innerText, true, true); // Send the message
             adjustHeight(textarea); // Recalculate height after clearing
-            //console.log("Enter pressed: " + userInput.innerText);
-			userInput.innerText = "";
-			textarea.style.height = "15px";
-            // Reset flag after a timeout (e.g., 2 seconds)
+            userInput.innerText = "";
+            textarea.style.height = "15px";
+
+            // Reset flag after a timeout (500ms for this example)
             setTimeout(() => {
-                isSendingMessage = false; // Allow new messages after a delay
-            }, 2000); // Adjust timeout (2000ms = 2 seconds)
+                isSendingMessage = false;
+            }, 500);
+
+            // Update last interaction time when a message is sent
+            lastInteractionTime = Date.now();
+			oldInteractionUserInput = userInput.innerText;
         }
     }
 }
+
+// Attach event listener to start checking idle time after the DOM has loaded
+document.addEventListener('DOMContentLoaded', () => {
+    // Set up an interval to check for inactivity every 30 seconds (or any interval you prefer)
+    setInterval(checkIdleTime, 30000); // Check every 30 seconds
+});
 
 async function adjustHeight(element) {
     // Ensure the element is not empty
@@ -107,157 +143,210 @@ function updateUserVariables() {
 setInterval(updateUserVariables, 1000);
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Call the WelcomeMessage function with the user and message
-	//WelcomeMessage("pretty print all shared information");
-	WelcomeMessage("play youtube video");
+    // Correct way to call WelcomeMessage after a delay
+    setTimeout(() => {
+        WelcomeMessage("make ascii " + userName, userAI);
+    }, 10000);
 });
+
+setInterval(() => {
+    fetch('https://www.afterlifereloaded.com/AfterlifeReloadedRoot/php/AfterlifeSignInRefresh.php', { credentials: 'include' }) // Send request with session cookies
+        .then(response => response.json())
+        .then(data => console.log("Session refreshed:", data))
+        .catch(err => console.error("Session refresh failed:", err));
+}, 5 * 60 * 1000); // Refresh every 5 minutes
+
 //need to use a session variable of some sort an posted it for the user?? idk
-async function WelcomeMessage(inputValue) {
+async function WelcomeMessage(inputValue, userAI) {
     if (inputValue === "") return; 
-    
+
     ConsoleUserVars();
     appendUserMessage(inputValue);
 
-    const commandHandled = await handleCommand(inputValue);
-    if (commandHandled) return;
+    const commandHandled = await handleCommand(inputValue, userAI, aiResponse);
+    if (commandHandled) {	
+        return aiResponse;
+    }
 
-	fetch('https://www.afterlifereloaded.com/AfterlifeReloadedRoot/php/chatgpt.php', {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/x-www-form-urlencoded',
-		},
-		body: new URLSearchParams({ 
-			variables: userVariables,
-			inputText: inputValue
-		})
-	})
-	.then(response => {
-		//console.log("HTTP Status Code:", response.status); // Log HTTP status
-	
-		if (!response.ok) {
-			throw new Error(`Network response was not ok (Status: ${response.status})`);
-		}
-		return response.json();
-	})
-	.then(data => {
-		console.log("Response received from server:", data); // Log full response from PHP
-	
-		if (data.error) {
-			appendAIMessage(`Error from AI: ${data.error}`);
-			return;
-		}
-	
-		aiResponse = data.choices[0].message.content.trim();
-	
-		aiResponse = aiResponse.replace(/\[\w+,\s\w+\s\d{1,2},\s\d{4}\s\d{1,2}:\d{2}:\d{2}\s(?:AM|PM)]/g, '').trim();		
-		console.log("Before AI Replacement?\n\n" + aiResponse);
-		aiResponse = aiVariableReplacement(aiResponse);	
-		console.log("After AI Replacement?\n\n" + aiResponse);
-		appendAIMessage(aiVariableReplacement(aiResponse));
-	})
-	.catch(error => {
-		console.error(`[${new Date().toLocaleString()}] Fetch error:`, error);
-		appendAIMessage('An error occurred while fetching the response.');
-	});
+    try {
+        const response = await fetch('https://www.afterlifereloaded.com/AfterlifeReloadedRoot/php/AfterlifeReloadedBack.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({ 
+                variables: userVariables,
+                inputText: inputValue
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error(`Network response was not ok (Status: ${response.status})`);
+        }
+
+        const data = await response.json();
+        console.log("Response received from server:", data); // Log full response from PHP
+
+        if (data.error) {
+            appendAIMessage(`Error from AI: ${data.error}`);
+            return;
+        }
+
+        let aiResponse = data.choices[0].message.content.trim();
+
+        aiResponse = aiResponse.replace(/\[\w+,\s\w+\s\d{1,2},\s\d{4}\s\d{1,2}:\d{2}:\d{2}\s(?:AM|PM)]/g, '').trim();        
+        console.log("Before AI Replacement?\n\n" + aiResponse);
+        aiResponse = aiVariableReplacement(aiResponse);    
+        console.log("After AI Replacement?\n\n" + aiResponse);
+        appendAIMessage(aiVariableReplacement(aiResponse));
+		
+		oldAIResponse = window.oldAIMessageResponse;
+		window.oldAIMessageResponse = message;	
+
+		lastInteractionTime = Date.now();
+
+    } catch (error) {
+        console.error(`[${new Date().toLocaleString()}] Fetch error:`, error);
+        appendAIMessage('An error occurred while fetching the response.');
+    }
+    
     userInput.value = '';
 }
+window.sendMessage = sendMessage;
+window.aiVariableReplacement = aiVariableReplacement;
 
 function aiVariableReplacement(aiResponse) {
     if (typeof aiResponse !== 'string') return aiResponse; // Ensure aiResponse is a string
 
-    // Define variables
+	// Define variables
     const newUserAI = sessionStorage.getItem('aiusername') || "AfterlifeAI";
     const now = new Date();
     const dayOfWeek = new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(now);
     const month = new Intl.DateTimeFormat('en-US', { month: 'long' }).format(now);
     const year = now.getFullYear();
-    const time = now.toLocaleTimeString();
     const date = now.getDate();
-    const timestamp = now.toLocaleString(); // Example timestamp
+    // Get the current time
+    const hours = now.getHours() % 12 || 12;
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const ampm = now.getHours() >= 12 ? 'PM' : 'AM';
+    const timeString = `${hours}:${minutes} ${ampm}`;
+	let time = now.toLocaleTimeString();
 
     const replacements = {
         "OpenAI": newUserAI,
         "ChatGPT": "AfterlifeReloaded",
         "{newline}": "\n",
 		"{username}": userName,
+		"username": userName,
         "{ainame}": newUserAI,
         "{daysOfWeek}": now.getDate(),
         "{month}": month,
         "{year}": year,
-        "{time}": time,
 		"{date}": date,
-        "{timestamp}": timestamp,
-		"{tab}": "\t",
+		"{time}": timeString,
+        "{timestamp}": timeString,
 		"{clantag}": userClan,
-		"\t": "\t",
 		"{tab}": "\t",
-		"\n": "\n",
 		"{aiGender}": aiGender, 
 		"{userGender}": userGender,
-		"{dayOfWeek}": dayOfWeek
+		"{dayOfWeek}": dayOfWeek,
+		"{oldUserInput}": oldUserInput,
+		"{lastSaidAtTime}": lastSaidAtTime,
+		"{oldAIResponse}": window.oldAIMessageResponse,
+		"Shiro": newUserAI,
+		"Jaycoder": userName,
+		"{{username}}": userName,
+		"{oldAIMessageResponse}": window.oldAIMessageResponse
     };
 
     for (const [key, value] of Object.entries(replacements)) {
         aiResponse = aiResponse.split(key).join(value);
     }
-
     return aiResponse; // Return the modified response
 }
 
-async function sendMessage() {
-    inputValue = userInput.innerText.trim();
-    if (inputValue === "") return; 
-    
-    ConsoleUserVars();
-    appendUserMessage(inputValue);
+async function sendMessage(inputText, appendUserBubbleToUI = false, appendAIBubbleToUI = false) {
+    //let time = new Date().toLocaleTimeString();
+    let inputValue = inputText.trim();//aiVariableReplacement(inputText.trim());
+	let triggeredInputValue = true; 
+    if (inputValue === "") return "";
 
-    const commandHandled = await handleCommand(inputValue);
-    if (commandHandled) return;
+    if (appendUserBubbleToUI) {
+        ConsoleUserVars();
+        appendUserMessage(inputValue);
+    }
 
-	fetch('https://www.afterlifereloaded.com/AfterlifeReloadedRoot/php/chatgpt.php', {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/x-www-form-urlencoded',
-		},
-		body: new URLSearchParams({ 
-			variables: userVariables,
-			inputText: inputValue
-		})
-	})
-	.then(response => {
-		//console.log("HTTP Status Code:", response.status); // Log HTTP status
+	let replacements = [
+		{ original: "{{username}}", replacement: "{username}" },
+		{ original: "{username}", replacement: "{username}" },
+		{ original: "?", replacement: "" },
+		{ original: "!", replacement: "" },
+		{ original: ".", replacement: "" },
+		{ original: ",", replacement: "" }
+	];
 	
-		if (!response.ok) {
-			throw new Error(`Network response was not ok (Status: ${response.status})`);
-		}
-		return response.json();
-	})
-	.then(data => {
-		console.log("Response received from server:", data); // Log full response from PHP
+	// Escape special characters in `original` values
+	function escapeRegExp(string) {
+		return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+	}
 	
-		if (data.error) {
-			appendAIMessage(`Error from AI: ${data.error}`);
-			return;
-		}
-	
-		aiResponse = data.choices[0].message.content.trim();
-	
-		// Remove timestamps in format: [Saturday, February 15, 2025 1:27:00 PM]
-		aiResponse = aiResponse.replace(/\[\w+,\s\w+\s\d{1,2},\s\d{4}\s\d{1,2}:\d{2}:\d{2}\s(?:AM|PM)]/g, '').trim();		
-		console.log("Before AI Replacement?\n\n" + aiResponse);
-		aiResponse = aiVariableReplacement(aiResponse);	
-		console.log("After AI Replacement?\n\n" + aiResponse);
-		appendAIMessage(aiVariableReplacement(aiResponse));
-	})
-	.catch(error => {
-		console.error(`[${new Date().toLocaleString()}] Fetch error:`, error);
-		appendAIMessage('An error occurred while fetching the response.');
+	// Apply all replacements efficiently
+	inputValue = inputValue.toLowerCase();
+	replacements.forEach(({ original, replacement }) => {
+		inputValue = inputValue.replaceAll(new RegExp(escapeRegExp(original), "g"), replacement);
 	});
-    userInput.value = '';
-	highlightToggleButton();	
+
+    try {
+        const response = await fetch('https://www.afterlifereloaded.com/AfterlifeReloadedRoot/php/AfterlifeReloadedBack.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({ 
+                variables: userVariables,
+                inputText: inputValue
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error(`Network response was not ok (Status: ${response.status})`);
+        }
+
+        const data = await response.json();
+        console.log("Response received from server:", data);
+
+        if (data.error) {
+            return `Error: ${data.error}`;
+        }
+
+        let aiResponse = data.choices[0].message.content.trim();
+       
+        console.log("Before AI Replacement?\n\n" + aiResponse);
+        aiResponse = aiVariableReplacement(aiResponse);    
+        console.log("After AI Replacement?\n\n" + aiResponse);
+		
+		oldAIResponse = window.oldAIMessageResponse;
+		window.oldAIMessageResponse = aiResponse;		
+		
+        // Handle command separately
+        const commandHandled = await handleCommand(inputValue, userAI, aiResponse);
+        if (commandHandled) {
+            return aiResponse;
+        }
+
+        if (appendAIBubbleToUI) {
+            appendAIMessage(aiResponse);
+        }
+
+        return aiResponse;
+
+    } catch (error) {
+        console.error(`[${new Date().toLocaleString()}] Fetch error:`, error);
+        return 'An error occurred while fetching the response.';
+    }
 }
 
-async function ConsoleMemoryLog(userName, inputValue, aiResponse = '') {
+async function ConsoleMemoryLog(userName, inputValue, aiResponse) {
     // Ensure the userName is correct at the start of the function
     console.log("Current userName:", userName);  // Debugging log for userName
 
@@ -309,8 +398,8 @@ async function loadCommands()
 
 let searchCounter = 0;
 
-async function handleCommand(inputValue) 
-{
+async function handleCommand(inputValue, userAI, aiResponse) 
+{	
 	const commands = await loadCommands();
 	const matchedCommand = commands.find(command =>
 		command.trigger.some(trigger => inputValue.toLowerCase().startsWith(trigger.toLowerCase()))
@@ -320,12 +409,10 @@ async function handleCommand(inputValue)
 		const index = searchCounter++; // Ensure a unique index for each search
 		const triggerMatch = matchedCommand.trigger.find(trigger => inputValue.toLowerCase().startsWith(trigger.toLowerCase()));
 		let videoName = inputValue.substring(triggerMatch.length).trim();
-		let AsciiText = inputValue.substring(triggerMatch.length).trim();
-		sessionStorage.setItem('AsciiText', AsciiText);
-		console.log("Text to generate: " + AsciiText);
+		let AsciiText = inputValue.substring(triggerMatch.length).trim();		
 		
 		/* User Recommendation's if a video wasn't searched for */
-		const suggestedYoutubers = ['gameranx', 'Bones', 'devlishtrio album', 'devlishtrio', 'suicideboys', 'travis scott', 'kanye west music', 'kanye west music only', 'insane clown posse music', 'insane clown posse music only', 'eminem', 'asmongold']; // Array of suggested YouTubers
+		const suggestedYoutubers = ['gameranx', 'Bones music', 'devlishtrio album', 'devlishtrio', '$uicideboy$', 'travis scott', 'insane clown posse the calm music', 'insane clown posse music only', 'eminem', 'asmongold']; // Array of suggested YouTubers
 		const currentyear = new Date().getFullYear(); // Current year
 		const randomSearchTypeTerm = ['Latest Trending', 'Newest Release', 'Most Popular', 'Most Watched', 'Most Streamed']; // Search type terms
 			
@@ -342,7 +429,7 @@ async function handleCommand(inputValue)
 			const searchTypeTerm = randomSearchTypeTerm[randomSearchTypeIndex];
 		
 			// Update the videoName string with dynamic values
-			videoName = `${searchTypeTerm} ${defaultYoutuber} videos ${currentyear}`;
+			videoName = "${searchTypeTerm} ${defaultYoutuber} videos ${currentyear}";
 		}
 		
 		console.log(videoName); // This will print something like "Latest Trending suicideboys videos 2025"
@@ -350,23 +437,42 @@ async function handleCommand(inputValue)
 
 		// Before setting iframe src, store the video name in sessionStorage
 		sessionStorage.setItem('videoName', videoName);
-		
+		sessionStorage.setItem('${userName}_messageInput', AsciiText);
 		// Generate the URL with the iframe
 		const updatedButtonHTML = matchedCommand.buttonHTML.replace(/{index}/g, index)
 			.replace(
-				`src="https://www.afterlifereloaded.com/AfterlifeReloadedRoot/html/googleytsearch.html"`,
-				`src="https://www.afterlifereloaded.com/AfterlifeReloadedRoot/html/googleytsearch.html"`
+				/"src="https:\/\/www\.afterlifereloaded\.com\/AfterlifeReloadedRoot\/html\/googleytsearch\.html"/,
+				`"src="https://www.afterlifereloaded.com/AfterlifeReloadedRoot/html/googleytsearch.html?videoName=${encodeURIComponent(videoName)}"`
 			);
-		
-		appendAIMessage("", "[ai] Jaycoder", updatedButtonHTML);
-		userInput.value = ''; // Clear input field
 
-		//console.log(`Generated URL: https://www.afterlifereloaded.com/AfterlifeReloadedRoot/html/googleytsearch.html?videoName=${encodeURIComponent(videoName)}`);
+		appendAIMessage("", userAI, updatedButtonHTML);
+		userInput.value = ''; // Clear input field	
 
+		//console.log(Generated URL: https://www.afterlifereloaded.com/AfterlifeReloadedRoot/html/googleytsearch.html?videoName=${encodeURIComponent(videoName)});
 		return true; // Command successfully handled
 	}
 	return false;
 }
+
+async function storeAIResponse(inputValue) {
+    const userName = sessionStorage.getItem('username'); // Ensure userName is retrieved properly
+
+    try {
+        // Wait for the AI response before setting it in sessionStorage
+	const exampleText = "Hello, ${userName}, I have completed the task based on your prompt " + inputValue;
+	const newAIResponse = await sendMessage("make a repsonse like this example: " + exampleText + " Do not try to perform the task.", false, false);
+        
+        // Store the resolved response
+        sessionStorage.setItem("handleCmdAIResponse_" + userName, newAIResponse.replace("{inputValue}", inputValue));
+		if (inputValue.includes("```c") || inputValue.includes("```c++") || inputValue.includes("```csharp")) {
+			inputValue = inputValue.replace(/```c(\+\+|sharp)?/g, "```gsc");
+		}     
+        console.log("AI Response Stored:", newAIResponse);
+    } catch (error) {
+        console.error("Error storing AI response:", error);
+    }
+}
+
 	
 async function ConsoleUserVars()
 {

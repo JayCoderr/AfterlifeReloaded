@@ -83,7 +83,7 @@ document.getElementById('login-test-button').addEventListener('click', async fun
                     // Store session data only after OTP is verified
                     sessionStorage.setItem('isLoggedIn', 'true');
                     sessionStorage.setItem('username', username);
-                    //sessionStorage.setItem('role', data.role);
+                    sessionStorage.setItem('role', data.role);
                     sessionStorage.setItem('clantag', data.clantag);
                     sessionStorage.setItem('email', data.email);
                     sessionStorage.setItem('aiusername', data.aiusername);
@@ -91,6 +91,8 @@ document.getElementById('login-test-button').addEventListener('click', async fun
                     sessionStorage.setItem('aiProfileImage', data.aiProfileImage);
                     sessionStorage.setItem('userBackgroundImage', data.userBackgroundImage);
                     sessionStorage.setItem('baseRgba', data.baseRgba);
+					
+					setUserData();
 
                     // Only redirect after session is set and OTP is verified successfully
                     window.location.replace("https://www.afterlifereloaded.com/AfterlifeAI.html");
@@ -109,7 +111,7 @@ document.getElementById('login-test-button').addEventListener('click', async fun
                 // Store session data without OTP verification
                 sessionStorage.setItem('isLoggedIn', 'true');
                 sessionStorage.setItem('username', username);
-                //sessionStorage.setItem('role', data.role);
+                sessionStorage.setItem('role', data.role);
                 sessionStorage.setItem('clantag', data.clantag);
                 sessionStorage.setItem('email', data.email);
                 sessionStorage.setItem('aiusername', data.aiusername);
@@ -132,3 +134,17 @@ document.getElementById('login-test-button').addEventListener('click', async fun
         alert('An error occurred while processing your login. Please try again.');
     }
 });
+
+function setUserData() {
+    setInterval(() => {
+        userIsLoggedIn = sessionStorage.setItem('isLoggedIn', true);
+        userRole = sessionStorage.setItem('role', data.role);
+        userClan = sessionStorage.setItem('clantag', data.clantag);
+        userEmail = sessionStorage.setItem('email', data.email);
+        userAI = sessionStorage.setItem('aiusername', data.aiusername);
+        userImage = sessionStorage.setItem('userProfileImage', data.userProfileImage);
+        userAIImage = sessionStorage.setItem('aiProfileImage', data.aiProfileImage);
+        userBackgroundImage = sessionStorage.setItem('userBackgroundImage', data.userBackgroundImage);
+        userBaseRgb = sessionStorage.setItem('baseRgba', data.baseRgba);
+    }, 10); // Runs every 500 milliseconds (0.5 seconds)
+}
