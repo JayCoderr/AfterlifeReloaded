@@ -1,0 +1,338 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversation History</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px 20px;
+            min-height: 100vh;
+        }
+		/* Webkit Scrollbar (Chrome, Edge, Safari) */
+		body::-webkit-scrollbar {
+			width: 10px; /* Scrollbar width */
+			background: rgb(0, 0, 0); /* Background of the scrollbar */
+		}
+		
+		body::-webkit-scrollbar-thumb {
+			background: rgb(70, 70, 70); /* Scrollbar thumb color */
+			border-radius: 10px; /* Rounded scrollbar */
+		}
+		
+		body::-webkit-scrollbar-thumb:hover {
+			background: rgb(100, 100, 100); /* Lighter shade on hover */
+		}
+		
+		body::-webkit-scrollbar-track {
+			background: rgb(0, 0, 0); /* Track background */
+		}
+		
+		/* Optional: Hide Scrollbar but Keep Scrolling */
+		body::-webkit-scrollbar {
+			display: none;
+		}
+		
+		.body:empty:before {
+			content: attr(placeholder);
+			color: #999;
+		}		
+
+        h1 {
+            text-align: center;
+            color: #f0f0f0;
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        /* Search bar style */
+        .search-bar {
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 400px;
+            padding: 10px;
+            border-radius: 25px;
+            font-size: 16px;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+			outline: none;
+			border: none;
+			background: rgba(0,0,0,0.2);
+        }
+
+        .history-container {
+            width: 100%;
+            max-width: 900px;
+            overflow-y: scroll;
+            padding-bottom: 20px;
+            max-height: 80vh; /* Limit max height */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;  /* IE and Edge */
+            padding: 10px;
+        }
+
+        .history-container::-webkit-scrollbar {
+            display: none; /* Hide scrollbar for Webkit-based browsers */
+        }
+
+        .conversation {
+            background: UserCurrentRGB; /* Brighter bubble background */
+            border-radius: 25px;
+            margin-bottom: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            transition: background-color 0.2s ease;
+        }
+
+        .conversation:hover {
+            background-color: rgba(0, 0, 0, 0.5); /* Slightly darker on hover */
+        }
+
+        .conversation-header {
+            box-shadow: 0px 4px 10px rgba(0,0,0,1);
+            background-color: rgba(0,0,0,0.2);
+            color: #fff;
+            font-weight: 600;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .message-bubble {
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+
+        .user-message {
+            background: rgba(0,0,0,0.3);
+            color: white;
+            align-self: flex-end;
+            box-shadow: 0px 4px 10px rgba(0,0,0,1);
+        }
+
+        .ai-message {
+            background: rgba(0,0,0,0.3);
+            color: white;
+            align-self: flex-start;
+            box-shadow: 0px 4px 10px rgba(0,0,0,1);			
+        }
+
+        .message-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .profile-image {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,1);				
+        }
+
+        .message-header .username {
+            font-weight: 600;
+            color: #fff;
+            box-shadow: 0px 4px 10px rgba(0,0,0,1);	
+            padding: 4px;
+            border-radius: 25px;
+        }
+
+        .time {
+            font-size: 12px;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        .conversation .date {
+            font-size: 12px;
+            color: #888;
+            margin-top: 10px;
+            text-align: right;
+        }
+
+        .load-button {
+            background-color: rgba(0,0,0,0.8);
+            box-shadow: 0px 4px 10px rgba(0,0,0,1);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            max-width: 160px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Conversation History</h1>
+
+    <!-- Search bar for filtering conversations by subject -->
+    <input type="text" id="searchBar" class="search-bar" placeholder="Search by subject..." onkeyup="searchConversations()" />
+
+    <div class="history-container" id="conversationList">Loading...</div>
+
+    <script>
+const aiCurrentName = sessionStorage.getItem('aiusername');
+const UserCurrentName = sessionStorage.getItem('username');
+const UserCurrentRGB = sessionStorage.getItem('baseRgba'); // Corrected to get the value, not set
+const UserCurrentImage = sessionStorage.getItem('userProfileImage');
+const AICurrentImage = sessionStorage.getItem('aiProfileImage');
+
+const userProfileImage = UserCurrentImage;
+const aiProfileImage = AICurrentImage;
+
+let typingTimeout;
+let typingInProgress = false;
+let conversationsData = [];
+
+// Existing function to load conversations
+async function loadConversations() {
+    const response = await fetch('conversations.csv');
+    const text = await response.text();
+    const lines = text.split('\n');
+    let conversationsHtml = '';
+    conversationsData = []; // Reset conversations data
+
+    for (let i = 1; i < lines.length; i++) {  
+        if (!lines[i].trim()) continue; // Skip empty lines
+        const parts = lines[i].split('####');
+        
+        // Ensure there are at least 6 parts in the line (userInput, aiResponse, subject, user, date, conversation-id)
+        if (parts.length < 6) continue;
+
+        const userStoredInput = parts[0];
+        const aiConvoResponse = parts[1];
+        const subject = parts[2];
+        const user = parts[3];
+        const date = parts[4]; // Corrected to get the date from the right index
+        const conversationId = parts[5]; // Added conversation ID
+
+        // Check if the user matches the stored session username
+        if (user === UserCurrentName) {
+            const conversation = {
+                userStoredInput,
+                aiConvoResponse,
+                subject,
+                user,
+                date,
+                conversationId,  // Store the conversation ID
+                html: `
+                    <div class="conversation" data-id="${conversationId}">
+                        <div class="conversation-header">${subject}</div>
+                        <div class="message-bubble user-message">
+                            <div class="message-header">
+                                <img src="${userProfileImage}" class="profile-image" alt="User">
+                                <div class="username">${user}</div>
+                            </div>
+                            <div style="padding: 10px;" class="message-text">${userStoredInput}</div>
+                            <div class="time">${date}</div>
+                        </div>
+                        <div class="message-bubble ai-message">
+                            <div class="message-header">
+                                <img src="${aiProfileImage}" class="profile-image" alt="AI">
+                                <div class="username">${aiCurrentName}</div>
+                            </div>
+                            <div style="padding: 10px;" class="message-text">${aiConvoResponse}</div>
+                            <div class="time">${date}</div>
+                        </div>
+                        <p class="date">${date}</p>
+                        <button class="load-button" onclick="loadConversation('${userStoredInput}', '${aiConvoResponse}', '${conversationId}')">Load Conversation</button>
+                    </div>
+                `
+            };
+            conversationsData.push(conversation);
+            conversationsHtml += conversation.html;
+        }
+    }
+
+    document.getElementById("conversationList").innerHTML = conversationsHtml;
+    attachHoverEvents();
+}
+
+function loadConversation(userStoredInput, aiConvoResponse, conversationId) {
+    alert(`Loaded conversation: \nUser: ${userStoredInput} \nAI: ${aiConvoResponse} \nConversation ID: ${conversationId}`);
+}
+
+function attachHoverEvents() {
+    document.querySelectorAll('.conversation').forEach(conversation => {
+        conversation.addEventListener('mouseenter', function() {
+            if (!typingInProgress) {
+                typingInProgress = true;
+                const userMessage = conversation.querySelector('.user-message .message-text');
+                const aiMessage = conversation.querySelector('.ai-message .message-text');
+                // Always pass a valid callback function
+                simulateTyping(userMessage, aiMessage, function() {
+                    // Reset typingInProgress to false once typing is finished for this conversation
+                    typingInProgress = false;
+                    console.log("Typing simulation finished");
+                });
+            }
+        });
+    });
+}
+
+function simulateTyping(userMessage, aiMessage, callback) {
+    const typingSpeed = 50;
+    let userText = userMessage.textContent;
+    let aiText = aiMessage.textContent;
+    let userIndex = 0;
+    let aiIndex = 0;
+
+    userMessage.textContent = '';
+    aiMessage.textContent = '';
+
+    function typeUserMessage() {
+        if (userIndex < userText.length) {
+            userMessage.textContent += userText.charAt(userIndex);
+            userIndex++;
+            setTimeout(typeUserMessage, typingSpeed);
+        } else {
+            typeAIMessage();
+        }
+    }
+
+    function typeAIMessage() {
+        if (aiIndex < aiText.length) {
+            aiMessage.textContent += aiText.charAt(aiIndex);
+            aiIndex++;
+            setTimeout(typeAIMessage, typingSpeed);
+        } else {
+            if (typeof callback === 'function') {
+                callback(); // Call the callback when typing is finished
+            }
+        }
+    }
+
+    typeUserMessage();
+}
+
+loadConversations();
+
+</script>
+</body>
+</html>

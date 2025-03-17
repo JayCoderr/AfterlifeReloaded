@@ -1,0 +1,21 @@
+[25-Feb-2025 17:47:53 UTC] PHP Warning:  Undefined array key "conversation" in /home/jaycoder/public_html/AfterlifeReloadedRoot/html/save_conversation.php on line 6
+[25-Feb-2025 17:47:53 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /home/jaycoder/public_html/AfterlifeReloadedRoot/html/save_conversation.php on line 10
+[25-Feb-2025 17:56:27 UTC] PHP Warning:  Undefined array key "conversation" in /home/jaycoder/public_html/AfterlifeReloadedRoot/html/save_conversation.php on line 12
+[25-Feb-2025 17:56:27 UTC] PHP Warning:  fopen(/AfterlifeReloadedRoot/html/conversations.csv): Failed to open stream: No such file or directory in /home/jaycoder/public_html/AfterlifeReloadedRoot/html/save_conversation.php on line 15
+[25-Feb-2025 17:56:27 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /home/jaycoder/public_html/AfterlifeReloadedRoot/html/save_conversation.php on line 16
+[25-Feb-2025 17:56:27 UTC] PHP Fatal error:  Uncaught TypeError: fputcsv(): Argument #1 ($stream) must be of type resource, bool given in /home/jaycoder/public_html/AfterlifeReloadedRoot/html/save_conversation.php:16
+Stack trace:
+#0 /home/jaycoder/public_html/AfterlifeReloadedRoot/html/save_conversation.php(16): fputcsv(false, Array)
+#1 {main}
+  thrown in /home/jaycoder/public_html/AfterlifeReloadedRoot/html/save_conversation.php on line 16
+[25-Feb-2025 18:26:41 UTC] PHP Warning:  Undefined array key "conversation" in /home/jaycoder/public_html/AfterlifeReloadedRoot/html/save_conversation.php on line 19
+[26-Feb-2025 01:01:41 UTC] PHP Fatal error:  Uncaught ValueError: fputcsv(): Argument #4 ($enclosure) must be a single character in /home/jaycoder/public_html/AfterlifeReloadedRoot/html/save_conversation.php:22
+Stack trace:
+#0 /home/jaycoder/public_html/AfterlifeReloadedRoot/html/save_conversation.php(22): fputcsv(Resource id #6, Array, ',', '')
+#1 {main}
+  thrown in /home/jaycoder/public_html/AfterlifeReloadedRoot/html/save_conversation.php on line 22
+[26-Feb-2025 01:01:43 UTC] PHP Fatal error:  Uncaught ValueError: fputcsv(): Argument #4 ($enclosure) must be a single character in /home/jaycoder/public_html/AfterlifeReloadedRoot/html/save_conversation.php:22
+Stack trace:
+#0 /home/jaycoder/public_html/AfterlifeReloadedRoot/html/save_conversation.php(22): fputcsv(Resource id #6, Array, ',', '')
+#1 {main}
+  thrown in /home/jaycoder/public_html/AfterlifeReloadedRoot/html/save_conversation.php on line 22

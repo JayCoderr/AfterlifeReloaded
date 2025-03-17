@@ -1,4 +1,3 @@
-<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,27 +5,43 @@
     <title>ASCII Art Generator</title>
 
     <!-- Load figlet locally -->
-    <script src="https://www.afterlifereloaded.com/AfterlifeReloadedRoot/libs/figlet.js-1.8.0/lib/figlet.js"></script>
-
+    <script src="https://www.afterlifereloaded.com/AfterlifeReloadedRoot/libs/figlet.js-1.8.0/lib/figlet.js" defer></script>	
+	<script src="https://www.afterlifereloaded.com/AfterlifeReloadedRoot/js/AfterlifeReloadedAsciiScripts.js" defer></script>
     <style>
         body {
             text-align: center;
             background-color: inherit;
             color: white;
             font-family: monospace;
+			overflow-y: auto; 	
         }
+		
+		/* Hide scrollbar but keep it functional */
+		body::-webkit-scrollbar {
+			width: 0px; /* Hides the scrollbar */
+			background: transparent; /* Ensure background is transparent */
+		}
+		
+		body::-webkit-scrollbar-thumb {
+			background: transparent; /* Ensure thumb is also invisible */
+		}
+		
+		body:empty:before {
+			content: attr(placeholder);
+			color: #999;
+		}		
         pre {
             font-size: 16px;
-            white-space: pre;
             word-wrap: break-word;
             padding: 10px;
             border: none;
             box-shadow: 0px 4px 10px rgb(0,0,0);
-			min-height: 332px;
+			min-height: calc(30px + 25px);
 			overflow-x: auto;
 			scrollbar-color: rgb(70,70,70) rgb(0,0,0,1);
 			scrollbar-width: thin;
-			
+			background-color: rgba(0,0,0,0.8);
+			text-align: left;
         }
         input, select, button {
             margin-top: 10px;
@@ -38,6 +53,9 @@
             outline: none;
             box-shadow: 0px 4px 10px rgb(0,0,0);
         }
+		#asciiaimessage {
+			white-space: pre-line;
+		}		
     </style>
 </head>
 <body>
@@ -49,115 +67,13 @@
     <label for="fontSelect">Select Font:</label>
 	<br>
 	<select id="fontSelect">
-        <!-- Fonts will be populated here dynamically -->
+        <option value="Standard">Standard</option>
     </select>
 	<br>
     <button id="generateBtn">Generate ASCII Art</button>
 
     <!-- Output section -->
-    <h3>Here is your Generated ASCII Art: </h3>
-    <pre id="ascii-output">Loading...</pre>
-
-    <script>
-        // Function to load fonts dynamically
-        function loadFonts() {
-            fetch('https://www.afterlifereloaded.com/AfterlifeReloadedRoot/php/list-fonts.php')
-                .then(response => response.json())
-                .then(fonts => {
-                    const fontSelect = document.getElementById('fontSelect');
-                    fonts.forEach(font => {
-                        const fontName = font.replace('.flf', '');  // Remove the .flf extension for display
-                        const option = document.createElement('option');
-                        option.value = font;  // Use the full font file name (including .flf)
-                        option.textContent = fontName;  // Display the name without .flf
-                        fontSelect.appendChild(option);
-                    });
-                })
-                .catch(error => console.error('Error loading fonts:', error));
-        }
-
-        // Typing effect function
-        function simulateTyping(text, element, speed = 10) {
-            let i = 0;
-            element.textContent = '';  // Clear previous content
-            function type() {
-                if (i < text.length) {
-                    element.textContent += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                }
-            }
-            type();
-        }
-
-        // Wait for the figlet script to be loaded before running the function
-        window.onload = function() {
-            loadFonts();
-
-            // Get the name from session storage or default to "test"
-            let name = sessionStorage.getItem("AsciiText");
-            if (!name || name.trim() === "") {
-                name = "test"; // Default to "test" if no valid name is found
-            }
-
-            // If a valid name exists in the session, auto-fill the word input
-            document.getElementById('wordInput').value = name;
-
-            // Automatically trigger the ASCII art generation if the session has a valid name
-            generateAsciiArt(name);
-            
-            // Event listener for generating ASCII art
-            document.getElementById('generateBtn').addEventListener('click', function() {
-                var word = document.getElementById('wordInput').value;
-
-                // If the word input is empty, use the session value or default name
-                if (!word) {
-                    word = name;
-                }
-
-                var selectedFont = document.getElementById('fontSelect').value;
-
-                // Remove the .flf extension from the selected font before passing to figlet
-                const fontWithoutExtension = selectedFont.replace('.flf', '');
-
-                // Generate ASCII art using FIGlet
-                figlet.defaults({ fontPath: 'https://www.afterlifereloaded.com/AfterlifeReloadedRoot/libs/figlet.js-1.8.0/fonts/' });
-                figlet.text(word, { font: fontWithoutExtension }, function (err, asciiArt) {
-                    if (err) {
-                        console.error(err);
-                        document.getElementById('ascii-output').textContent = 'Error generating ASCII Art';
-                        return;
-                    }
-                    // Simulate typing effect
-                    simulateTyping(asciiArt, document.getElementById('ascii-output'));
-                });
-            });
-        };
-
-        // Function to generate ASCII art based on word
-        function generateAsciiArt(word) {
-            var selectedFont = document.getElementById('fontSelect').value;
-
-            // If no font is selected, set a default font
-            if (!selectedFont) {
-                selectedFont = 'Standard.flf'; // Set your default font
-            }
-
-            // Remove the .flf extension from the selected font before passing to figlet
-            const fontWithoutExtension = selectedFont.replace('.flf', '');
-
-            // Generate ASCII art using FIGlet
-            figlet.defaults({ fontPath: 'https://www.afterlifereloaded.com/AfterlifeReloadedRoot/libs/figlet.js-1.8.0/fonts/' });
-            figlet.text(word, { font: fontWithoutExtension }, function (err, asciiArt) {
-                if (err) {
-                    console.error(err);
-                    document.getElementById('ascii-output').textContent = 'Error generating ASCII Art';
-                    return;
-                }
-                // Simulate typing effect
-                simulateTyping(asciiArt, document.getElementById('ascii-output'));
-            });
-        }
-    </script>
+    <h3 id="asciiaimessage"></h3>
+    <pre id="ascii-output">Loading...</pre>	
 </body>
 </html>
