@@ -198,3 +198,8 @@
 ● **2025-03-17:** Updated `AfterlifeReloadedRoot/php/view_chatgpt_responses.php` (Line 1): fe8b45c4ad51396eaf7a253a83ec3e0ef8efe75e
 ● **2025-03-17:** Updated `AfterlifeReloadedRoot/txt/AfterlifeCounter.txt` (Line 1): 157f5dc459ddbd269607221f6112a941d6c3b072
 ● **2025-03-17:** Updated `AfterlifeReloadedRoot/txt/footer.txt` (Line 1): dd26f0574ca9d07c9dde8555e2927cd8509122be
+● **2025-03-17:** Updated `AfterlifeAI.html` (Line 8):     &lt;title&gt;Afterlife Reloaded AI 7.0&lt;/...
+Updated `AfterlifeAI.html` (Line 102): 			&lt;h3&gt;AI Response Settings!&lt;/h3&gt;
+Updated `AfterlifeAI.html` (Line 134): 				&lt;h3&gt;AI Model Settings&lt;/h3&gt;
+Updated `AfterlifeAI.html` (Line 179): 				&lt;!-- Set Token Amount Just testing stuff...
+Updated `AfterlifeAI.html` (Line 799): 
