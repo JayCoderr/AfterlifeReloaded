@@ -174,3 +174,4 @@
 ● **2025-03-17:** Updated `AfterlifeReloadedRoot/js/AfterlifeReloadedRGBSelector.js` (Line 1): 0915244044d3864a42e3b429d2e64bdc2f89f8b1
 ● **2025-03-17:** Updated `AfterlifeReloadedRoot/js/AfterlifeReloadedScrollDownButton.js` (Line 1): 9188a6ce63b1f418d1e33397cf44ee76dfb77b52
 ● **2025-03-17:** Updated `AfterlifeReloadedRoot/js/AfterlifeReloadedSendMessage.js` (Line 1): 54e1ca695172e72799cf203eba64127d54120c9e
+● **2025-03-17:** Updated `AfterlifeReloadedRoot/js/AfterlifeReloadedSettingsMenuConfig.js` (Line 1): adc78a0f1f9f602c43ad14b978387e6826fbd8f2
