@@ -173,7 +173,8 @@ window.onload = function()
 				.replace("{userInputMessage}", userInputMessage)
 				.replace("{ascii}", asciiArt)
 				.replace("ascii", "")
-				.replace("```", "```ascii");
+				.replace("```", "```ascii")
+				.replace("{newline}", "\n");
 	
 			console.log("AI Response after replacements:", aiResponse);
 	
