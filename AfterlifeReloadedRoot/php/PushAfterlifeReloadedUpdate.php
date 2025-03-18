@@ -36,7 +36,6 @@ $filesToCheck = [
 	/* Custom Html Embed's */
 	'AfterlifeReloadedRoot/html/Afterlife403Error.html',
 	'AfterlifeReloadedRoot/html/AfterlifeJS_Obfuscator.html',
-	'AfterlifeReloadedRoot/html/conversations.csv',
 	'AfterlifeReloadedRoot/html/error_log',
 	'AfterlifeReloadedRoot/html/figlet.html',
 	'AfterlifeReloadedRoot/html/googleytsearch.html',
@@ -76,7 +75,6 @@ $filesToCheck = [
 	/* php scripts */
 	'AfterlifeReloadedRoot/php/AfterlifeReloadedBack.php',
 	'AfterlifeReloadedRoot/php/AfterlifeReloadedEmail.php',
-	'AfterlifeReloadedRoot/php/AfterlifeReloadedResponses.csv',
 	'AfterlifeReloadedRoot/php/AfterlifeSignInRefresh.php',
 	'AfterlifeReloadedRoot/php/AfterlifeUpdateUL.php',
 	'AfterlifeReloadedRoot/php/AfterlifeUpdateVC.php',
@@ -87,10 +85,7 @@ $filesToCheck = [
 	'AfterlifeReloadedRoot/php/sendmail.php',
 	'AfterlifeReloadedRoot/php/update_csv.php',
 	'AfterlifeReloadedRoot/php/verifyOTP.php',
-	'AfterlifeReloadedRoot/php/view_chatgpt_responses.php',	
-	/* txt related things */
-	'AfterlifeReloadedRoot/txt/AfterlifeCounter.txt',
-	'AfterlifeReloadedRoot/txt/footer.txt'
+	'AfterlifeReloadedRoot/php/view_chatgpt_responses.php'
 ];
 
 // GitHub API Request Function
