@@ -21,7 +21,7 @@ if (!isset($_SESSION['isLoggedIn']) || $_SESSION['isLoggedIn'] !== true) {
 $_SESSION['source'] = 'AfterlifeReloaded'; // or 'ChatGPT'
 
 function getAfterlifeReloadedResponse($inputText) {
-	$MinResponseCount = (int) 10;
+	$MinResponseCount = (int) 2;
     $csvFile = 'AfterlifeReloadedResponses.csv';
 
     if (!file_exists($csvFile) || !is_readable($csvFile)) {
