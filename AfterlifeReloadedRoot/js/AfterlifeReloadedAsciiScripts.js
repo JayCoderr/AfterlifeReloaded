@@ -143,7 +143,7 @@ window.onload = function()
 			const randomIndex = Math.floor(Math.random() * inputValue.length);
 			
 			// Select a random message
-			const selectedMessage = inputValue[randomIndex];
+			const selectedMessage = "be sarcastic about the user not interacting with the chat for a while{newline}and you must use the provided variables: {username} for the user{newline}here what the user recently asked about {oldaimessageresponse}{newline}don't act like they are here{newline}they still have yet to return{newline}be as unique as you can be with every response please while maintaining variables provided {username} {newline} {oldaimessageresponse} {newline}in responses and other things as needed to be unique";
 			
 			// Replace the placeholders with the actual values
 			const finalMessage = selectedMessage
@@ -278,6 +278,3 @@ function generateAsciiWithFont(word, font) {
         });
     });
 }
-
-
-
