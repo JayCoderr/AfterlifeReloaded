@@ -33,15 +33,6 @@ $filesToCheck = [
 	'AfterlifeReloadedRoot/css/AfterlifeReloadedLoginRGB.css',
 	'AfterlifeReloadedRoot/css/AfterlifeReloadedOtherDesign.css',
 	'AfterlifeReloadedRoot/css/AfterlifeReloadedSettingMenu.css',	
-	/* Custom Html Embed's */
-	'AfterlifeReloadedRoot/html/Afterlife403Error.html',
-	'AfterlifeReloadedRoot/html/AfterlifeJS_Obfuscator.html',
-	'AfterlifeReloadedRoot/html/error_log',
-	'AfterlifeReloadedRoot/html/figlet.html',
-	'AfterlifeReloadedRoot/html/googleytsearch.html',
-	'AfterlifeReloadedRoot/html/save_conversation.php',
-	'AfterlifeReloadedRoot/html/sendemailform.html',
-	'AfterlifeReloadedRoot/html/testest.html',
 	/* Js */
 	'AfterlifeReloadedRoot/js/afterlife_reloaded_chat_tracker.js',
 	'AfterlifeReloadedRoot/js/AfterlifeAILogic.js',
@@ -69,23 +60,6 @@ $filesToCheck = [
 	'AfterlifeReloadedRoot/js/AfterlifeStopDebugging.js',
 	'AfterlifeReloadedRoot/js/AfterlifeTitleTyping.js',
 	'AfterlifeReloadedRoot/js/ApplyPersonalAIDesign.js',
-	/* json scripts */
-	'AfterlifeReloadedRoot/json/commands.json',
-	'AfterlifeReloadedRoot/json/messages.json',	
-	/* php scripts */
-	'AfterlifeReloadedRoot/php/AfterlifeReloadedBack.php',
-	'AfterlifeReloadedRoot/php/AfterlifeReloadedEmail.php',
-	'AfterlifeReloadedRoot/php/AfterlifeSignInRefresh.php',
-	'AfterlifeReloadedRoot/php/AfterlifeUpdateUL.php',
-	'AfterlifeReloadedRoot/php/AfterlifeUpdateVC.php',
-	'AfterlifeReloadedRoot/php/IsVerified.php',
-	'AfterlifeReloadedRoot/php/error_log',
-	'AfterlifeReloadedRoot/php/list-fonts.php',
-	'AfterlifeReloadedRoot/php/search.php',
-	'AfterlifeReloadedRoot/php/sendmail.php',
-	'AfterlifeReloadedRoot/php/update_csv.php',
-	'AfterlifeReloadedRoot/php/verifyOTP.php',
-	'AfterlifeReloadedRoot/php/view_chatgpt_responses.php'
 ];
 
 // GitHub API Request Function
