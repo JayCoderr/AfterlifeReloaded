@@ -21,7 +21,7 @@ if (!isset($_SESSION['isLoggedIn']) || $_SESSION['isLoggedIn'] !== true) {
 $_SESSION['source'] = 'AfterlifeReloaded'; // or 'ChatGPT'
 
 function getAfterlifeReloadedResponse($inputText) {
-    $MinResponseCount = 10;
+	$MinResponseCount = (int) 10;
     $csvFile = 'AfterlifeReloadedResponses.csv';
 
     if (!file_exists($csvFile) || !is_readable($csvFile)) {
@@ -40,7 +40,7 @@ function getAfterlifeReloadedResponse($inputText) {
     error_log("Looking for conversation match: " . $conversation);
 
     while (($line = fgets($handle)) !== FALSE) {
-        $parts = explode('####', trim($line), 3);
+        $parts = preg_split('/\s*####\s*/', trim($line), 3);
         
         if (count($parts) < 3) continue;
 
@@ -63,11 +63,11 @@ function getAfterlifeReloadedResponse($inputText) {
             error_log("Found " . count($responseParts) . " cached responses.");
 
             // Check response count against MinResponseCount
-            if (count($responseParts) < (int) $MinResponseCount) {
-                error_log("Cache miss! Only " . count($responseParts) . " responses found (minimum required: $MinResponseCount).");
-                fclose($handle);
-                return null; // If less than min, return null to trigger ChatGPT
-            }
+			if (count($responseParts) < $MinResponseCount) {
+				error_log("Cache miss! Only " . count($responseParts) . " responses found (minimum required: " . $MinResponseCount . ").");
+				fclose($handle);
+				return null;
+			}
 
             // Select a random response
             $selectedResponse = $responseParts[array_rand($responseParts)];
