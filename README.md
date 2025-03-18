@@ -2297,3 +2297,12 @@ Updated `AfterlifeReloadedRoot/js/AfterlifeReloadedRGBSelector.js` (Line 36): co
 Updated `AfterlifeReloadedRoot/js/AfterlifeReloadedRGBSelector.js` (Line 37): const _0x2 = &#039;#test-login-form&#039;;
 Updated `AfterlifeReloadedRoot/js/AfterlifeReloadedRGBSelector.js` (Line 38): const _0x1 = &#039;#TopBar&#039;;
 Updated `AfterlifeReloadedRoot/js/AfterlifeReloadedRGBSelector.js` (Line 39): const elementsToChange = [ &#039;_0x1&#039;, &#...
+● **2025-03-18:** Updated `AfterlifeReloadedRoot/js/AfterlifeReloadedScrollDownButton.js` (Line 1): const _0x8 = &#039;auto&#039;;
+Updated `AfterlifeReloadedRoot/js/AfterlifeReloadedScrollDownButton.js` (Line 2): const _0x7 = &#039;0px 4px 10px rgba(0, 0, 0, 1...
+Updated `AfterlifeReloadedRoot/js/AfterlifeReloadedScrollDownButton.js` (Line 3): const _0x6 = &#039;rgba(50,50,50,0.9)&#039;;
+Updated `AfterlifeReloadedRoot/js/AfterlifeReloadedScrollDownButton.js` (Line 4): const _0x5 = &#039;rgba(50,50,50,0)&#039;;
+Updated `AfterlifeReloadedRoot/js/AfterlifeReloadedScrollDownButton.js` (Line 5): const _0x4 = &#039;none&#039;;
+Updated `AfterlifeReloadedRoot/js/AfterlifeReloadedScrollDownButton.js` (Line 6): const _0x3 = &#039;click&#039;;
+Updated `AfterlifeReloadedRoot/js/AfterlifeReloadedScrollDownButton.js` (Line 7): const _0x2 = &#039;.scrollable-panel&#039;;
+Updated `AfterlifeReloadedRoot/js/AfterlifeReloadedScrollDownButton.js` (Line 8): const _0x1 = &#039;toggleScroll&#039;;
+Updated `AfterlifeReloadedRoot/js/AfterlifeReloadedScrollDownButton.js` (Line 9):  function highlightToggleButton() { const toggl...
