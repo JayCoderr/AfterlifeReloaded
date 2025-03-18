@@ -143,7 +143,7 @@ window.onload = function()
 			const randomIndex = Math.floor(Math.random() * inputValue.length);
 			
 			// Select a random message
-			const selectedMessage = "make this message and use the variables: Hello, {userName}, I am generating the ASCII based on your prompt: {userInputMessage},{newline}```ascii{newline}{ascii}{newline}```";
+			const selectedMessage = "make this response and use the variables provided: Hey {userName}, you've asked for ASCII art of '{userInputMessage}'. Here's the result:{newline}```ascii{newline}{ascii}{newline}```";
 			
 			// Replace the placeholders with the actual values
 			const finalMessage = selectedMessage
@@ -161,27 +161,29 @@ window.onload = function()
 			if (!response.ok) {
 				throw new Error(`Server returned error: ${response.statusText}`);
 			}
-	
 			const rawResponse = await response.text();
 			console.log("Raw response before JSON parsing:", rawResponse);
 	
 			const responseJson = JSON.parse(rawResponse);
 			let aiResponse = responseJson.choices?.[0]?.message?.content || "No response";
-	
-			aiResponse = aiResponse				
-			    .replace("{userName}", userName)
+			
+			// Use a regex to replace all occurrences of "{newline}"
+			aiResponse = aiResponse
+				.replace(/\{newline\}/g, "\n")  // Use regex with 'g' flag to replace all instances
+				.replace("{userName}", userName)
 				.replace("{userInputMessage}", userInputMessage)
 				.replace("{ascii}", asciiArt)
 				.replace("ascii", "")
 				.replace("```", "```ascii")
-				.replace("{newline}", "\n");
-	
+				.trim();
+			
+			// Debugging: Check if {newline} was present in the original response
 			console.log("AI Response after replacements:", aiResponse);
-	
+			
 			// Extract ASCII art from the AI response
 			let asciiContent = aiResponse.match(/```ascii\n([\s\S]*?)\n```/);
 			let extractedAscii = asciiContent ? asciiContent[1] : "No ASCII Art found";
-	
+			
 			// Remove the ASCII part from the aiResponse and update the #asciiaimessage element
 			const asciiRemovedResponse = aiResponse.replace(/```ascii\n([\s\S]*?)\n```/, '');
 	
