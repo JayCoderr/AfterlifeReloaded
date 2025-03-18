@@ -63,7 +63,7 @@ function getAfterlifeReloadedResponse($inputText) {
             error_log("Found " . count($responseParts) . " cached responses.");
 
             // Check response count against MinResponseCount
-            if (count($responseParts) < $MinResponseCount) {
+            if (count($responseParts) > $MinResponseCount) {
                 error_log("Cache miss! Only " . count($responseParts) . " responses found (minimum required: $MinResponseCount).");
                 fclose($handle);
                 return null; // If less than min, return null to trigger ChatGPT
