@@ -57,7 +57,7 @@ document.getElementById('login-test-button').addEventListener('click', async fun
 
                 try {
                     // Sending OTP verification request to the server
-                    const otpResponse = await fetch('https://www.afterlifereloaded.com/AfterlifeReloadedRoot/php/verifyOTP.php', {
+                    const otpResponse = await fetch('/AfterlifeReloadedRoot/php/verifyOTP.php', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                         body: `username=${encodeURIComponent(username)}&otp=${encodeURIComponent(otp)}`,
@@ -95,7 +95,7 @@ document.getElementById('login-test-button').addEventListener('click', async fun
 					setUserData();
 
                     // Only redirect after session is set and OTP is verified successfully
-                    window.location.replace("https://www.afterlifereloaded.com/AfterlifeAI.html");
+                    window.location.replace("/AfterlifeAI.html");
 					
 					console.log("Session Storage Set: isLoggedIn ->", sessionStorage.getItem('isLoggedIn'));
 
@@ -121,12 +121,12 @@ document.getElementById('login-test-button').addEventListener('click', async fun
                 sessionStorage.setItem('baseRgba', data.baseRgba);
 
                 // Redirect without OTP
-                window.location.replace("https://www.afterlifereloaded.com/AfterlifeAI.html");
+                window.location.replace("/AfterlifeAI.html");
             }
 
         } else {
             alert(data.message || 'An error occurred during login.');
-            window.location.replace("https://www.afterlifereloaded.com/AfterlifeReloaded.html");
+            window.location.replace("/AfterlifeReloaded.html");
         }
 
     } catch (error) {
