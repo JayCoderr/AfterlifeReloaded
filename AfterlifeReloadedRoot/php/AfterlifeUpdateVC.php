@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 }
 
 // Path to the visitor count file in AfterlifeReloadedRoot/txt/
-$file = $_SERVER['DOCUMENT_ROOT'] . '/AfterlifeReloadedRoot/txt/AfterlifeCounter.txt';
+$file = $_SERVER['DOCUMENT_ROOT'] . 'https://jaycoderr.github.io/AfterlifeReloaded/AfterlifeReloadedRoot/txt/AfterlifeCounter.txt';
 
 // Check if the file exists, if not, create it with an initial count of 0
 if (!file_exists($file)) {
