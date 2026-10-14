@@ -1,6 +1,6 @@
 function updateVisitorCount() {
     var xhr = new XMLHttpRequest();
-    var url = 'https://afterlifebackend.byethost8.com/AfterlifeReloadedRoot/php/AfterlifeUpdateVC.php?i=' + Date.now();
+    var url = 'https://afterlifebackend.byethost8.com/AfterlifeReloadedRoot/php/cors-test.php?i=' + Date.now();
 
     xhr.open('GET', url, true);
 
