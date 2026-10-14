@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 setInterval(() => {
-    fetch('https://jaycoderr.github.io/AfterlifeReloaded/AfterlifelifeReloadedRoot/php/AfterlifeSignInRefresh.php', { credentials: 'include' }) // Send request with session cookies
+    fetch('https://jaycoderr.github.io/AfterlifeReloaded/AfterlifeReloadedRoot/php/AfterlifeSignInRefresh.php', { credentials: 'include' }) // Send request with session cookies
         .then(response => response.json())
         .then(data => console.log("Session refreshed:", data))
         .catch(err => console.error("Session refresh failed:", err));
@@ -169,7 +169,7 @@ async function WelcomeMessage(inputValue, userAI) {
     }
 
     try {
-        const response = await fetch('https://jaycoderr.github.io/AfterlifeReloaded/AfterlifelifeReloadedRoot/php/AfterlifeReloadedBack.php', {
+        const response = await fetch('https://jaycoderr.github.io/AfterlifeReloaded/AfterlifeReloadedRoot/php/AfterlifeReloadedBack.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
@@ -297,7 +297,7 @@ async function sendMessage(inputText, appendUserBubbleToUI = false, appendAIBubb
 	});
 
     try {
-        const response = await fetch('https://jaycoderr.github.io/AfterlifeReloaded/AfterlifelifeReloadedRoot/php/AfterlifeReloadedBack.php', {
+        const response = await fetch('https://jaycoderr.github.io/AfterlifeReloaded/AfterlifeReloadedRoot/php/AfterlifeReloadedBack.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
@@ -391,7 +391,7 @@ async function ConsoleMemoryLog(userName, inputValue, aiResponse) {
 
 async function loadCommands() 
 {
-	const response = await fetch('https://jaycoderr.github.io/AfterlifeReloaded/AfterlifelifeReloadedRoot/json/commands.json');
+	const response = await fetch('https://jaycoderr.github.io/AfterlifeReloaded/AfterlifeReloadedRoot/json/commands.json');
 	const data = await response.json();
 	return data.commands;
 }
