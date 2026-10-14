@@ -1,13 +1,29 @@
 function updateVisitorCount() {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://afterlifebackend.byethost8.com/AfterlifeReloadedRoot/php/AfterlifeUpdateVC.php', true);
+    var url = 'https://afterlifebackend.byethost8.com/AfterlifeReloadedRoot/php/AfterlifeUpdateVC.php?i=' + Date.now();
+
+    xhr.open('GET', url, true);
+
     xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            // Update the visit counter in the footer with the response from the PHP file
-            document.getElementById('visit-counter').innerText = xhr.responseText;
+        if (xhr.readyState === 4) {
+            console.log('Visitor counter status:', xhr.status);
+            console.log('Visitor counter response:', xhr.responseText);
+            console.log('Visitor counter headers:', xhr.getAllResponseHeaders());
+
+            if (xhr.status === 200) {
+                var counter = document.getElementById('visit-counter');
+                if (counter) {
+                    counter.innerText = xhr.responseText;
+                }
+            }
         }
     };
+
+    xhr.onerror = function () {
+        console.error('Visitor counter request failed. Check CORS and the Network tab.');
+    };
+
     xhr.send();
 }
 
-window.onload = updateVisitorCount;
+window.addEventListener('load', updateVisitorCount);
