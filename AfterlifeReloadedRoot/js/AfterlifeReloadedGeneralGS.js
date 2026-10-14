@@ -97,11 +97,11 @@ async function verifyLoginStatus() {
 		`);
         } else {
             console.log('User is not logged in, redirecting...');
-            window.location.replace("https://www.afterlifereloaded.com/AfterlifeReloaded.html");
+            //window.location.replace("https://www.afterlifereloaded.com/AfterlifeReloaded.html");
         }
     } catch (error) {
         console.error('Error verifying login status:', error);
-        window.location.replace("https://www.afterlifereloaded.com/AfterlifeReloaded.html");
+        //window.location.replace("https://www.afterlifereloaded.com/AfterlifeReloaded.html");
     }
 }
 
