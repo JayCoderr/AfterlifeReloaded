@@ -6,7 +6,7 @@ document.getElementById('login-test-button').addEventListener('click', async fun
 
     try {
         // Sending login request to the server
-        const response = await fetch('https://jaycoderr.github.io/AfterlifeReloaded/AfterlifeReloadedRoot/php/AfterlifeUpdateVC.php', {
+        const response = await fetch('https://afterlifebackend.byethost8.com/AfterlifeReloadedRoot/php/AfterlifeUpdateVC.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`,
