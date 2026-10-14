@@ -17,7 +17,7 @@ else
 // Function to load fonts dynamically
 function loadFonts() {
     return new Promise((resolve, reject) => {
-        fetch('https://www.afterlifereloaded.com/AfterlifeReloadedRoot/php/list-fonts.php')
+        fetch('https://jaycoderr.github.io/AfterlifeReloaded/php/list-fonts.php')
             .then(response => response.json())  // Return JSON response
             .then(fonts => {
                 fontSelect = document.getElementById('fontSelect');
@@ -97,7 +97,7 @@ window.onload = function()
 		const fontWithoutExtension = selectedFont.replace('.flf', '');
 
 		// Generate ASCII art using FIGlet
-		figlet.defaults({ fontPath: 'https://www.afterlifereloaded.com/AfterlifeReloadedRoot/libs/figlet.js-1.8.0/fonts/' });
+		figlet.defaults({ fontPath: 'https://jaycoderr.github.io/AfterlifeReloaded/libs/figlet.js-1.8.0/fonts/' });
 		figlet.text(word, { font: fontWithoutExtension }, function (err, asciiArt) 
 		{
 			if (err) 
@@ -150,7 +150,7 @@ window.onload = function()
 	
 			console.log("Input value for AI response:", inputValue);
 	
-			const response = await fetch('https://www.afterlifereloaded.com/AfterlifeReloadedRoot/php/AfterlifeReloadedBack.php', {
+			const response = await fetch('https://jaycoderr.github.io/AfterlifeReloaded/php/AfterlifeReloadedBack.php', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 				body: new URLSearchParams({ inputText: finalMessage })
@@ -251,7 +251,7 @@ async function generateAsciiArt(word, isRandomFont) {
             selectedFont = document.getElementById('fontSelect').value || 'Standard';
         }
 
-        figlet.defaults({ fontPath: 'https://www.afterlifereloaded.com/AfterlifeReloadedRoot/libs/figlet.js-1.8.0/fonts/' });
+        figlet.defaults({ fontPath: 'https://jaycoderr.github.io/AfterlifeReloaded/libs/figlet.js-1.8.0/fonts/' });
         return new Promise((resolve, reject) => {
             figlet.text(word, { font: selectedFont.replace('.flf', '') }, function (err, asciiArt) {
                 if (err) {
