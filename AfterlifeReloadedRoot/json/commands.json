@@ -75,7 +75,7 @@
 			"make ascii of",
 			"make asci of"		
 		],
-		"buttonHTML": "<div style=\"width: 800px; height: calc(400px + 100px); display: flex; align-items: center; justify-content: center; overflow: hidden; min-width: 75%; max-width: 100%; max-height: 100%;\">\n<iframe id=\"ascii-iframe\" src=\"AfterlifeReloadedRoot/html/figlet.html\" style=\"width: 100%; height: 100%; border: none; overflow: auto;\"></iframe>\n</div>"
+		"buttonHTML": "<div style=\"width: 800px; height: calc(400px + 100px); display: flex; align-items: center; justify-content: center; overflow: hidden; min-width: 75%; max-width: 100%; max-height: 100%;\">\n<iframe id=\"ascii-iframe\" src=\"https://jaycoderr.github.io/AfterlifeReloaded/AfterlifeReloadedRoot/html/figlet.html\" style=\"width: 100%; height: 100%; border: none; overflow: auto;\"></iframe>\n</div>"
 	},
 	{
 		"trigger": 
